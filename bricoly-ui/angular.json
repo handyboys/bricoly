@@ -123,6 +123,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "bricoly-ui"
+    }
+  },
+  "defaultProject": "bricoly-ui",
+  "cli": {
+    "analytics": false
+  }
 }
