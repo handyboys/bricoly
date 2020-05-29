@@ -1,0 +1,26 @@
+{
+  "name": "bricoly",
+  "version": "0.1.0",
+  "description": "a platform for small jobs",
+  "main": "server/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RayenRaffa/bricoly.git"
+  },
+  "keywords": [
+    "small",
+    "jobs",
+    "maintenance",
+    "workes",
+    "contractors"
+  ],
+  "author": "handyboys",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/RayenRaffa/bricoly/issues"
+  },
+  "homepage": "https://github.com/RayenRaffa/bricoly#readme"
+}
