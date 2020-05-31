@@ -1,0 +1,103 @@
+<!-- Default form register -->
+<form class="text-center border border-light p-5" #signupForm="ngForm" (ngSubmit)="onSubmit(signupForm)">
+  
+  <p class="h4 mb-4">Sign up</p>
+  
+  <div class="form-row mb-4" >
+    <div class="col">
+      <!-- First name -->
+      <input type="text" id="firstName" class="form-control" placeholder="First name" required
+      [(ngModel)]="newUser.firstName" name="firstName" #firstName="ngModel"
+      >
+      <div [hidden]="firstName.valid || firstName.pristine"
+      class="alert alert-danger">
+      Name is required
+    </div>
+  </div>
+  <div class="col">
+    <!-- Last name -->
+    <input type="text" id="lastName" class="form-control" placeholder="Last name" required
+    [(ngModel)]="newUser.lastName" name="lastName"
+    >
+  </div>
+</div>
+
+<!-- E-mail -->
+<div class="form-row mb-4">
+  <input type="email" id="email" class="form-control" placeholder="E-mail" required
+  [(ngModel)]="newUser.email" name="email" #email="ngModel" pattern="\S+@\S+\.\S+$"
+  >
+  <div [hidden]="email.valid || email.pristine"
+  class="alert alert-danger col">
+  E-mail is required
+</div>
+</div>
+<!-- Password -->
+<div class="form-row mb-4">
+<input type="password" id="password" class="form-control" placeholder="Password" aria-describedby="PasswordHelpBlock" required
+[(ngModel)]="newUser.password" name="password" #password="ngModel" pattern="^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{2,}$" 
+> <!-- TODO : change password minlength to 8 instead of 2 -->
+<div [hidden]="password.valid || password.pristine"
+  class="alert alert-danger col">
+  Password is required : At least 8 characters and 1 digit
+</div>
+</div>
+
+<!-- Password confirmation -->
+<div class="form-row mb-4">
+<input type="password" id="confirmPassword" class="form-control" placeholder="Confirm password" aria-describedby="PasswordHelpBlock" required
+[(ngModel)]="passwordConfirmation" name="passwordConfirmation" #passwordConfirmationM="ngModel" 
+>
+<div [hidden]="( passwordConfirmationM.valid && newUser.password === passwordConfirmation ) || passwordConfirmationM.pristine"
+  class="alert alert-danger col">
+  Passwords do not match
+</div>
+</div>
+
+<!-- Phone number -->
+<div class="form-row mb-4">
+<input type="text" id="defaultRegisterPhonePassword" class="form-control" placeholder="Phone number" aria-describedby="PhoneHelpBlock" required
+[(ngModel)]="newUser.phone" name="phone" #phone="ngModel" pattern="\d{8}"
+>
+<div [hidden]="phone.valid || phone.pristine"
+  class="alert alert-danger col">
+  Phone number is required
+</div>
+</div>
+
+<!-- Newsletter -->
+<!-- <div class="row">
+  <div class="col-md-6 mx-auto d-flex justify-content-center">
+    <mdb-checkbox [default]="true">Subscribe to our newsletter</mdb-checkbox>
+  </div>
+</div> -->
+
+<!-- Sign up button -->
+<button mdbBtn color="info" block="true" class="my-4" type="submit" [disabled]="signupForm.form.invalid">Sign up</button>
+
+<!-- Social register -->
+<!-- <p>or sign up with:</p>
+  
+  <a type="button" class="light-blue-text mx-2">
+    <mdb-icon fab icon="facebook"></mdb-icon>
+  </a>
+  <a type="button" class="light-blue-text mx-2">
+    <mdb-icon fab icon="twitter"></mdb-icon>
+  </a>
+  <a type="button" class="light-blue-text mx-2">
+    <mdb-icon fab icon="linkedin"></mdb-icon>
+  </a>
+  <a type="button" class="light-blue-text mx-2">
+    <mdb-icon fab icon="github"></mdb-icon>
+  </a>
+  
+  <hr> -->
+  
+  <!-- Terms of service -->
+  <!-- <p>By clicking
+    <em>Sign up</em> you agree to our
+    <a href="" target="_blank">terms of service</a></p> -->
+  </form>
+  <!-- Default form register -->
+  
+  
