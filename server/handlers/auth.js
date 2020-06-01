@@ -4,7 +4,7 @@ const db = require('../database/db');
 
 // importing users' table's model
 var users = db.import('../database/models/users.js');
-
+var credentials = db.import ('../database/models/credentials.js')
 exports.signUp = async (req, res) => {
     console.log(req.body);
     // TODO - add req body paramter validation IMPORTANT !!!
@@ -32,9 +32,20 @@ exports.signUp = async (req, res) => {
         .then(savedRow => {
             const { id, email } = savedRow;
             const token = jwt.sign({id, email}, process.env.ACCESS_TOKEN_SECRET);   
-            res.json({id, email, accessToken:token});
+            return credentials.create({ 
+                id:id,
+                password: hashedPass,
+                salt:salt,
+                token:token
+            })    
         })
-        .catch
+        .then(credential => { 
+            return credential.save();    
+        })
+        .then(savedCredential => { 
+            res.send({id:savedCredential.id, email:req.body.email, accessToken:savedCredential.token});
+        })
+        
     }
     catch(e){ 
         console.log(e);
