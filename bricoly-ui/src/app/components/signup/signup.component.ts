@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
-// User model
-import { User } from '../../models/user.model';
+import { User } from '../../models/user.model'; // User model
+import { AuthService } from '../../services/auth/auth.service';
 
 @Component({
   selector: 'app-signup',
@@ -13,13 +13,18 @@ export class SignupComponent implements OnInit {
   // init empty user object
   newUser:User = new User(null,null,null,null,null,null,null);
   passwordConfirmation:string = null;
-  constructor() { }
+  constructor(
+    private authService: AuthService
+  ) { }
 
   ngOnInit(): void {
   }
 
-  onSubmit(form) {
-    console.log(form);
+  onSubmit() {
+    this.authService.signUp(this.newUser)
+      .subscribe(data => {
+        console.log(data);
+      })
   }
 
   // TODO : remove when done 

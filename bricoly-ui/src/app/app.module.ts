@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 // Bootstrap-based material design UI library
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
@@ -22,7 +23,8 @@ import { SignupComponent } from './components/signup/signup.component';
     BrowserModule,
     AppRoutingModule,
     MDBBootstrapModule.forRoot(),
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
