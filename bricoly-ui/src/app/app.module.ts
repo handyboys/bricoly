@@ -10,13 +10,15 @@ import { AppComponent } from './app.component';
 import { SigninComponent } from './components/signin/signin.component';
 import { ToggleFilterDirective } from './directives/toggle-filter.directive';
 import { SignupComponent } from './components/signup/signup.component';
+import { SignupProfComponent } from './components/signup-prof/signup-prof.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     SigninComponent,
     ToggleFilterDirective,
-    SignupComponent
+    SignupComponent,
+    SignupProfComponent
   ],
   imports: [
     BrowserModule,

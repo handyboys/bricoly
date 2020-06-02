@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 // User model
-import { User } from '../../models/user.model';
+import { User } from '../../models/user/user.model';
 
 @Component({
   selector: 'app-signup',
@@ -9,7 +9,7 @@ import { User } from '../../models/user.model';
 })
 
 export class SignupComponent implements OnInit {
-  @Input() pattern: string | RegExp;
+
   // init empty user object
   newUser:User = new User(null,null,null,null,null,null,null);
   passwordConfirmation:string = null;
@@ -22,7 +22,7 @@ export class SignupComponent implements OnInit {
     console.log(form);
   }
 
-  // TODO : remove when done 
+  // TODO : remove when done
   get diagnostic() { return JSON.stringify(this.newUser)+this.passwordConfirmation }
 
 }
