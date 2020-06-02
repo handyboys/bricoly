@@ -4,7 +4,7 @@ import { catchError, map } from 'rxjs/operators';
 import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
 import { Router } from '@angular/router';
 
-import { User } from '../../models/user.model';
+import { User } from '../../models/user/user.model';
 
 @Injectable({
   providedIn: 'root'
@@ -29,6 +29,10 @@ export class AuthService {
       )
   }
   
+  /**
+   * @function signIn - user sign in request function 
+   * @param { User } user - object containing user credentials 
+   */
   signIn(user: User) {
     let api = this.endpoint + '/signin';
     console.log('signin service func engaged');
@@ -37,7 +41,24 @@ export class AuthService {
         localStorage.setItem('accessToken', res.accessToken);
         localStorage.setItem('userId', res.id);
         console.log('login successful')
+        // TODO - add appropriate routing upon sucessful signin
       })
+  }
+
+  /**
+   * @function getToken - fetches saved access token
+   * @returns { string } - access token
+   */
+  getToken() {
+    return localStorage.getItem('accessToken');
+  }
+
+  /**
+   * @function logOut - logs out users
+   */
+  logOut() {
+    let removeToken = localStorage.removeItem('accessToken');
+    // TODO : add login routing after successfull logout
   }
 
   /**

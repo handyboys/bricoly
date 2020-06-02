@@ -1,0 +1,53 @@
+<!-- Default form contact -->
+<form class="text-center border border-light p-5" #signupProfForm="ngForm" (ngSubmit)="onSubmit(signupProfForm)" action="#!">
+
+  <p class="h4 mb-4">Register as a Professional</p>
+  <!-- Subject -->
+  <label>Select your Category</label>
+  <select class="form-control custom-select mb-4"  name="categoryDrpDown" [(ngModel)]="category" required >
+      <option value=""  disabled >Choose Category</option>
+      <option value="1" >Plumbing</option>
+      <option value="2" >Security</option>
+      <option value="3">Elevators</option>
+      <option value="4">Painting</option>
+      <option value="5">Electricity</option>
+      <option value="6">Air Conditionning & Cooling</option>
+      <option value="7">Cleaning</option>
+      <option value="8">Doors & Windows</option>
+      <option value="9">Gardening & Outdoor</option>
+      <option value="10">Construction & Renovation</option>
+      <option value="11">Renewable & Solar Energy</option>
+      <option value="12">Heating</option>
+      <option value="13">Construction & Renovation</option>
+      <option value="14">Bathroom & Sanitary</option>
+      <option value="15">Home Appliances</option>
+      <option value="16">Other</option>
+
+  </select>
+
+  <!-- Name -->
+  <input type="text" id="defaultContactFormName" class="form-control mb-4" placeholder="enter your adress">
+
+  <!-- Email -->
+  <input type="text" id="defaultContactFormEmail" class="form-control mb-4" placeholder="zip code">
+
+
+
+  <!-- Message -->
+  <div class="form-group">
+      <textarea class="form-control rounded-0" id="exampleFormControlTextarea2" rows="3" placeholder="Description"></textarea>
+  </div>
+
+  <!-- Copy -->
+  <div class="form-row mb-4">
+  <div class="custom-control custom-checkbox mb-4">
+      <input type="checkbox" class="custom-control-input" id="defaultContactFormCopy">
+      <label class="custom-control-label" for="defaultContactFormCopy">Motorized</label>
+  </div>
+</div>
+
+  <!-- Send button -->
+  <button mdbBtn color="info" block="true" class="my-4" type="submit" >Send</button>
+
+</form>
+<!-- Default form contact -->

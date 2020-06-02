@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { User } from '../../models/user.model'; // User model
+import { User } from '../../models/user/user.model'; // User model
 import { AuthService } from '../../services/auth/auth.service';
 
 @Component({
@@ -9,7 +9,7 @@ import { AuthService } from '../../services/auth/auth.service';
 })
 
 export class SignupComponent implements OnInit {
-  @Input() pattern: string | RegExp;
+
   // init empty user object
   newUser:User = new User(null,null,null,null,null,null,null);
   passwordConfirmation:string = null;
@@ -28,5 +28,4 @@ export class SignupComponent implements OnInit {
         localStorage.setItem('accessToken', data.accessToken)
       }) 
   }
-
 }
