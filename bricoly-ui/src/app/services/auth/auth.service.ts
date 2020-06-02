@@ -12,7 +12,7 @@ import { User } from '../../models/user.model';
 export class AuthService {
   endpoint : string = 'http://localhost:8080/auth';
   headers = new HttpHeaders().set('Content-Type', 'application/json');
-
+  
   constructor(private http: HttpClient, public router: Router) { }
 
   /**
@@ -29,6 +29,17 @@ export class AuthService {
       )
   }
   
+  signIn(user: User) {
+    let api = this.endpoint + '/signin';
+    console.log('signin service func engaged');
+    return this.http.post(api, user)
+      .subscribe((res: any) => {
+        localStorage.setItem('accessToken', res.accessToken);
+        localStorage.setItem('userId', res.id);
+        console.log('login successful')
+      })
+  }
+
   /**
    * @function handleError - server/client-side error handling function
    * @param {HttpErrorResponse} error - object representing occuring object

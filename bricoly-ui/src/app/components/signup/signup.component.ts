@@ -24,10 +24,9 @@ export class SignupComponent implements OnInit {
     this.authService.signUp(this.newUser)
       .subscribe(data => {
         console.log(data);
-      })
+        localStorage.setItem('userId', data.id) 
+        localStorage.setItem('accessToken', data.accessToken)
+      }) 
   }
-
-  // TODO : remove when done 
-  get diagnostic() { return JSON.stringify(this.newUser)+this.passwordConfirmation }
 
 }

@@ -1,6 +1,7 @@
+// TODO :add is professional attribute 
 export class User {
     constructor(
-        public _id: number,
+        public id: number,
         public firstName: string,
         public lastName: string,
         public email: string,
