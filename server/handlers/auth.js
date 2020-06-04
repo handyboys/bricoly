@@ -4,7 +4,7 @@ const db = require('../database/db');
 
 // importing users' table's model
 var users = db.import('../database/models/users.js');
-var credentials = db.import ('../database/models/credentials.js')
+var credentials = db.import ('../database/models/credentials.js');
 
 exports.signUp = async (req, res) => {
     console.log(req.body);
