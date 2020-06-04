@@ -13,7 +13,10 @@ import { ToggleFilterDirective } from './directives/toggle-filter.directive';
 import { SignupComponent } from './components/signup/signup.component';
 import { SignupProfComponent } from './components/signup-prof/signup-prof.component';
 
+import {JobPostModule} from './modules/job-post/job-post.module'
+
 import { AuthInterceptor } from './interceptors/auth.interceptor';
+
 
 @NgModule({
   declarations: [
@@ -21,14 +24,15 @@ import { AuthInterceptor } from './interceptors/auth.interceptor';
     SigninComponent,
     ToggleFilterDirective,
     SignupComponent,
-    SignupProfComponent
+    SignupProfComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     MDBBootstrapModule.forRoot(),
     FormsModule,
-    HttpClientModule
+    HttpClientModule, 
+    JobPostModule,
   ],
   providers: [
     {
