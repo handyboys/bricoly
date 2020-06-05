@@ -18,6 +18,8 @@ import { SignupProfComponent } from './components/signup-prof/signup-prof.compon
 import { AuthInterceptor } from './interceptors/auth.interceptor';
 
 
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -25,6 +27,8 @@ import { AuthInterceptor } from './interceptors/auth.interceptor';
     ToggleFilterDirective,
     SignupComponent,
     SignupProfComponent,
+
+
   ],
   imports: [
     BrowserModule,
