@@ -8,9 +8,7 @@ import { Job } from '../../models/jobs/jobs.model'; // User model
   styleUrls: ['./job-feed.component.scss']
 })
 export class JobFeedComponent implements OnInit {
-  /**
-   * 
-   */
+  
   openJobs: Job[] = []
   constructor(private jobsService : JobsService) { 
     this.jobsService.getAllJobs()

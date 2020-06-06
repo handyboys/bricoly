@@ -15,7 +15,7 @@ export class JobsService {
 
   /**
    * @function getAllJobs - get all jobs request
-   * @returns {void}
+   * @returns observable that contains all jobs data
    */
   getAllJobs(): Observable<any> {
     let api = this.endpoint + '/feed';
