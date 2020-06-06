@@ -16,11 +16,13 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 
 
 
+
+
 @NgModule({
   declarations: [
     AppComponent,
     ToggleFilterDirective,
-    NavbarComponent
+    NavbarComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,12 @@
+<mdb-card>
+  <mdb-card-header>{{openJob.category}} | {{openJob.service_type}}</mdb-card-header>
+  <mdb-card-body>
+    <mdb-card-title>
+      <h5>{{openJob.service}}</h5>
+      <h6 class="text-muted mb-2">{{openJob.first_name}} {{openJob.last_name}} | {{openJob.client_type}}</h6>
+    </mdb-card-title>
+    <mdb-card-text>{{openJob.description}}</mdb-card-text>
+    <mdb-icon fas icon="map-marker-alt" ngClass = "location-icon"></mdb-icon><small>  {{openJob.longitude}}</small><br>
+    <a href="" mdbBtn color="secondary">Apply</a>
+  </mdb-card-body>
+</mdb-card>
