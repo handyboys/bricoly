@@ -5,8 +5,6 @@ import { HttpClientModule,  HTTP_INTERCEPTORS } from '@angular/common/http';
 
 // Bootstrap-based material design UI library
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
-// Auth Module : handles signin, signup operations
-import { AuthModule } from './modules/auth/auth.module';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
