@@ -1,5 +1,6 @@
-import { JobsService } from '../../services/jobs/jobs.service';
 import { Component, OnInit } from '@angular/core';
+import { JobsService } from '../../services/jobs/jobs.service';
+import { Job } from '../../models/jobs/jobs.model'; // User model
 
 @Component({
   selector: 'app-job-feed',
@@ -7,13 +8,18 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./job-feed.component.scss']
 })
 export class JobFeedComponent implements OnInit {
-
+  /**
+   * 
+   */
+  openJobs: Job[] = []
   constructor(private jobsService : JobsService) { 
     this.jobsService.getAllJobs()
-    .subscribe(openJobs =>{
-      console.log(openJobs)
+    .subscribe((data : Job[]) =>{
+      this.openJobs = data
+      console.log(this.openJobs)
     })
   }
+
 
   ngOnInit(): void {
   }

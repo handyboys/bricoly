@@ -13,6 +13,10 @@ export class JobsService {
 
   constructor(private http: HttpClient, public router: Router) { }
 
+  /**
+   * @function getAllJobs - get all jobs request
+   * @returns {void}
+   */
   getAllJobs(): Observable<any> {
     let api = this.endpoint + '/feed';
     console.log('feed service func engaged ..')

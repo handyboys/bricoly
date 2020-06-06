@@ -7,7 +7,6 @@ var Jobs = db.import ('../database/models/jobs.js');
 
 
 exports.getJobs = async (req, res)=>{
-    var openJobs = []
     console.log('job feed request recieved')
     try {
         db.sync({force:false})
@@ -16,24 +15,29 @@ exports.getJobs = async (req, res)=>{
                   where : { status : 'open'}
             })
         })
-        .then((AllJobs)=>{
-            AllJobs.forEach(async element => {
+        .then(async (AllJobs)=>{
+            console.log('AllJobs' , AllJobs)
+            var openJobs = await Promise.all(AllJobs.map(async element => {
+                console.log('wassap',openJobs)
                 var job = {
-                    client_type: element.client_type,
-                    description: element.related_info,
-                    longitude: element.longitude,
-                    latitude: element.latitude,
-                    service_type: element.service_type
+                    client_type: element.dataValues.client_type,
+                    description: element.dataValues.related_info,
+                    longitude: element.dataValues.longitude,
+                    latitude: element.dataValues.latitude,
+                    service_type: element.dataValues.service_type
                 }
-                var {first_name, last_name} = await users.findByPk(element.client_id);
-                var {service, category_id} = await services.findByPk(element.service_id);
+                var {first_name, last_name} = await users.findByPk(element.dataValues.client_id);
+                var {service, category_id} = await services.findByPk(element.dataValues.service_id);
                 var {category} = await service_categories.findByPk(category_id)
                 job['first_name'] = first_name
                 job['last_name'] = last_name
                 job['service'] = service
                 job['category'] = category
-                openJobs.push(job)
-            });
+                console.log('Job : ', typeof job, job)
+                return job
+            })
+            )
+            console.log('open jobs', openJobs)
             res.status(200).json(openJobs)
         })
     } catch (e) {

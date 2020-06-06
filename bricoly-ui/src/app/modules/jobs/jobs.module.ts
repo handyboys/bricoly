@@ -15,6 +15,6 @@ import { JobFeedComponent } from '../../components/job-feed/job-feed.component';
     CommonModule,
     JobsRoutingModule,
     MDBBootstrapModule.forRoot(),
-  ]
+  ],
 })
 export class JobsModule { }
