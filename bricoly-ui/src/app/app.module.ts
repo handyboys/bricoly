@@ -20,6 +20,7 @@ import { AuthInterceptor } from './interceptors/auth.interceptor';
 
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -27,6 +28,7 @@ import { AuthInterceptor } from './interceptors/auth.interceptor';
     ToggleFilterDirective,
     SignupComponent,
     SignupProfComponent,
+
 
 
   ],

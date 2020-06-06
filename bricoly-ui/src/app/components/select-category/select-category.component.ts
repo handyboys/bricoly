@@ -12,6 +12,7 @@ let serverUrl = 'http://localhost:8080/jobPost/select-category';
 })
 export class SelectCategoryComponent implements OnInit {
   selectCategories: Category[] = [];
+  categoryId;
   constructor( private http:HttpClient) {
     this.getCategories();
   }
