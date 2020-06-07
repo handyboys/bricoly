@@ -1,7 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient} from '@angular/common/http';
+import { Category } from 'src/app/models/category/category.model';
 
 //import {from} from 'rxjs';
+
+let serverUrl='http://localhost:8080/jobPost/select-category';
 
 @Component({
   selector: 'app-select-category',
@@ -9,17 +12,18 @@ import { HttpClient} from '@angular/common/http';
   styleUrls: ['./select-category.component.scss']
 })
 export class SelectCategoryComponent implements OnInit {
-  category:Object = [];
+  selectCategories: Category[] = [];
   constructor( private http:HttpClient) {}
+  
   getCategories(){
-  this.http.get('http://localhost:8080/jobPost/select-category').subscribe(data =>{ 
-
-    this.category = data; 
+    this.http.get(serverUrl).subscribe((data: Category[]) =>{ 
+    this.selectCategories = data; 
+    console.log(this.selectCategories)
     
-    })
-  }
-  ngOnInit(): void {
+  })
+} 
+ngOnInit(): void {
   this.getCategories();
-  }
+}
 
 }

@@ -1,6 +1,8 @@
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
+
 const db = require('../database/db');
+console.log("in jobPosts 2");
 
 // importing users' table's model
 var users = db.import('../database/models/users.js');

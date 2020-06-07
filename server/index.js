@@ -1,7 +1,12 @@
+
 require('dotenv').config();
+
 const express = require('express');
 const cors = require('cors');
+
 const router = require('./routers');
+console.log("IN INDEX.JS");
+
 
 const app = express();
 

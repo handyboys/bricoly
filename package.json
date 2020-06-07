@@ -25,6 +25,7 @@
   },
   "homepage": "https://github.com/RayenRaffa/bricoly#readme",
   "dependencies": {
+    "@types/mysql": "^2.15.13",
     "bcrypt": "^4.0.1",
     "bcryptjs": "^2.4.3",
     "cors": "^2.8.5",
