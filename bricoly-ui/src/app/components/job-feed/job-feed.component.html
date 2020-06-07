@@ -1,0 +1,7 @@
+<div class="list-group">
+    <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
+      <div *ngFor = "let openJob of openJobs">
+      <app-job-card [openJob] = "openJob"></app-job-card>
+    </div>
+    </a>
+  </div>
