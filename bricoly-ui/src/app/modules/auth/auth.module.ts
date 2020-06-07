@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-
 import { AuthRoutingModule } from './auth-routing.module';
 // Bootstrap-based material design UI library
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
@@ -19,9 +18,9 @@ import { SigninComponent } from '../../components/signin/signin.component';
   ],
   imports: [
     CommonModule,
+    MDBBootstrapModule.forRoot(),
     AuthRoutingModule,
     FormsModule,
-    MDBBootstrapModule.forRoot(),
   ]
 })
 export class AuthModule { }
