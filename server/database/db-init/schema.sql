@@ -13,7 +13,7 @@ CREATE TABLE users (
 	last_name varchar(255) NOT NULL,
 	email varchar(255) NOT NULL UNIQUE,
 	phone INT NOT NULL UNIQUE,
-	is_professional BOOLEAN NOT NULL,
+	is_professional BOOLEAN NOT NULL, -- TODO : add default value 'false'
 	profile_picture_url TEXT,
 	PRIMARY KEY (id)
 );
