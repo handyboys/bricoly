@@ -1,5 +1,6 @@
 import { Category } from './../../models/category/category.model';
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { HttpClient} from '@angular/common/http';
 
 
@@ -13,7 +14,7 @@ let serverUrl = 'http://localhost:8080/jobPost/select-category';
 export class SelectCategoryComponent implements OnInit {
   selectCategories: Category[] = [];
   categoryId;
-  constructor( private http:HttpClient) {
+  constructor( private http:HttpClient ) {
     this.getCategories();
   }
   getCategories(){
