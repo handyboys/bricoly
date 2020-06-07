@@ -1,5 +1,5 @@
 import { Category } from './../../models/category/category.model';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,Input ,Output,EventEmitter } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { HttpClient} from '@angular/common/http';
 
@@ -13,6 +13,7 @@ let serverUrl = 'http://localhost:8080/jobPost/select-category';
 })
 export class SelectCategoryComponent implements OnInit {
   selectCategories: Category[] = [];
+  @Output () selectCategoryEvent = new EventEmitter<object>();
   categoryId;
   constructor( private http:HttpClient ) {
     this.getCategories();
@@ -22,6 +23,10 @@ export class SelectCategoryComponent implements OnInit {
     this.selectCategories = data;
     console.log(this.selectCategories)
     })
+  }
+  sendCategory(selectedCategory){
+    console.log('selectcategory com : ',selectedCategory)
+    this.selectCategoryEvent.emit(selectedCategory)
   }
   ngOnInit(): void {
 

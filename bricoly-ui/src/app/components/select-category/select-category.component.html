@@ -8,7 +8,7 @@
 
     <div class="card-body" *ngFor = "let selectCategory of selectCategories" >
 
-        <button routerLink="/job-post/select-service/{{selectCategory.id}}" style="border: none; background: transparent;"><img src="https://img.icons8.com/color/96/000000/painting-a-wall.png"/></button><br>
+        <button routerLink="/job-post/select-service/{{selectCategory.id}}" (click)='sendCategory(selectCategory)' style="border: none; background: transparent;"><img src="https://img.icons8.com/color/96/000000/painting-a-wall.png"/></button><br>
         <p >{{selectCategory.category}}</p>
 
 
