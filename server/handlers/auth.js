@@ -6,6 +6,13 @@ const db = require('../database/db');
 var users = db.import('../database/models/users.js');
 var credentials = db.import ('../database/models/credentials.js')
 
+/**
+ * @function signUp - signing up the user in the database
+ * @async
+ * @param {req, res}
+ * @returns {response} - saving the user in the database 
+ */
+
 exports.signUp = async (req, res) => {
     console.log(req.body);
     // TODO - add req body paramter validation IMPORTANT !!!
@@ -56,6 +63,12 @@ exports.signUp = async (req, res) => {
     // send user id, email & token back to front end
 }
 
+/**
+ * @function singIn - signing in the user 
+ * @async
+ * @param {req, res}
+ * @returns {response} - getting the user from the database 
+ */
 
 exports.singIn = async (req, res) => {
     console.log(req.body);
