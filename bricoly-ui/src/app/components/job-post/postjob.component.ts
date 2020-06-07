@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { Category } from './../../models/category/category.model';
+import { JobDraft } from '../../models/jobDraft/jobDraft.model';
+import { Service } from '../../models/service/service.model';
+import { Category } from '../../models/category/category.model';
+
 
 @Component({
   selector: 'app-postjob',
@@ -7,18 +10,24 @@ import { Category } from './../../models/category/category.model';
   styleUrls: ['./postjob.component.scss']
 })
 export class PostjobComponent implements OnInit {
-  category : Category
+  // category : Category
+  jobDraft: JobDraft ;
   constructor() { }
   onActivate(elementRef) {
-    console.log(Object.keys(elementRef))
-    elementRef.selectCategoryEvent.subscribe(event => {
-        console.log("mess :",event);
-    });
-}
-  ngOnInit(): void {
+    console.log(elementRef)
+    if (elementRef.selectCategoryEvent){
+      elementRef.selectCategoryEvent.subscribe((event :Category) => {
+        console.log("cat :",event);
+      });
+    } else if (elementRef.selectServiceEvent){
+      elementRef.selectServiceEvent.subscribe((event:Service)=> {
+        console.log("serv :",event);
+        console.log(this.jobDraft);
+        // this.jobDraft.service_id = event.id
+      });
+    }
   }
-  // receiveCategory($event){
-  //   this.category= $event
-  //   console.log("jobPost :", this.category)
-  // }
+  ngOnInit(): void {}
+
+
 }

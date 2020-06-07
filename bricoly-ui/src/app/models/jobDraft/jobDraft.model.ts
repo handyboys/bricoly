@@ -1,4 +1,4 @@
-export class Job {
+export class JobDraft {
   constructor (
     public id :number,
     public client_id : number,
