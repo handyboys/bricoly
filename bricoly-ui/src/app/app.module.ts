@@ -18,6 +18,10 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 
 
 
+
+
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -29,7 +33,8 @@ import { NavbarComponent } from './components/navbar/navbar.component';
     AppRoutingModule,
     MDBBootstrapModule.forRoot(),
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    //JobPostModule,
   ],
   providers: [
     {
