@@ -1,10 +1,11 @@
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
+
 const db = require('../database/db');
 
 // importing users' table's model
 var users = db.import('../database/models/users.js');
-var credentials = db.import ('../database/models/credentials.js')
+var credentials = db.import ('../database/models/credentials.js');
 
 /**
  * @function signUp - signing up the user in the database
