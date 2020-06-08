@@ -11,13 +11,17 @@ import { AuthService } from '../../services/auth/auth.service';
 export class SignupComponent implements OnInit {
 
   // init empty user object
-  newUser:User = new User(null,null,null,null,null,null,null);
-  passwordConfirmation:string = null;
+  newUser: User = new User();
+  passwordConfirmation: string = null;
   constructor(
     private authService: AuthService
   ) { }
 
   ngOnInit(): void {
+  }
+
+  professionalSelect() {
+    this.newUser.isProfessional = !this.newUser.isProfessional;
   }
 
   onSubmit() {
@@ -28,4 +32,7 @@ export class SignupComponent implements OnInit {
         localStorage.setItem('accessToken', data.accessToken)
       }) 
   }
+
+  // TODO : remove when done 
+  get diagnostic() { return JSON.stringify(this.newUser) }
 }

@@ -59,6 +59,9 @@
     </div>
   </div>
 
+  <!-- Professional signup trigger -->
+  <mdb-checkbox [(checked)]="newUser.isProfessional" [default]="true" (change)="professionalSelect()">Register as a professional</mdb-checkbox>
+
   <!-- Newsletter -->
   <!-- <div class="row">
   <div class="col-md-6 mx-auto d-flex justify-content-center">
@@ -86,16 +89,19 @@
     <mdb-icon fab icon="github"></mdb-icon>
   </a> -->
 
+
   <!-- Login -->
   <p>Already a member ?
     <a routerLink="/auth/signin" routerLinkActive="active">Login</a>
   </p>
 
 
-
   <!-- Terms of service -->
   <!-- <p>By clicking
     <em>Sign up</em> you agree to our
     <a href="" target="_blank">terms of service</a></p> -->
+
+  {{diagnostic}}
 </form>
+
 <!-- Default form register -->
