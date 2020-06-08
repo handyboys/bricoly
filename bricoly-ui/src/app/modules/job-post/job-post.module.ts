@@ -1,5 +1,7 @@
-import { SelectCategoryComponent } from './../../components/select-category/select-category.component';
-import { SelectServiceComponent} from './../../components/select-service/select-service.component';
+import { SelectCategoryComponent } from '../../components/select-category/select-category.component';
+import { SelectServiceComponent} from '../../components/select-service/select-service.component';
+import { ClientTypeComponent } from '../../components/client-type/client-type.component';
+import { ServiceTypeComponent } from '../../components/service-type/service-type.component';
 
 import { NgModule, Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
@@ -17,8 +19,9 @@ import { JobPostRoutingModule } from './job-post-routing.module';
   declarations: [
     SelectCategoryComponent,
     SelectServiceComponent,
-    PostjobComponent
-
+    PostjobComponent,
+    ClientTypeComponent,
+    ServiceTypeComponent
   ]
 
 })

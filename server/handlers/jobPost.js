@@ -1,3 +1,4 @@
+
 const db = require('../database/db');
 
 var service_categories = db.import('../database/models/service_categories.js');
