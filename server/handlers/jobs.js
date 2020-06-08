@@ -27,7 +27,6 @@ exports.getJobs = async (req, res)=>{
             })
         })
         .then(async (AllJobs)=>{
-            console.log('AllJobs' , AllJobs)
             //maping througth all jobs and getting the info from the db
             var openJobs = await Promise.all(AllJobs.map(async element => {
                 //an object that contains all the info from the db 
@@ -52,7 +51,6 @@ exports.getJobs = async (req, res)=>{
                 return job
             })
             )
-            console.log('open jobs', openJobs)
             //sending a json for all the open jobs info
             res.status(200).json(openJobs)
         })
@@ -60,4 +58,3 @@ exports.getJobs = async (req, res)=>{
         res.status(404).send(e)
     }
 }
-
