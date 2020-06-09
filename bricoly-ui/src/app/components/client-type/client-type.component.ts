@@ -12,7 +12,9 @@ import { digest } from '@angular/compiler/src/i18n/digest';
 })
 export class ClientTypeComponent implements OnInit {
   client_type: string = null;
+  related_info: string = null;
  @Output () selectClientTypeEvent = new EventEmitter<string>();
+ @Output () selectRelatedInfoEvent = new EventEmitter<string>();
   constructor( private http:HttpClient ) { 
     // this.getClientTypes() ;
   }
@@ -34,5 +36,10 @@ export class ClientTypeComponent implements OnInit {
   onClick(selectedType){
     this.selectClientTypeEvent.emit(selectedType)
   }
+
+  setRelatedInfo(value){
+    this.selectClientTypeEvent.emit(value)
+  }
+
   get diagnostic() { return JSON.stringify(this.client_type) }
 }

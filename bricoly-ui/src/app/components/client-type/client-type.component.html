@@ -18,9 +18,12 @@
             <div class="custom-control custom-radio">
                 <input [(ngModel)]="client_type" name="client_type" value = "Business" type="radio" class="custom-control-input" id="defaultGroupExample2" name="groupOfDefaultRadios" checked>
                 <label class="custom-control-label" for="defaultGroupExample2">Business</label>
-                {{diagnostic}}
             </div>
         </div>
     </div>
-    <button routerLink="/job-post/service-type" (click) = "onClick(client_type)" mdbBtn type="button" gradient="purple" size="sm" mdbWavesEffect style="margin-top: 5%;">Next</button>
+    <div class="form-group">
+        <h4 for="exampleFormControlTextarea3" style="margin-top: 12%;">Please enter your job description</h4>
+        <textarea  [(ngModel)]="related_info" name="related_info" value = "related_info" class="form-control" id="exampleFormControlTextarea3" rows="7"></textarea>
+      </div>
+    <button routerLink="/job-post/service-type" (click) = "onClick(client_type)" (click)="setRelatedInfo(related_info)" size="sm" mdbWavesEffect style="margin-top: 5%;" class="btn blue-gradient btn-rounded waves-light" mdbBtn type="button" gradient="purple" size="sm" mdbWavesEffect style="margin-top: 5%;">Next</button>
 </div>

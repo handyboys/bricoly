@@ -28,15 +28,21 @@ export class PostjobComponent implements OnInit {
         // this.jobDraft.service_type = even
       });
     }
-    else if (elementRef.selectClientTypeEvent) {
+    else if (elementRef.selectRelatedInfoEvent ) {
       elementRef.selectClientTypeEvent.subscribe((event)=> {
         this.jobDraft.client_type = event
-        console.log('saye :' , event)
+        console.log('select Client Type :' , event)
       });
-    } else if (elementRef.selectServiceTypeEvent) {
+    }else if (elementRef.selectRelatedInfoEvent ) {
+      elementRef.selectRelatedInfoEvent.subscribe((event)=> {
+        this.jobDraft.related_info = event
+        console.log('select Related Info :' , event)
+      });
+    }  
+    else if (elementRef.selectServiceTypeEvent) {
       elementRef.selectServiceTypeEvent.subscribe((event)=> {
         this.jobDraft.service_type = event
-        console.log('saye :' , event)
+        console.log('select Service Type :' , event)
       });
   }
 }
