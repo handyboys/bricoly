@@ -7,6 +7,7 @@ import { Router } from '@angular/router';
 @Injectable({
   providedIn: 'root'
 })
+
 export class JobsService {
   endpoint : string = 'http://localhost:8080/jobs';
   headers = new HttpHeaders().set('Content-Type', 'application/json');

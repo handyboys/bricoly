@@ -1,10 +1,7 @@
-import { JobDraft } from './../../models/jobDraft/jobDraft.model';
 import { Component, OnInit,Input ,Output,EventEmitter } from '@angular/core';
 import { HttpClient} from '@angular/common/http';
-import { digest } from '@angular/compiler/src/i18n/digest';
 
 
-// let serverUrl = 'http://localhost:8080/jobPost/client-type'
 @Component({
   selector: 'app-client-type',
   templateUrl: './client-type.component.html',

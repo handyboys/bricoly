@@ -11,7 +11,7 @@ const routes: Routes = [
   { path :'',component : PostjobComponent,
 children : [
   {path: 'select-category', component: SelectCategoryComponent},
-  {path: 'select-service/:id', component : SelectServiceComponent},
+  {path: 'select-service', component : SelectServiceComponent},
   {path: 'client-type', component : ClientTypeComponent},
   {path: 'service-type', component : ServiceTypeComponent},
 ]
