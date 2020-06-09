@@ -1,3 +1,4 @@
+
 const db = require('../database/db');
 
 var service_categories = db.import('../database/models/service_categories.js');
@@ -25,10 +26,10 @@ return service_categories.findAll({include :[]})
 
 exports.selectService = (req, res) =>{ 
   try{
-    
+    console.log(req);
     db.sync({force:false})
     .then(()=>{ 
-      return services.findAll ({where:{category_id:req.params.id}});
+      return services.findAll ({where:{category_id: req.body.id}});
     }).then(selectService =>{ 
       res.status(200).json(selectService)
     })
@@ -40,7 +41,6 @@ exports.selectService = (req, res) =>{
 
 
 exports.jobDraft = async(req, res)=>{
-    console.log(req.body);
     try{
         db.sync({force:false})
         // sync database

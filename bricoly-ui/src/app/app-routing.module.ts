@@ -14,7 +14,7 @@ const routes: Routes = [
     loadChildren : () => import('./modules/jobs/jobs.module').then(module => module.JobsModule)
   }
 ];
-
+  
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
