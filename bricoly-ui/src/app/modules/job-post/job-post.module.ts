@@ -5,6 +5,7 @@ import { ServiceTypeComponent } from '../../components/service-type/service-type
 
 import { NgModule, Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { MDBBootstrapModule } from 'angular-bootstrap-md';
 
 import {PostjobComponent} from './../../components/job-post/postjob.component'
 import { JobPostRoutingModule } from './job-post-routing.module';
@@ -14,6 +15,7 @@ import { JobPostRoutingModule } from './job-post-routing.module';
   imports: [
     CommonModule,
     JobPostRoutingModule,
+    MDBBootstrapModule.forRoot(),
 
   ],
   declarations: [
