@@ -1,13 +1,13 @@
 export class JobDraft {
   constructor (
-    public id :number,
-    public client_id : number,
-    public service_type : string,
-    public service_id : number,
-    public client_type : string,
-    public status : string,
-    public longitude : number,
-    public latitude : number,
-    public related_info : string,
+    public id :number = null,
+    public client_id : number = null,
+    public service_type : string = null,
+    public service_id : number = null,
+    public client_type : string = null,
+    public status : string = null,
+    public longitude : number = null,
+    public latitude : number = null,
+    public related_info : string = null,
     ){}
 }
