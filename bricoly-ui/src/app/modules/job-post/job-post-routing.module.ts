@@ -6,16 +6,23 @@ import { SelectCategoryComponent } from '../../components/select-category/select
 import { ClientTypeComponent } from '../../components/client-type/client-type.component';
 import { ServiceTypeComponent } from '../../components/service-type/service-type.component';
 import { SelectJobLocationComponent } from '../../components/select-job-location/select-job-location.component';
+import { JobConfirmationComponent } from 'src/app/components/job-confirmation/job-confirmation.component';
 
 const routes: Routes = [
+  {
+    path: '',
+    redirectTo: 'select-category',
+    pathMatch: 'full'
+  },
   {
     path: '', component: PostjobComponent,
     children: [
       { path: 'select-category', component: SelectCategoryComponent },
-      { path: 'select-service/:id', component: SelectServiceComponent },
+      { path: 'select-service', component: SelectServiceComponent },
       { path: 'client-type', component: ClientTypeComponent },
       { path: 'service-type', component: ServiceTypeComponent },
-      { path: 'job-location', component: SelectJobLocationComponent}
+      { path: 'job-location', component: SelectJobLocationComponent},
+      { path: 'job-confirmation', component: JobConfirmationComponent}
     ]
   }
 

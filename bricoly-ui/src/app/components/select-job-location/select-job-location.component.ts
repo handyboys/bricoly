@@ -44,6 +44,7 @@ export class SelectJobLocationComponent implements OnInit {
       navigator.geolocation.getCurrentPosition(position => {
         this.marker.lat = position.coords.latitude;
         this.marker.lng = position.coords.longitude;
+        this.mapZoom = 11;
       })
     }
   }

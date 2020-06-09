@@ -3,14 +3,15 @@ import { SelectServiceComponent } from '../../components/select-service/select-s
 import { ClientTypeComponent } from '../../components/client-type/client-type.component';
 import { ServiceTypeComponent } from '../../components/service-type/service-type.component';
 import { SelectJobLocationComponent } from '../../components/select-job-location/select-job-location.component';
+import { JobConfirmationComponent } from '../../components/job-confirmation/job-confirmation.component';
 
+import { FormsModule } from '@angular/forms';
 import { NgModule, Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { AgmCoreModule } from '@agm/core';
-
-import { PostjobComponent } from './../../components/job-post/postjob.component'
+import { MDBBootstrapModule } from 'angular-bootstrap-md'; 
+import {PostjobComponent} from './../../components/job-post/postjob.component'
 import { JobPostRoutingModule } from './job-post-routing.module';
-import { MDBBootstrapModule } from 'angular-bootstrap-md';
+import { AgmCoreModule } from '@agm/core';
 
 @NgModule({
   imports: [
@@ -20,6 +21,7 @@ import { MDBBootstrapModule } from 'angular-bootstrap-md';
       apiKey: 'AIzaSyBMYPnWea___Dw9-tH1JyxaAGuvAI0iWvA'
     }),
     MDBBootstrapModule.forRoot(),
+    FormsModule 
   ],
   declarations: [
     SelectCategoryComponent,
@@ -27,7 +29,8 @@ import { MDBBootstrapModule } from 'angular-bootstrap-md';
     PostjobComponent,
     ClientTypeComponent,
     ServiceTypeComponent,
-    SelectJobLocationComponent
+    SelectJobLocationComponent,
+    JobConfirmationComponent
   ]
 
 })

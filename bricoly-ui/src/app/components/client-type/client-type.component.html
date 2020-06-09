@@ -6,21 +6,25 @@
     <div class="progress md-progress">
         <div class="progress-bar" role="progressbar" style="width: 100%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
     </div>
-    <div class="row" style="margin-top: 2%;">
+    <div class="row" style="margin-top: 2%;" >
         <div class="col align-self-center">
             <!-- Group of default radios - option 1 -->
             <div class="custom-control custom-radio">
-                <input type="radio" class="custom-control-input" id="defaultGroupExample1" name="groupOfDefaultRadios">
+                <input [(ngModel)]="client_type" name="client_type" value = "Home" type="radio" class="custom-control-input" id="defaultGroupExample1" name="groupOfDefaultRadios">
                 <label class="custom-control-label" for="defaultGroupExample1">Home</label>
             </div>
             
             <!-- Group of default radios - option 2 -->
             <div class="custom-control custom-radio">
-                <input type="radio" class="custom-control-input" id="defaultGroupExample2" name="groupOfDefaultRadios" checked>
+                <input [(ngModel)]="client_type" name="client_type" value = "Business" type="radio" class="custom-control-input" id="defaultGroupExample2" name="groupOfDefaultRadios" checked>
                 <label class="custom-control-label" for="defaultGroupExample2">Business</label>
             </div>
         </div>
+        
     </div>
-    <button routerLink="/job-post/service-type" mdbBtn type="button" gradient="purple" size="sm" mdbWavesEffect style="margin-top: 5%;">Next</button>
+    <div class="form-group">
+        <h4 for="exampleFormControlTextarea3" style="margin-top: 12%;">Please enter your job description</h4>
+        <textarea  [(ngModel)]="related_info" name="related_info" value = "related_info" class="form-control" id="exampleFormControlTextarea3" rows="7"></textarea>
+      </div>
+    <button routerLink="/job-post/job-location" (click) = "onClick(client_type)" (click)="setRelatedInfo(related_info)" size="sm" mdbWavesEffect style="margin-top: 5%;" class="btn blue-gradient btn-rounded waves-light" mdbBtn type="button" gradient="purple" size="sm" mdbWavesEffect style="margin-top: 5%;">Next</button>
 </div>
-
