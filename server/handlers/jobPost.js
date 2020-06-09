@@ -25,10 +25,10 @@ return service_categories.findAll({include :[]})
 
 exports.selectService = (req, res) =>{ 
   try{
-    
+    console.log(req);
     db.sync({force:false})
     .then(()=>{ 
-      return services.findAll ({where:{category_id:req.params.id}});
+      return services.findAll ({where:{category_id: req.body.id}});
     }).then(selectService =>{ 
       res.status(200).json(selectService)
     })

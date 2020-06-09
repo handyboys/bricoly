@@ -13,18 +13,6 @@ import { ToggleFilterDirective } from './directives/toggle-filter.directive';
 import { AuthInterceptor } from './interceptors/auth.interceptor';
 import { NavbarComponent } from './components/navbar/navbar.component';
 
-
-
-
-
-
-
-
-
-
-
-
-
 @NgModule({
   declarations: [
     AppComponent,
