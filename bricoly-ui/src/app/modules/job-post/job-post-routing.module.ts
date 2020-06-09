@@ -7,14 +7,13 @@ import { ClientTypeComponent } from '../../components/client-type/client-type.co
 import { ServiceTypeComponent } from '../../components/service-type/service-type.component';
 
 const routes: Routes = [
+
   { path :'',component : PostjobComponent,
 children : [
   {path: 'select-category', component: SelectCategoryComponent},
   {path: 'select-service', component : SelectServiceComponent},
   {path: 'client-type', component : ClientTypeComponent},
   {path: 'service-type', component : ServiceTypeComponent},
-
-  
 ]
 }
 

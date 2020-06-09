@@ -10,7 +10,7 @@ import { Category } from './../../models/category/category.model';
   providedIn: 'root'
 })
 export class JobPostService  {
-  endpoint : string = 'http://localhost:8080/JobPost';
+  endpoint : string = 'http://localhost:8080/job-post';
   constructor(private http: HttpClient, private router : Router, private activatedRoute:ActivatedRoute) { }
 
   getCategories():Observable <Category[]> {
