@@ -19,7 +19,6 @@ export class ServiceTypeComponent implements OnInit {
   ngOnInit(): void {
   }
   onClick(selectedType){
-    console.log(this.selectService)
     this.selectServiceTypeEvent.emit(selectedType)
   }
   get diagnostic() { return JSON.stringify(this.selectService) }
