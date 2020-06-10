@@ -1,4 +1,3 @@
-
 const db = require('../database/db');
 
 var service_categories = db.import('../database/models/service_categories.js');
@@ -37,22 +36,3 @@ exports.selectService = (req, res) =>{
     res.status(400);
   }
 }
-
-// exports.selectClientType = (req, res) => { 
- 
-//   try { 
-//       db.sync({force:false})
-//       .then(()=>{
-//  return client_type.findAll({where: {client_type: req.body}})
-//  })
-//  .then(selectType => {   
-//    console.log(selectType)
-//    res.status(200).json(selectType);
-//  })
- 
-//   } catch(e){ 
-//       console.log(e);
-//       res.status(400);
-//   }
-  
-//  } 
