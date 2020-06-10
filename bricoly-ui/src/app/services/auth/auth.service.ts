@@ -30,6 +30,20 @@ export class AuthService {
   }
   
   /**
+   * @function signUpProf - new user sign up as professional request function
+   * @param { User } user - object containing new user data
+   * @returns { Observable } - object representing server response
+   */
+
+  signUpProf(user: User): Observable<any> {
+    let api = this.endpoint + '/signup-prof';
+    console.log('signup service func engaged ..')
+    return this.http.post(api, user)
+      .pipe(
+        catchError(this.handleError)
+      )
+  }
+  /**
    * @function signIn - user sign in request function 
    * @param { User } user - object containing user credentials 
    */

@@ -5,7 +5,6 @@ USE bricolyDB;
 
 INSERT INTO service_categories (category)
 VALUES
-('test-category'),
 ('Plumbing'),
 ('Security'),
 ('Elevators'),
