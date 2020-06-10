@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { Coordinates } from '../../interfaces/coordinates';
 
 @Component({
@@ -7,6 +7,8 @@ import { Coordinates } from '../../interfaces/coordinates';
   styleUrls: ['./select-job-location.component.scss']
 })
 export class SelectJobLocationComponent implements OnInit {
+  @Output() selectJobLocationEvent = new EventEmitter<Coordinates> ();
+
   marker: Coordinates = {
     lat: 36.7973267,
     lng: 10.1362181
@@ -47,5 +49,13 @@ export class SelectJobLocationComponent implements OnInit {
         this.mapZoom = 11;
       })
     }
+  }
+
+  /**
+   * @function onClick handles sending job location to parent component
+   * @returns  { void } - invokes the component's event emitter
+   */
+  onClick() {
+    this.selectJobLocationEvent.emit(this.marker);
   }
 }

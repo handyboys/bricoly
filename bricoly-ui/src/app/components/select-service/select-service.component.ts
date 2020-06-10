@@ -23,9 +23,7 @@ export class SelectServiceComponent implements OnInit {
     .subscribe((result: Service[]) => {
       console.log('res', result ,categoryId);
       this.services = result;
-      
     });
-    
   }
   
   ngOnInit(): void {}
