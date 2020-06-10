@@ -6,7 +6,7 @@ import { SelectCategoryComponent } from '../../components/select-category/select
 import { ClientTypeComponent } from '../../components/client-type/client-type.component';
 import { ServiceTypeComponent } from '../../components/service-type/service-type.component';
 import { SelectJobLocationComponent } from '../../components/select-job-location/select-job-location.component';
-import { JobConfirmationComponent } from 'src/app/components/job-confirmation/job-confirmation.component';
+import { JobDetailsComponent } from '../../components/job-details/job-details.component';
 
 const routes: Routes = [
   {
@@ -22,7 +22,7 @@ const routes: Routes = [
       { path: 'client-type', component: ClientTypeComponent },
       { path: 'service-type', component: ServiceTypeComponent },
       { path: 'job-location', component: SelectJobLocationComponent},
-      { path: 'job-confirmation', component: JobConfirmationComponent}
+      { path: 'job-details', component: JobDetailsComponent}
     ]
   }
 

@@ -3,7 +3,7 @@ import { SelectServiceComponent } from '../../components/select-service/select-s
 import { ClientTypeComponent } from '../../components/client-type/client-type.component';
 import { ServiceTypeComponent } from '../../components/service-type/service-type.component';
 import { SelectJobLocationComponent } from '../../components/select-job-location/select-job-location.component';
-import { JobConfirmationComponent } from '../../components/job-confirmation/job-confirmation.component';
+import { JobDetailsComponent } from '../../components/job-details/job-details.component';
 
 import { FormsModule } from '@angular/forms';
 import { NgModule, Component } from '@angular/core';
@@ -30,7 +30,7 @@ import { AgmCoreModule } from '@agm/core';
     ClientTypeComponent,
     ServiceTypeComponent,
     SelectJobLocationComponent,
-    JobConfirmationComponent
+    JobDetailsComponent
   ]
 
 })

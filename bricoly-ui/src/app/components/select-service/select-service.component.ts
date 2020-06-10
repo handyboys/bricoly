@@ -12,16 +12,17 @@ import { Category } from 'src/app/models/category/category.model';
 export class SelectServiceComponent implements OnInit {
   
   services: Service[] = [];
+  category_id: number;
   
   @Output () selectServiceEvent = new EventEmitter<object>();
   
-  constructor(private jobPost:JobPostService) {
-    let category= JSON.parse(localStorage.getItem("selectedCategory"))
-    console.log(category)
-    let categoryId = category.id; 
-    this.jobPost.getServices(categoryId)
+  constructor(private jobPostService:JobPostService) {
+    this.category_id = JSON.parse(localStorage.getItem("selectedCategory"))
+    // console.log(category)
+    // let categoryId = category.id; 
+    this.jobPostService.getServices(this.category_id)
     .subscribe((result: Service[]) => {
-      console.log('res', result ,categoryId);
+      console.log('res', result ,this.category_id);
       this.services = result;
     });
   }
