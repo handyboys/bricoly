@@ -15,7 +15,9 @@ children : [
   {path: 'client-type', component : ClientTypeComponent},
   {path: 'service-type', component : ServiceTypeComponent},
 ]
-}
+
+},
+
 
 ];
 
