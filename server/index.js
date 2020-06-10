@@ -9,7 +9,7 @@ console.log("IN INDEX.JS");
 
 
 const app = express();
-
+debugger
 app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({extended:true}));

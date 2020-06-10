@@ -5,7 +5,7 @@ var service_categories = db.import('../database/models/service_categories.js');
 var services = db.import('../database/models/services.js');
 
 exports.selectCategory =(req, res) => { 
- 
+ debugger
  try { 
      db.sync({force:false})
      .then(()=>{

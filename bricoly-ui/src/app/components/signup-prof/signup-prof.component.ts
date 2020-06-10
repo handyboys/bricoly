@@ -11,6 +11,8 @@ export class SignupProfComponent implements OnInit {
   @Input() pattern: string;
   category:Category = new Category(null,null);
   categories : Category[]=[]
+  newUser:User = new User();
+  passwordConfirmation:string = null;
   constructor() { }
 
   ngOnInit(): void {

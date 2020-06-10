@@ -19,6 +19,7 @@ exports.signUp = async (req, res) => {
     // TODO - add req body paramter validation IMPORTANT !!!
     try {
         // generate salt
+        debugger
         var salt = await bcrypt.genSalt(10);
         // hash password
         var hashedPass =  await bcrypt.hash(req.body.password, salt);
