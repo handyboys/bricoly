@@ -26,5 +26,5 @@
         <h4 for="exampleFormControlTextarea3" style="margin-top: 12%;">Please enter your job description</h4>
         <textarea  [(ngModel)]="clientType.related_info" name="related_info" value = "related_info" class="form-control" id="exampleFormControlTextarea3" rows="7"></textarea>
       </div>
-    <button routerLink="/job-post/job-location" (click) = "onClick()" size="sm" mdbWavesEffect style="margin-top: 5%;" class="btn blue-gradient btn-rounded waves-light" mdbBtn type="button" gradient="purple" size="sm" mdbWavesEffect style="margin-top: 5%;">Next</button>
+    <button routerLink="/job-post/job-location" [disabled]="!clientType.related_info || !clientType.type" (click)="onClick()" size="sm" mdbWavesEffect style="margin-top: 5%;" class="btn blue-gradient btn-rounded waves-light" mdbBtn type="button" gradient="purple" size="sm" mdbWavesEffect style="margin-top: 5%;">Next</button>
 </div>

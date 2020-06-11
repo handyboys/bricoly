@@ -10,11 +10,15 @@ import { ClientType } from '../../interfaces/client-type';
   styleUrls: ['./client-type.component.scss']
 })
 export class ClientTypeComponent implements OnInit {
+  @Output () selectClientTypeEvent = new EventEmitter<ClientType>();
+ 
   clientType: ClientType = {
     type: null,
     related_info: null
   }
- @Output () selectClientTypeEvent = new EventEmitter<ClientType>();
+
+  canProceed = this.clientType.related_info && this.clientType.type;
+ 
   constructor( private http:HttpClient ) { 
     // this.getClientTypes() ;
   }
@@ -37,6 +41,7 @@ export class ClientTypeComponent implements OnInit {
     this.selectClientTypeEvent.emit(this.clientType)
   }
 
+  
 
   get diagnostic() { return JSON.stringify(this.clientType) }
 }

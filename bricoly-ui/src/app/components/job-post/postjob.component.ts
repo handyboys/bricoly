@@ -8,6 +8,7 @@ import { Category } from '../../models/category/category.model';
 import { ClientType } from '../../interfaces/client-type';
 import { Coordinates } from '../../interfaces/coordinates';
 import { JobDetailsComponent } from '../job-details/job-details.component';
+import { ActivatedRoute } from '@angular/router';
 
 
 @Component({
@@ -19,7 +20,7 @@ export class PostjobComponent implements OnInit {
   // category : Category
   jobDraft: JobDraft = new JobDraft();
 
-  constructor() { }
+  constructor(private route: ActivatedRoute) { }
 
   onActivate(elementRef) {
     console.log('Component Origin : ', elementRef);
@@ -31,7 +32,8 @@ export class PostjobComponent implements OnInit {
         localStorage.setItem('selectedCategory', JSON.stringify(event))
       });
     } else if (elementRef.selectServiceEvent) {
-      elementRef.category_id = this.jobDraft.category_id
+      elementRef.category_id = this.jobDraft.category_id;
+      this.route.snapshot.data['category_id'] = this.jobDraft.category_id;
       elementRef.selectServiceEvent.subscribe((event: Service) => {
         this.jobDraft.service_id = event.id;
         this.jobDraft.service = event.service;

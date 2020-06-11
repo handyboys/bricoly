@@ -7,22 +7,23 @@ import { ClientTypeComponent } from '../../components/client-type/client-type.co
 import { ServiceTypeComponent } from '../../components/service-type/service-type.component';
 import { SelectJobLocationComponent } from '../../components/select-job-location/select-job-location.component';
 import { JobDetailsComponent } from '../../components/job-details/job-details.component';
+import { ServicesResolverService } from 'src/app/resolvers/services-resolver/services-resolver.service';
 
 const routes: Routes = [
   {
     path: '',
-    redirectTo: 'select-category',
+    redirectTo: '/select-category',
     pathMatch: 'full'
   },
   {
     path: '', component: PostjobComponent,
     children: [
       { path: 'select-category', component: SelectCategoryComponent },
-      { path: 'select-service', component: SelectServiceComponent },
+      { path: 'select-service', component: SelectServiceComponent, resolve: { services: ServicesResolverService} },
       { path: 'client-type', component: ClientTypeComponent },
       { path: 'service-type', component: ServiceTypeComponent },
-      { path: 'job-location', component: SelectJobLocationComponent},
-      { path: 'job-details', component: JobDetailsComponent}
+      { path: 'job-location', component: SelectJobLocationComponent },
+      { path: 'job-details', component: JobDetailsComponent }
     ]
   }
 
