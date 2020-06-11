@@ -49,7 +49,7 @@ exports.signUp = async (req, res) => {
             // send res with the token and user id
             res.status(201).send({id:savedCredential.id, accessToken:savedCredential.token});
         }   else if (req.body.is_professional === true){ 
-          
+            
             var user = await users.create({ 
                 first_name :req.body.firstName, 
                 last_name: req.body.lastName,
@@ -71,7 +71,7 @@ exports.signUp = async (req, res) => {
             console.log("SAVEDROWWWWWWWWWWW", savedRow)
             const { id, email } = savedRow;
             const token = jwt.sign({id, email}, process.env.ACCESS_TOKEN_SECRET);  
-          
+            
             var credential = await credentials.create({ 
                 id: user.id,
                 password: hashedPass,
@@ -82,7 +82,7 @@ exports.signUp = async (req, res) => {
             var savedCredential= await credential.save();    
             console.log('hello cred',savedCredential)
             // send res with the token and user id
-            res.status(201).send({id:savedCredential.id, accessToken:savedCredential.token});
+            res.status(201).send({id:savedCredential.id, accessToken:savedCredential.token, is_professional:user.is_professional});
         }
         
     }
@@ -107,48 +107,38 @@ exports.singIn = async (req, res) => {
     try {
         // synchronizing database
         db.sync({force: false})
-        .then(() => (
-            // find user id in db
-            users.findOne({
-                where: {
-                    email: req.body.email
-                }
-            })
-            ))
-            .then(userRow => {
-                req.body.id = userRow.id;
-                // fetch credentials by user id
-                return credentials.findOne({
-                    where: {
-                        id: userRow.id
-                    }
-                })
-            })
-            .then(userCredentials => {
-                console.log(userCredentials);
-                // compare stored password with attempted password
-                return bcrypt.compare(req.body.password, userCredentials.password)
-            })
-            .then(passwordMatch => {
-                if (passwordMatch) {
-                    const { id, email } = req.body;
-                    const token = jwt.sign({id, email}, process.env.ACCESS_TOKEN_SECRET)
-                    res.status(200).send({id:id, accessToken:token});
-                } else {
-                    res.status(401).send({message: 'password is incorrect'})
-                }
-            })
-            .catch(e => {
-                console.log('DB Error : ', e)
-            })
-        } catch(e) {
-            console.log('Error catched : ',e)
+        // find user id in db
+        var userRow = await users.findOne({
+            where: {
+                email: req.body.email
+            }
+        })
+        req.body.id = userRow.id;
+        // fetch credentials by user id
+        var userCredentials = await credentials.findOne({
+            where: {
+                id: userRow.id
+            }
+        })
+        console.log(userCredentials);
+        // compare stored password with attempted password
+        var passwordMatch = await bcrypt.compare(req.body.password, userCredentials.password)
+        if (passwordMatch) {
+            const { id, email } = req.body;
+            const token = jwt.sign({id, email}, process.env.ACCESS_TOKEN_SECRET)
+            res.status(200).send({id:id, accessToken:token, is_professional:userRow.is_professional});
+        } else {
+            res.status(401).send({message: 'password is incorrect'})
         }
         
-        
-        // if successful 
-        // create new jwt token
-        // send user id and token back
-        // if not 
-        // send error msg
+    } catch(e) {
+        console.log('Error catched : ',e)
     }
+    
+    
+    // if successful 
+    // create new jwt token
+    // send user id and token back
+    // if not 
+    // send error msg
+}

@@ -12,12 +12,11 @@ export class SigninComponent implements OnInit {
   constructor(
     private authService: AuthService
   ) { }
-  user: User = new User(null,null,null,null,null,null,null);
+  user: User = new User();
   ngOnInit(): void {
   }
 
   onSubmit() {
-    console.log(this.user)
     this.authService.signIn(this.user);
   }
 
