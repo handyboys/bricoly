@@ -37,7 +37,7 @@ export class AuthService {
 
   signUpProf(user: User): Observable<any> {
     let api = this.endpoint + '/signup-prof';
-    console.log('signup service func engaged ..')
+    console.log('signup-prof service func engaged ..')
     return this.http.post(api, user)
       .pipe(
         catchError(this.handleError)

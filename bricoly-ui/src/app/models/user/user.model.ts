@@ -8,7 +8,7 @@ export class User {
         public password: string = null,
         public phone: number = null,
         public profilePictureUrl: string = null,
-        public isProfessional: boolean = false, // Users are initially assumed to be clients, not professional
+        public is_professional: boolean = false, // Users are initially assumed to be clients, not professional
         public category_id: number = null,
         public adress: string = null,
         public longitude: number = null,

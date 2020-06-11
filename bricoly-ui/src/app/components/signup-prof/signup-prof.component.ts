@@ -33,20 +33,22 @@ export class SignupProfComponent implements OnInit {
   onSubmit(form) {
     
     this.newUser.category_id = form.value.profCategory;
+    this.newUser.is_professional = true;
     if (navigator.geolocation){ 
        navigator.geolocation.getCurrentPosition((position: Position) => {  
         if (position) {  
             this.newUser.latitude = position.coords.latitude;  
             this.newUser.longitude = position.coords.longitude;  
-         }
+         } 
+         this.authService.signUpProf(this.newUser)
+         .subscribe(data => {
+           console.log(data);
+           localStorage.setItem('userId', data.id) 
+           localStorage.setItem('accessToken', data.accessToken)
+         }) 
         });
     } 
-    this.authService.signUp(this.newUser)
-      .subscribe(data => {
-        console.log(data);
-        localStorage.setItem('userId', data.id) 
-        localStorage.setItem('accessToken', data.accessToken)
-      }) 
+    
     console.log(this.newUser);
   }
   get diagnostic() { return JSON.stringify(this.newUser) }
