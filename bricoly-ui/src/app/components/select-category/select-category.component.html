@@ -5,19 +5,20 @@
   </h6> -->
 </div>
 <div class="card-deck">
-  <div class="col-sm-4 col-md-6 mb-3" *ngFor="let category of selectCategories">
+  
+    <div class="col-sm-4 col-md-6 mb-3" *ngFor="let category of selectCategories"  >
+      <a  (click)="sendCategory(category)" >
+      <mdb-card class="text-center">
+        <mdb-card-body>
+          <img src="https://img.icons8.com/cotton/64/000000/electricity.png" style="margin-bottom: 5%;" />
+          <mdb-card-title>
+            <h5 class="mb-2">{{ category.category }}</h5>
+          </mdb-card-title>
+        </mdb-card-body>
+      </mdb-card>
+    </a>
+    </div>
 
-    <mdb-card class="text-center">
-
-      <mdb-card-body>
-        <img src="https://img.icons8.com/cotton/64/000000/electricity.png" style="margin-bottom: 5%;"/>
-        <mdb-card-title>
-
-          <h5 class="mb-2">{{ category.category }}</h5>
-        </mdb-card-title>
-      </mdb-card-body>
-    </mdb-card>
-  </div>
 </div>
 
 
