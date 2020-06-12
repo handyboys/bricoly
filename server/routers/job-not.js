@@ -3,7 +3,7 @@ const handlers = require('../handlers');
 
 
 
-router.get('/notification', handlers.jobNot.getAllNot);
+router.get('/notification/:id', handlers.jobNot.getAllNot);
 
 
 

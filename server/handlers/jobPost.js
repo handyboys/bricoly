@@ -3,6 +3,13 @@ const db = require('../database/db');
 var service_categories = db.import('../database/models/service_categories.js');
 var services = db.import('../database/models/services.js');
 
+/**
+ * @function selectCategory
+ * @param req {Object} - The request object coming from the client
+ * @param res {Object} - The response object that will be sent to the client
+ * @returns void
+ */
+
 exports.selectCategory =(req, res) => { 
  
  try { 
@@ -21,6 +28,12 @@ return service_categories.findAll({include :[]})
  
 } 
 
+/**
+ * @function selectService
+ * @param req {Object} - The request object coming from the client
+ * @param res {Object} - The response object that will be sent to the client
+ * @returns {void}
+ */
 
 exports.selectService = (req, res) =>{ 
   try{
