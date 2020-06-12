@@ -1,7 +1,6 @@
 import { Component, OnInit, Output, EventEmitter, Input  } from '@angular/core';
 import {Service} from './../../models/service/service.model';
 import { JobPostService } from '../../services/jobPost/job-post.service';
-import { Category } from 'src/app/models/category/category.model';
 
 
 @Component({

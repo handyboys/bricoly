@@ -1,6 +1,8 @@
 const db = require('../database/db');
 
+// importing services' categories table's model
 var service_categories = db.import('../database/models/service_categories.js');
+// importing services' table's model
 var services = db.import('../database/models/services.js');
 
 /**
@@ -11,21 +13,19 @@ var services = db.import('../database/models/services.js');
  */
 
 exports.selectCategory =(req, res) => { 
- 
  try { 
      db.sync({force:false})
      .then(()=>{
+  //  FETCHING ALL THE SERVICE CATEGORIES 
 return service_categories.findAll({include :[]})
 })
 .then(selectCategories => {   
   res.status(200).json(selectCategories);
 })
-
  } catch(e){ 
      console.log(e);
      res.status(400);
  }
- 
 } 
 
 /**

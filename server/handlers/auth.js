@@ -1,10 +1,9 @@
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
-
 const db = require('../database/db');
-
 // importing users' table's model
 var users = db.import('../database/models/users.js');
+// importing users' credentials' table's model
 var credentials = db.import ('../database/models/credentials.js');
 
 
