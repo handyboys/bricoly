@@ -5,48 +5,59 @@ var service_categories = db.import('../database/models/service_categories.js');
 var services = db.import('../database/models/services.js');
 var jobs = db.import('../database/models/jobs');
 
-exports.selectCategory =(req, res) => { 
- debugger
+
+/**
+ * @function selectCategory -get all the categories saved in the service-categories table
+ * @param {Object} req - the object sent from the client side 
+ * @param {Object} res - the object that will be send from the server 
+ */
+
+exports.selectCategory = async (req, res) => { 
+ 
  try { 
-     db.sync({force:false})
-     .then(()=>{
-return service_categories.findAll({include :[]})
-})
-.then(selectCategories => {   
+     
+  await db.sync({force:false})
+  var selectCategories = await service_categories.findAll({include :[]})
   res.status(200).json(selectCategories);
-})
 
  } catch(e){ 
-     console.log(e);
-     res.status(400);
+    console.log(e);
+    res.status(400);
  }
  
 } 
+/**
+ * @function selectService -get all the services saved in the services table basing on the category id
+ * @param {Object} req - the object sent from the client side 
+ * @param {Object} res - the object that will be send from the server 
+ */
 
-
-exports.selectService = (req, res) =>{ 
+exports.selectService = async (req, res) =>{ 
   try{
-    console.log(req);
-    db.sync({force:false})
-    .then(()=>{ 
-      return services.findAll ({where:{category_id: req.body.id}});
-    }).then(selectService =>{ 
-      res.status(200).json(selectService)
-    })
+    await db.sync({force:false})
+
+    var selectService = await services.findAll ({where:{category_id: req.body.id}});
+    
+    res.status(200).json(selectService)
+ 
   } catch(e){
     console.log(e);
     res.status(400);
   }
 }
 
+/**
+ * @function jobDraft -saves the jobDraft in the jobs table 
+ * @param {Object} req - the object sent from the client side that contains the job draft
+ * @param {Object} res - the object that will be send from the server 
+ */
 
-exports.jobDraft = async(req, res)=>{
+exports.jobDraft = async (req, res)=>{
     try{
-        db.sync({force:false})
+      await  db.sync({force:false})
         // sync database
-        .then(() => {
-            // create new jobDraft
-            return jobs.create({
+       // create new jobDraft
+      var jobs = await jobs.create({
                 client_id : req.body.client_id,
                 service_type : req.body.service_type,
                 service_id : req.body.service_id,
@@ -56,13 +67,8 @@ exports.jobDraft = async(req, res)=>{
                 latitude : req.body.latitude,
                 related_info : req.body.related_info
             });
-    })
-    .then(jobs => {
-      return jobs.save();
-    })
-    .then(data => { 
-        res.status(201).json({data});
-    })
+      var data = await jobs.save();
+      res.status(201).json({data});  
 }
 catch(e){ 
     console.log(e);

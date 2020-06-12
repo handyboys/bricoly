@@ -9,7 +9,7 @@ console.log("IN INDEX.JS");
 
 
 const app = express();
-debugger
+
 app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({extended:true}));
@@ -18,7 +18,7 @@ app.use(express.urlencoded({extended:true}));
 app.use('/auth', router.auth);
 app.use('/job-post', router.jobPost)
 app.use('/jobs', router.jobs)
-
+app.use('/findProf', router.findProf)
 
 const port = process.env.PORT || 8080;
 

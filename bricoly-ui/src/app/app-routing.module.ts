@@ -1,5 +1,6 @@
 import { NgModule, Component } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { FindProfessionalComponent } from './find-professional/find-professional.component';
 
 
 const routes: Routes = [
@@ -12,6 +13,10 @@ const routes: Routes = [
   {
     path: 'jobs',
     loadChildren : () => import('./modules/jobs/jobs.module').then(module => module.JobsModule)
+  },
+  { 
+    path:'findProf',
+    component: FindProfessionalComponent,   
   }
 ];
   

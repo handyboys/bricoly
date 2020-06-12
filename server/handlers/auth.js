@@ -20,11 +20,10 @@ exports.signUp = async (req, res) => {
     // TODO - add req body paramter validation IMPORTANT !!!
     try {
         // generate salt
-        console.log(req.body);
         var salt = await bcrypt.genSalt(10);
         // hash password
         var hashedPass =  await bcrypt.hash(req.body.password, salt);
-        db.sync({force:false})
+        await db.sync({force:false})
         // sync databaseif
         if (req.body.is_professional === false){
             var user = await users.create({ 
@@ -57,7 +56,6 @@ exports.signUp = async (req, res) => {
                 phone:req.body.phone,
                 is_professional:true 
             });
-            console.log("USERRRRRRRRRRRRRR", user);
             var professional = await professionals.create({ 
                 id : user.id, 
                 category_id : req.body.category_id ,
@@ -68,7 +66,6 @@ exports.signUp = async (req, res) => {
                 description : req.body.description 
             });
             var savedRow = await user.save();
-            console.log("SAVEDROWWWWWWWWWWW", savedRow)
             const { id, email } = savedRow;
             const token = jwt.sign({id, email}, process.env.ACCESS_TOKEN_SECRET);  
             
@@ -80,7 +77,6 @@ exports.signUp = async (req, res) => {
             })    
             // create credentials with user id 
             var savedCredential= await credential.save();    
-            console.log('hello cred',savedCredential)
             // send res with the token and user id
             res.status(201).send({id:savedCredential.id, accessToken:savedCredential.token, is_professional:user.is_professional});
         }
@@ -89,8 +85,7 @@ exports.signUp = async (req, res) => {
     catch(e){ 
         throw(e);
     }     
-    
-    // save new user to database
+     // save new user to database
     // send user id, email & token back to front end
 }
 
@@ -106,7 +101,7 @@ exports.singIn = async (req, res) => {
     // TODO - add req body paramter validation IMPORTANT !!!
     try {
         // synchronizing database
-        db.sync({force: false})
+        await db.sync({force: false})
         // find user id in db
         var userRow = await users.findOne({
             where: {
