@@ -19,8 +19,11 @@ import { ActivatedRoute } from '@angular/router';
 export class PostjobComponent implements OnInit {
   // category : Category
   jobDraft: JobDraft = new JobDraft();
+  progressBarWidth: number;
 
-  constructor(private route: ActivatedRoute) { }
+  constructor(private route: ActivatedRoute) { 
+    this.progressBarWidth = 5;
+  }
 
   onActivate(elementRef) {
     console.log('Component Origin : ', elementRef);
@@ -32,6 +35,7 @@ export class PostjobComponent implements OnInit {
         localStorage.setItem('selectedCategory', JSON.stringify(event))
       });
     } else if (elementRef.selectServiceEvent) {
+      this.progressBarWidth = 20;
       elementRef.category_id = this.jobDraft.category_id;
       this.route.snapshot.data['category_id'] = this.jobDraft.category_id;
       elementRef.selectServiceEvent.subscribe((event: Service) => {
@@ -40,16 +44,19 @@ export class PostjobComponent implements OnInit {
       });
     }
     else if (elementRef.selectClientTypeEvent) {
+      this.progressBarWidth = 60;
       elementRef.selectClientTypeEvent.subscribe((event: ClientType) => {
         console.log('client_type', event)
         this.jobDraft.client_type = event.type;
         this.jobDraft.related_info = event.related_info;
       });
     } else if (elementRef.selectServiceTypeEvent) {
+      this.progressBarWidth = 40;
       elementRef.selectServiceTypeEvent.subscribe((event) => {
         this.jobDraft.service_type = event
       });
     } else if (elementRef.selectJobLocationEvent) {
+      this.progressBarWidth = 80;
       console.log('location emitter')
       elementRef.selectJobLocationEvent.subscribe((event: Coordinates) => {
         console.log('Coordinates', event)
@@ -57,7 +64,7 @@ export class PostjobComponent implements OnInit {
         this.jobDraft.longitude = event.lng;
       })
     } else if (elementRef instanceof JobDetailsComponent) {
-      console.log('yeah')
+      this.progressBarWidth = 95;
       elementRef.jobDraft = this.jobDraft;
     }
   }
