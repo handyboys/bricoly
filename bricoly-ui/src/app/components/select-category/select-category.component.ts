@@ -1,6 +1,7 @@
 import { Category } from './../../models/category/category.model';
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { JobPostService } from '../../services/jobPost/job-post.service';
+import { ActivatedRoute } from '@angular/router';
 
 
 //import {from} from 'rxjs';
@@ -11,15 +12,12 @@ import { JobPostService } from '../../services/jobPost/job-post.service';
 })
 export class SelectCategoryComponent implements OnInit {
   
-  selectCategories: Category[] = [];
+  selectCategories: Category[];
   
   @Output () selectCategoryEvent = new EventEmitter<object>();
   
-  constructor( private jobPost:JobPostService ) {
-   this.jobPost.getCategories()
-   .subscribe((data :Category [])=>{
-      this.selectCategories = data;
-      });  
+  constructor( private jobPost:JobPostService, private route: ActivatedRoute ) {
+   this.selectCategories = this.route.snapshot.data.categories;
   }
   
   ngOnInit(): void {

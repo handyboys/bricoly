@@ -8,17 +8,15 @@ import { ServiceTypeComponent } from '../../components/service-type/service-type
 import { SelectJobLocationComponent } from '../../components/select-job-location/select-job-location.component';
 import { JobDetailsComponent } from '../../components/job-details/job-details.component';
 import { ServicesResolverService } from 'src/app/resolvers/services-resolver/services-resolver.service';
+import { CategoriesResolverService } from 'src/app/resolvers/categories/categories-resolver.service';
 
 const routes: Routes = [
   {
     path: '',
-    redirectTo: '/select-category',
-    pathMatch: 'full'
-  },
-  {
-    path: '', component: PostjobComponent,
+    component: PostjobComponent,
     children: [
-      { path: 'select-category', component: SelectCategoryComponent },
+      { path: '', redirectTo: 'select-category', pathMatch: 'prefix'},
+      { path: 'select-category', component: SelectCategoryComponent, resolve: { categories: CategoriesResolverService} },
       { path: 'select-service', component: SelectServiceComponent, resolve: { services: ServicesResolverService} },
       { path: 'client-type', component: ClientTypeComponent },
       { path: 'service-type', component: ServiceTypeComponent },
@@ -26,7 +24,6 @@ const routes: Routes = [
       { path: 'job-details', component: JobDetailsComponent }
     ]
   }
-
 ];
 
 @NgModule({

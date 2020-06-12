@@ -9,7 +9,7 @@
             <!--Title-->
             <mdb-card-title>
                 <h6 class="text-muted mb-2">Category</h6>
-                <h5>category_id</h5>
+                <h5>{{ jobDraft.category }}</h5>
             </mdb-card-title>
 
         </mdb-card-body>
@@ -21,7 +21,7 @@
             <!--Title-->
             <mdb-card-title>
                 <h6 class="text-muted mb-2">Service</h6>
-                <h5>{{jobDraft.service_id}}</h5>
+                <h5>{{ jobDraft.service }}</h5>
             </mdb-card-title>
 
         </mdb-card-body>
@@ -82,5 +82,7 @@
     </mdb-card>
 
     <br>
-    <a href="#" mdbBtn color="secondary" mdbWavesEffect>Button</a>
+    <!-- TODO : add edit functionality -->
+    <!-- <button mdbBtn color="primary" outline="true" mdbWavesEffect>Edit</button> -->
+    <button mdbBtn color="secondary" class="float-right" mdbWavesEffect>Confirm</button>
 </div>

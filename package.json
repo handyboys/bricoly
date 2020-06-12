@@ -5,6 +5,7 @@
   "main": "server/index.js",
   "scripts": {
     "start": "nodemon server/index.js",
+    "generate": "jsdoc server/handlers/jobPost.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -35,5 +36,8 @@
     "nodemon": "^2.0.4",
     "mysql2": "^2.1.0",
     "sequelize": "^5.21.11"
+  },
+  "devDependencies": {
+    "jsdoc": "^3.6.4"
   }
 }

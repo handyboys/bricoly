@@ -22,10 +22,9 @@
             <div class="custom-control custom-radio">
                 <input [(ngModel)]="selectService" name="service_type" value = "Reparation" type="radio" class="custom-control-input" id="defaultGroupExample3" name="groupOfDefaultRadios">
                 <label class="custom-control-label" for="defaultGroupExample3">Reparation</label>
-                {{diagnostic}}
             </div>
         </div>
         
     </div>
-    <button routerLink="/job-post/client-type" (click) = "onClick(selectService)" mdbBtn type="button" gradient="purple" size="sm" mdbWavesEffect style="margin-top: 5%;">Next</button>
+    <button routerLink="/job-post/client-type" [disabled]="!selectService" (click) = "onClick(selectService)" mdbBtn type="button" gradient="purple" size="sm" mdbWavesEffect style="margin-top: 5%;">Next</button>
 </div>
