@@ -20,6 +20,7 @@ app.use('/job-post', router.jobPost)
 app.use('/jobs', router.jobs)
 app.use('/job', router.jobNot)
 
+
 const port = process.env.PORT || 8080;
 
 app.listen(port, () => {
