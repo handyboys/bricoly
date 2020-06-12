@@ -18,5 +18,4 @@ VALUES
 ('Renewable & Solar Energy'),
 ('Heating'),
 ('Bathroom & Sanitary'),
-('Home Appliances'),
-('Other');
+('Home Appliances');

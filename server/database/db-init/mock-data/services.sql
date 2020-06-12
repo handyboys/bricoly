@@ -4,11 +4,11 @@
 USE bricolyDB;
 INSERT INTO services (service , category_id)
  VALUES
- ('interior painting',4),
- ('exterior painting',4),
- ('wall paper',4),
- ('Decorative painting',4),
- ('installation Ac',6),
- ('Reparation Ac',6),
- ('Gaz furnaces',6);
+ ('interior painting',34),
+ ('exterior painting',34),
+ ('wall paper',34),
+ ('Decorative painting',34),
+ ('installation Ac',36),
+ ('Reparation Ac',36),
+ ('Gaz furnaces',36);
  

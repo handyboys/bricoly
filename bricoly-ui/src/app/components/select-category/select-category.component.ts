@@ -12,11 +12,12 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class SelectCategoryComponent implements OnInit {
   
-  selectCategories: Category[];
+  selectCategories: Category[] = [];
   
   @Output () selectCategoryEvent = new EventEmitter<object>();
   
   constructor( private jobPost:JobPostService, private route: ActivatedRoute ) {
+  console.log('sel-cat constructor : ', this.route.snapshot.data)
    this.selectCategories = this.route.snapshot.data.categories;
   }
   

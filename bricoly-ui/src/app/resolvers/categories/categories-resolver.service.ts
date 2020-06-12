@@ -14,6 +14,7 @@ export class CategoriesResolverService implements Resolve<Array<Category>>{
   ) { }
 
   resolve(route: ActivatedRouteSnapshot): Observable<Array<Category>> {
+    console.log("Resover engaged")
     return this.jobsServie.getCategories();
   }
 }
