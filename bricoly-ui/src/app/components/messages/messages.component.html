@@ -1,22 +1,22 @@
 <h1 class="livechat">contact a professional</h1>
 
-<div class="card rare-wind-gradient chat-room col-xl-10">
+<div class="card cloudy-knoxville-gradient chat-room col-xl-10">
   <div class="card-body">
     <!-- Grid row -->
     <div class="row px-lg-2 px-2">
       <!-- Grid column -->
       <div class="col-md-12 col-xl-12 pl-md-3 px-lg-auto px-0">
         <div class="chat-message">
-          <ul class="list-unstyled chat-1 scrollbar-light-blue">
+          <ul class="list-unstyled chat-1 scrollbar-blue">
             <li class="d-flex justify-content-between mb-4" *ngFor="let data of output">
-              <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQuT64UXsnXCaGJsjoWfWl6_PIeWrfn1jEwwnAQFwTj1qafHPgj&usqp=CAU" alt="avatar"
-                class="avatar rounded-circle mr-2 ml-lg-3 ml-0 z-depth-1">
-              <div class="chat-body white p-3 ml-2 z-depth-1">
+
+
+              <div class="text-wrap  display: block ">
                 <div class="header">
                   <strong class="primary-font">{{data.handle}}</strong>
                   <!-- <small class="pull-right text-muted"><i class="far fa-clock"></i> 12 mins ago</small> -->
                 </div>
-                <hr class="w-100">
+
                 <p class="mb-0"> {{data.message}}</p>
               </div>
             </li>
@@ -40,11 +40,11 @@
           </div>
           <div class="white">
             <div class="form-group basic-textarea">
-              <textarea class="form-control pl-2 my-0" id="exampleFormControlTextarea2" rows="3"
+              <textarea class="form-control pl-2 my-0" id="exampleFormControlTextarea2" rows="2"
                 placeholder="Type your message here..." (keypress)="messageTyping()" [(ngModel)]="message"></textarea>
             </div>
           </div>
-          <button type="button" class="btn btn-outline-pink btn-rounded btn-sm waves-effect waves-dark float-right"
+          <button type="button" class="btn btn-cloudy-knoxville-gradient btn-rounded btn-sm waves-effect waves-dark float-right"
             (click)="sendMessage()">Send</button>
         </div>
       </div>

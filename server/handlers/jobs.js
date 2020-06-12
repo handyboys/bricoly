@@ -8,6 +8,7 @@ var services = db.import('../database/models/services.js');
 var service_categories = db.import('../database/models/service_categories.js');
 //importing jobs' table's model
 var Jobs = db.import ('../database/models/jobs.js');
+var job_applications = db.import ('../database/models/job_applications.js');
 
 /**
  * @function getJobs - sending json for all the jobs
@@ -15,6 +16,7 @@ var Jobs = db.import ('../database/models/jobs.js');
  * @param {req, res}
  * @returns {json} - all jobs data from the database 
  */
+
 
 exports.getJobs = async (req, res)=>{
     console.log("123")
@@ -32,6 +34,7 @@ exports.getJobs = async (req, res)=>{
             var openJobs = await Promise.all(AllJobs.map(async element => {
                 //an object that contains all the info from the db 
                 var job = {
+                    id :element.dataValues.id,
                     client_type: element.dataValues.client_type,
                     description: element.dataValues.related_info,
                     longitude: element.dataValues.longitude,
@@ -58,4 +61,26 @@ exports.getJobs = async (req, res)=>{
     } catch (e) {
         res.status(404).send(e)
     }
+    
+}
+exports.postJobs = async (req, res)=>{
+    
+    try {
+       await db.sync({force:false})
+        
+            await job_applications.create({
+                "job_id": req.body.job_id,
+                "professional_id" : req.body.professional_id
+            });
+        
+                console.log("resultat",res)
+              
+            //sending a json for all the open jobs info
+            res.status(200).json({message:"sucess"})
+        
+    } catch (e) {
+        console.log(e)
+        res.status(404).json({erreur: e})
+    }
+    
 }

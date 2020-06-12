@@ -106,7 +106,7 @@ CREATE TABLE images (
 );
 
 CREATE TABLE job_applications (
-	id INT NOT NULL AUTO_INCREMENT,
+	id INT NOT NULL AUTO_INCREMENT ,
 	job_id INT NOT NULL,
 	professional_id INT NOT NULL,
 	PRIMARY KEY (id)
