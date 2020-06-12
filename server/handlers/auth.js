@@ -6,16 +6,16 @@ var users = db.import('../database/models/users.js');
 // importing users' credentials' table's model
 var credentials = db.import ('../database/models/credentials.js');
 
-
-
-exports.signUp = async (req, res) => {
-    co /**
+/**
  * @function signUp - sending and saving the user's data in the database 
- * @async
  * @param req {Object} - The request object coming from the client
  * @param res {Object} - The response object that will be sent to the client
  * @returns {void}
- */nsole.log(req.body);
+ * @async
+ */
+
+exports.signUp = async (req, res) => {
+    console.log(req.body);
     // TODO - add req body paramter validation IMPORTANT !!!
     try {
         // generate salt

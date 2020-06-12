@@ -12,10 +12,10 @@ var Jobs = db.import ('../database/models/jobs.js');
 
  /**
  * @function getJobs - sending json for all the jobs
- * @async
  * @param req {Object} - The request object coming from the client
  * @param res {Object} - The response object that will be sent to the client
  * @returns {void}
+ * @async
  */
 
 exports.getJobs = async (req, res)=>{

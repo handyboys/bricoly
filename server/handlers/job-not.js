@@ -7,6 +7,7 @@ var services = db.import('../database/models/services.js');
 
 /**
  * @function getAllNot  
+ * @async
  * @param req {Object} - The request object coming from the client
  * @param res {Object} - The response object that will be sent to the client
  * @returns {void}

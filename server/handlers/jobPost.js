@@ -9,7 +9,8 @@ var services = db.import('../database/models/services.js');
  * @function selectCategory
  * @param req {Object} - The request object coming from the client
  * @param res {Object} - The response object that will be sent to the client
- * @returns void
+ * @returns {void}
+ * @async
  */
 
 exports.selectCategory =(req, res) => { 
@@ -33,6 +34,7 @@ return service_categories.findAll({include :[]})
  * @param req {Object} - The request object coming from the client
  * @param res {Object} - The response object that will be sent to the client
  * @returns {void}
+ * @async
  */
 
 exports.selectService = (req, res) =>{ 
