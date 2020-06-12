@@ -1,13 +1,10 @@
 <div class="text-center" style="margin-bottom: 5%;">
-  <h4 class="mb-2">PLEASE SELECT A CATEGORY</h4>
-  <!-- <h6 class="text-muted mb-2">
-
-  </h6> -->
+  <h4 class="mb-2">What category of professionals are you looking for ?</h4>
 </div>
 <div class="card-deck">
-  
-    <div class="col-sm-4 col-md-6 mb-3" *ngFor="let category of selectCategories"  >
-      <a  (click)="sendCategory(category)" >
+
+  <div class="col-sm-4 col-md-4 mb-3" *ngFor="let category of selectCategories">
+    <a (click)="sendCategory(category)">
       <mdb-card class="text-center">
         <mdb-card-body>
           <img src="https://img.icons8.com/cotton/64/000000/electricity.png" style="margin-bottom: 5%;" />
@@ -17,62 +14,6 @@
         </mdb-card-body>
       </mdb-card>
     </a>
-    </div>
-
-</div>
-
-
-
-<!-- 
-<div class="card-deck">
-  <div  >
-  <mdb-card  cascade="true" class="d-inline-block">
-    <div class="view overlay waves-light" mdbWavesEffect>
-      <mdb-card-img src="https://img.icons8.com/color/96/000000/painting-a-wall.png"
-       alt="category.category">
-      </mdb-card-img>
-      <a>
-        <div class="mask rgba-white-slight"></div>
-      </a>
-    </div>
-    <mdb-card-body>
-      <mdb-card-title>
-        <h4>{{ category.category }}</h4>
-      </mdb-card-title>
-    </mdb-card-body>
-  </mdb-card>
-</div>
-</div> -->
-
-
-
-
-
-<!-- 
-
-
-
-
-<div class="row mb-9">
-    <div class="col-gm">
-<div class="card text-center">
-    <div class="card-header">
-  Category
-    </div>
-
-    <div class="card-body" *ngFor = "let selectCategory of selectCategories" >
-
-        <button routerLink="/job-post/select-service" (click)='sendCategory(selectCategory)' style="border: none; background: transparent;">
-          
-        1<img src="https://img.icons8.com/color/96/000000/painting-a-wall.png"/></button><br>
-        <p >{{selectCategory.category}}</p>
-
-
-    </div>
-    <div class="card-footer text-muted">
-     choose your Category
-    </div>
   </div>
+
 </div>
-</div>
- -->

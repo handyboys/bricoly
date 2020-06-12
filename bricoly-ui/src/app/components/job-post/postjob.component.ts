@@ -21,7 +21,7 @@ export class PostjobComponent implements OnInit {
   jobDraft: JobDraft = new JobDraft();
   progressBarWidth: number;
 
-  constructor(private route: ActivatedRoute) { 
+  constructor(private route: ActivatedRoute) {
     this.progressBarWidth = 5;
   }
 
@@ -29,6 +29,7 @@ export class PostjobComponent implements OnInit {
     console.log('Component Origin : ', elementRef);
     console.log('JobDraft : ', this.jobDraft);
     if (elementRef.selectCategoryEvent) {
+      this.progressBarWidth = 5;
       elementRef.selectCategoryEvent.subscribe((event: Category) => {
         this.jobDraft.category = event.category;
         this.jobDraft.category_id = event.id;

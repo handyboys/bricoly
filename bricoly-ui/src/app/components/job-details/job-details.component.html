@@ -1,88 +1,90 @@
 <div class="container">
     <h4>Job details</h4>
-    <h6 class="text-muted mb-2">Please review the details of the job. If everything looks correct, hit the confirm
-        button below to create the job.</h6>
-    <!-- Category -->
-    <mdb-card class="col-12">
-        <mdb-card-body>
-
-            <!--Title-->
-            <mdb-card-title>
-                <h6 class="text-muted mb-2">Category</h6>
-                <h5>{{ jobDraft.category }}</h5>
-            </mdb-card-title>
-
-        </mdb-card-body>
-    </mdb-card>
-    <!-- Service -->
-    <mdb-card class="col-12">
-        <mdb-card-body>
-
-            <!--Title-->
-            <mdb-card-title>
-                <h6 class="text-muted mb-2">Service</h6>
-                <h5>{{ jobDraft.service }}</h5>
-            </mdb-card-title>
-
-        </mdb-card-body>
-    </mdb-card>
-
-    <!-- Service Type -->
-    <mdb-card class="col-12">
-        <mdb-card-body>
-
-            <!--Title-->
-            <mdb-card-title>
-                <h6 class="text-muted mb-2">Serice Type</h6>
-                <h5>{{ jobDraft.service_type }}</h5>
-            </mdb-card-title>
-
-        </mdb-card-body>
-    </mdb-card>
-
-    <!-- Location type -->
-    <mdb-card class="col-12">
-        <mdb-card-body>
-
-            <!--Title-->
-            <mdb-card-title>
-                <h6 class="text-muted mb-2">Location Type</h6>
-                <h5>{{ jobDraft.client_type }}</h5>
-            </mdb-card-title>
-
-        </mdb-card-body>
-    </mdb-card>
-
-    <!-- Job description -->
-    <mdb-card class="col-12">
-        <mdb-card-body>
-
-            <!--Title-->
-            <mdb-card-title>
-                <h6 class="text-muted mb-2">Job description</h6>
-                <h5>{{ jobDraft.related_info }}</h5>
-            </mdb-card-title>
-
-        </mdb-card-body>
-    </mdb-card>
-
-    <!-- Location -->
-    <mdb-card class="col-12">
-        <mdb-card-body>
-
-            <!--Title-->
-            <mdb-card-title>
-                <h6 class="text-muted mb-2">Location</h6>
-            </mdb-card-title>
-            <agm-map [latitude]="jobDraft.latitude" [longitude]="jobDraft.longitude">
-                <agm-marker [latitude]="jobDraft.latitude" [longitude]="jobDraft.longitude"></agm-marker>
-            </agm-map>
-
-        </mdb-card-body>
-    </mdb-card>
-
-    <br>
-    <!-- TODO : add edit functionality -->
-    <!-- <button mdbBtn color="primary" outline="true" mdbWavesEffect>Edit</button> -->
-    <button mdbBtn color="secondary" class="float-right" mdbWavesEffect>Confirm</button>
+    <h6 class="text-muted mb-2">
+        Please review the details of the job. If everything looks correct, hit the confirm
+        button below to create the job.
+    </h6>
 </div>
+<!-- Category -->
+<mdb-card class="col-12">
+    <mdb-card-body>
+
+        <!--Title-->
+        <mdb-card-title>
+            <h6 class="text-muted mb-2">Category</h6>
+            <h5>{{ jobDraft.category }}</h5>
+        </mdb-card-title>
+
+    </mdb-card-body>
+</mdb-card>
+<!-- Service -->
+<mdb-card class="col-12">
+    <mdb-card-body>
+
+        <!--Title-->
+        <mdb-card-title>
+            <h6 class="text-muted mb-2">Service</h6>
+            <h5>{{ jobDraft.service }}</h5>
+        </mdb-card-title>
+
+    </mdb-card-body>
+</mdb-card>
+
+<!-- Service Type -->
+<mdb-card class="col-12">
+    <mdb-card-body>
+
+        <!--Title-->
+        <mdb-card-title>
+            <h6 class="text-muted mb-2">Serice Type</h6>
+            <h5>{{ jobDraft.service_type }}</h5>
+        </mdb-card-title>
+
+    </mdb-card-body>
+</mdb-card>
+
+<!-- Location type -->
+<mdb-card class="col-12">
+    <mdb-card-body>
+
+        <!--Title-->
+        <mdb-card-title>
+            <h6 class="text-muted mb-2">Location Type</h6>
+            <h5>{{ jobDraft.client_type }}</h5>
+        </mdb-card-title>
+
+    </mdb-card-body>
+</mdb-card>
+
+<!-- Job description -->
+<mdb-card class="col-12">
+    <mdb-card-body>
+
+        <!--Title-->
+        <mdb-card-title>
+            <h6 class="text-muted mb-2">Job description</h6>
+            <h5>{{ jobDraft.related_info }}</h5>
+        </mdb-card-title>
+
+    </mdb-card-body>
+</mdb-card>
+
+<!-- Location -->
+<mdb-card class="col-12">
+    <mdb-card-body>
+
+        <!--Title-->
+        <mdb-card-title>
+            <h6 class="text-muted mb-2">Location</h6>
+        </mdb-card-title>
+        <agm-map [latitude]="jobDraft.latitude" [longitude]="jobDraft.longitude">
+            <agm-marker [latitude]="jobDraft.latitude" [longitude]="jobDraft.longitude"></agm-marker>
+        </agm-map>
+
+    </mdb-card-body>
+</mdb-card>
+
+<br>
+<!-- TODO : add edit functionality -->
+<!-- <button mdbBtn color="primary" outline="true" mdbWavesEffect>Edit</button> -->
+<button mdbBtn color="secondary" class="float-right" mdbWavesEffect>Confirm</button>
