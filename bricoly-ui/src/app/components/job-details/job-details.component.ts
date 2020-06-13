@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { JobDraft } from '../../models/jobDraft/jobDraft.model';
+import { JobPostService } from 'src/app/services/jobPost/job-post.service';
 
 @Component({
   selector: 'app-job-details',
@@ -9,20 +10,34 @@ import { JobDraft } from '../../models/jobDraft/jobDraft.model';
 export class JobDetailsComponent implements OnInit {
 
   jobDraft: JobDraft = new JobDraft();
-  
-  
+  validDraft: boolean = true;
+  jobCreated: boolean = false;
 
-  constructor() { 
-    // MOCK DATA : Remove when done
-    this.jobDraft.client_type = "Home";
-    this.jobDraft.latitude = 10.3154;
-    this.jobDraft.longitude = 7.353;
-    this.jobDraft.related_info = "job description";
-    this.jobDraft.service_id = 1;
-    this.jobDraft.service_type = "Installation";
+  constructor(
+    private jobPost: JobPostService
+  ) { 
   }
 
   ngOnInit(): void {
   }
+
+  createJob() {
+    console.log('Job confirmed : ',this.jobDraft);
+    if (!this.jobDraft.isValid()) {
+      this.validDraft = false;
+    } else {
+      this.jobPost.createJob(this.jobDraft)
+        .subscribe(result => {
+          this.jobCreated = true;
+          console.log('Job Created : ', result)
+        },
+        err => {
+          console.log('Error creating job : ', err);          
+        })
+    }
+
+  }
+
+  
 
 }

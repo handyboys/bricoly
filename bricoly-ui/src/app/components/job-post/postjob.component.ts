@@ -25,7 +25,7 @@ export class PostjobComponent implements OnInit {
     this.progressBarWidth = 5;
   }
 
-  onActivate(elementRef) {
+  onActivate(elementRef): void {
     console.log('Component Origin : ', elementRef);
     console.log('JobDraft : ', this.jobDraft);
     if (elementRef.selectCategoryEvent) {
@@ -65,7 +65,7 @@ export class PostjobComponent implements OnInit {
         this.jobDraft.longitude = event.lng;
       })
     } else if (elementRef instanceof JobDetailsComponent) {
-      this.progressBarWidth = 95;
+      this.progressBarWidth = 100;
       elementRef.jobDraft = this.jobDraft;
     }
   }
