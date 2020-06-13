@@ -63,19 +63,16 @@ exports.getJobs = async (req, res)=>{
     }
     
 }
+
+
 exports.postJobs = async (req, res)=>{
-    
     try {
        await db.sync({force:false})
-        
-            await job_applications.create({
-                "job_id": req.body.job_id,
-                "professional_id" : req.body.professional_id
+        await job_applications.create({
+                job_id: req.body.job_id,
+                professional_id : req.body.professional_id
             });
-        
-                console.log("resultat",res)
-              
-            //sending a json for all the open jobs info
+    //sending a json for all the open jobs info
             res.status(200).json({message:"sucess"})
         
     } catch (e) {

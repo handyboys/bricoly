@@ -26,8 +26,8 @@ export class JobCardComponent implements OnInit {
     e.preventDefault()
     this.JobApplication.job_id = this.openJob.id
     console.log(this.JobApplication)
-    this.jobApplicationService.getjobApplication(this.JobApplication.job_id,this.JobApplication.professional_id).subscribe(data=>{
-      console.log('joappservice :',data)
+    this.jobApplicationService.getjobApplication(4,2).subscribe(data=>{
+      console.log(data)
     })
 
   }

@@ -11,6 +11,6 @@ export class JobApplicationService {
   }
   getjobApplication(job_id,professional_id){
     let body = {job_id , professional_id }
-    return this.http.post<any>("http://localhost:8080/jobs/feed",body)
+    return this.http.post("http://localhost:8080/jobs/feed",body)
   }
 }
