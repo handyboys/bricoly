@@ -22,8 +22,8 @@ CREATE TABLE professionals (
 	id INT NOT NULL,
 	category_id INT NOT NULL,
 	adress TEXT NOT NULL,
-	longitude FLOAT NOT NULL,
-	latitude FLOAT NOT NULL,
+	longitude DECIMAL(13,10) NOT NULL,
+	latitude DECIMAL(13,10) NOT NULL,
 	motorized BOOLEAN NOT NULL,
 	description TEXT NOT NULL,
 	PRIMARY KEY (id)
@@ -39,6 +39,7 @@ CREATE TABLE services (
 CREATE TABLE service_categories (
 	id INT NOT NULL AUTO_INCREMENT,
 	category varchar(255) NOT NULL,
+	icon_url TEXT NOT NULL,
 	PRIMARY KEY (id)
 );
 
@@ -58,8 +59,8 @@ CREATE TABLE jobs (
 	service_id INT NOT NULL,
 	client_type VARCHAR(255),
 	status varchar(255) NOT NULL DEFAULT 'open', -- TODO : add predefined values {open, in_progress, closed}
-	longitude FLOAT NOT NULL,
-	latitude FLOAT NOT NULL,
+	longitude DECIMAL(13,10) NOT NULL,
+	latitude DECIMAL(13,10) NOT NULL,
 	related_info TEXT ,
 	PRIMARY KEY (id)
 );
@@ -85,8 +86,8 @@ CREATE TABLE reviews (
 	service_quality INT, -- Integer representing the number of stars
 	price INT, -- same as above
 	communication INT, -- same as above
-	overall_rating FLOAT , -- average stars rating of three above
-	contract_id INT NOT NULL,
+	overall_rating DECIMAL(2,1) , -- average stars rating of three above
+	job_id INT NOT NULL,
 	PRIMARY KEY (id)
 );
 
@@ -130,7 +131,7 @@ ALTER TABLE contracts ADD CONSTRAINT contract_fk0 FOREIGN KEY (job_id) REFERENCE
 
 ALTER TABLE contracts ADD CONSTRAINT contract_fk1 FOREIGN KEY (professional_id) REFERENCES users(id);
 
-ALTER TABLE reviews ADD CONSTRAINT reviews_fk0 FOREIGN KEY (contract_id) REFERENCES contracts(id);
+ALTER TABLE reviews ADD CONSTRAINT reviews_fk0 FOREIGN KEY (job_id) REFERENCES jobs(id);
 
 ALTER TABLE credentials ADD CONSTRAINT credentials_fk0 FOREIGN KEY (id) REFERENCES users(id);
 
