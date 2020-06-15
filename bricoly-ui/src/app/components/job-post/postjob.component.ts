@@ -16,7 +16,7 @@ export class PostjobComponent implements OnInit {
   jobDraft: JobDraft = new JobDraft();
   categoryId;
 
-  constructor() { }
+  constructor() {}
   
   onActivate(elementRef) {
     console.log(elementRef)

@@ -36,19 +36,23 @@ export class FindProfessionalComponent implements OnInit {
 
   receiveFilter($event){ 
     this.myFilter = $event;
-   }
+    
+    if(this.myFilter){ 
 
-   filterFunction(){ 
-     if(this.myFilter){ 
-       console.log("FILTERRRR", this.myFilter);
-       return this.profDetails.filter((profDetail)=>{
-         console.log("DETAILLLLLL",profDetail); 
-        return this.myFilter.category === profDetail.category_id;
-       });
-     }
-   }
+      console.log("FILTERRRR", this.myFilter);
+      return this.profDetails.filter(profDetail =>{
+      return profDetail.category_id == this.myFilter.category;
+     });
+    }
+  }
+    
+
+
+ 
+     
   
   ngOnInit(): void {
+ 
   }
   
 }
