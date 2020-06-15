@@ -11,7 +11,7 @@ import { ToggleFilterDirective } from './directives/toggle-filter.directive';
 import { AuthInterceptor } from './interceptors/auth.interceptor';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { FindProfessionalComponent } from './find-professional/find-professional.component';
-import { FilterComponent } from './filter/filter.component';
+import { FilterComponent } from './components/filter/filter.component';
 
 @NgModule({
   declarations: [

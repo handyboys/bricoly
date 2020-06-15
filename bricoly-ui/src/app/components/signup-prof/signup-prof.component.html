@@ -68,15 +68,15 @@
 
 <!-- Subject -->
 <div class="form-row mb-4">
-<select class="form-control custom-select mb-4"  name="profCategory" required ngModel>
-  <option value=""  disable selected >Choose Category</option>
-  <option  name ="profCategory" *ngFor ="let category of categories" [ngValue]="category.id" >{{category.category}}</option>
- </select> 
+  <select class="form-control custom-select mb-4"  name="profCategory" required ngModel>
+    <option value=""  disable selected >Choose Category</option>
+    <option  name ="profCategory" *ngFor ="let category of categories" [ngValue]="category.id" >{{category.category}}</option>
+  </select> 
 </div>
 <!-- Name -->
 <div class="form-row mb-4">
-<input type="text" id="address" class="form-control mb-4" placeholder="enter your adress" 
-[(ngModel)]="newUser.adress" name="address" #address="ngModel" >
+  <input type="text" id="address" class="form-control mb-4" placeholder="enter your adress" 
+  [(ngModel)]="newUser.adress" name="address" #address="ngModel" >
 </div>
 <!-- profile Description -->
 <div class="form-row mb-4">

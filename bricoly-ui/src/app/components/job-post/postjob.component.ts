@@ -15,7 +15,9 @@ export class PostjobComponent implements OnInit {
   // category : Category
   jobDraft: JobDraft = new JobDraft();
   categoryId;
+
   constructor() { }
+  
   onActivate(elementRef) {
     console.log(elementRef)
     if (elementRef.selectCategoryEvent){

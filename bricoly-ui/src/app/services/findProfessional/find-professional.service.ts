@@ -14,6 +14,7 @@ export class FindProfessionalService {
   constructor(private http: HttpClient) { }
 
   getAllProfessionals(): Observable<ProfDetails[]>{ 
+    
    let api = this.endpoint + '/findProf';
    return this.http.get<ProfDetails[]>(api)
    .pipe(
