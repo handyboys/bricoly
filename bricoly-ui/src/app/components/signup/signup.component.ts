@@ -11,8 +11,8 @@ import { AuthService } from '../../services/auth/auth.service';
 export class SignupComponent implements OnInit {
 
   // init empty user object
-  newUser: User = new User();
-  passwordConfirmation: string = null;
+  newUser:User = new User();
+  passwordConfirmation:string = null;
   constructor(
     private authService: AuthService
   ) { }

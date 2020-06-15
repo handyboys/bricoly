@@ -1,3 +1,4 @@
+import { JobNotComponent } from './components/job-not/job-not.component';
 import { NgModule, Component } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
@@ -18,7 +19,11 @@ const routes: Routes = [
   },
   {
     path: 'jobs',
-    loadChildren: () => import('./modules/jobs/jobs.module').then(module => module.JobsModule)
+    loadChildren : () => import('./modules/jobs/jobs.module').then(module => module.JobsModule)
+  },
+  {
+    path: 'notification', 
+    component : JobNotComponent
   }
 ];
 
