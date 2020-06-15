@@ -9,11 +9,13 @@ var service_categories = db.import('../database/models/service_categories.js');
 //importing jobs' table's model
 var Jobs = db.import ('../database/models/jobs.js');
 
-/**
+
+ /**
  * @function getJobs - sending json for all the jobs
+ * @param req {Object} - The request object coming from the client
+ * @param res {Object} - The response object that will be sent to the client
+ * @returns {void}
  * @async
- * @param {req, res}
- * @returns {json} - all jobs data from the database 
  */
 
 exports.getJobs = async (req, res)=>{

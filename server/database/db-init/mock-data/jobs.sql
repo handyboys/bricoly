@@ -1,4 +1,3 @@
-
 -- To insert data into db execute the following command from the terminal
 -- mysql -u root -p < server/database/db-init/mock-data/jobs.sql
 

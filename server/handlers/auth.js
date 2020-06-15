@@ -1,20 +1,22 @@
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
-
 const db = require('../database/db');
-
 // importing users' table's model
 var users = db.import('../database/models/users.js');
 var professionals = db.import('../database/models/professionals.js');
+// importing users' credentials' table's model
 var credentials = db.import ('../database/models/credentials.js');
 
-/**
-* @function signUp - signing up the user in the database
-* @async
-* @param {req, res}
-* @returns {response} - saving the user in the database 
-*/
 
+// TODO : change async handling using await instead of .then
+
+/**
+ * @function signUp - sending and saving the user's data in the database 
+ * @param req {Object} - The request object coming from the client
+ * @param res {Object} - The response object that will be sent to the client
+ * @returns {void}
+ * @async
+ */
 exports.signUp = async (req, res) => {
     
     // TODO - add req body paramter validation IMPORTANT !!!
@@ -89,12 +91,13 @@ exports.signUp = async (req, res) => {
     // send user id, email & token back to front end
 }
 
-/**
-* @function singIn - signing in the user 
-* @async
-* @param {req, res}
-* @returns {response} - getting the user from the database 
-*/
+  /**
+ * @function signIn - getting the user from the database 
+ * @async
+ * @param req {Object} - The request object coming from the client
+ * @param res {Object} - The response object that will be sent to the client
+ * @returns {void}
+ */
 
 exports.singIn = async (req, res) => {
     console.log(req.body);

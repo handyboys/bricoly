@@ -3,7 +3,7 @@
 
 USE bricolyDB;
 
-INSERT INTO service_categories (category)
+INSERT INTO service_categories(category)
 VALUES
 ('Plumbing'),
 ('Security'),
@@ -18,5 +18,4 @@ VALUES
 ('Renewable & Solar Energy'),
 ('Heating'),
 ('Bathroom & Sanitary'),
-('Home Appliances'),
-('Other');
+('Home Appliances');
