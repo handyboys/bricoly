@@ -24,8 +24,6 @@ exports.getAllNot = async (req, res)=>{
     const sql = `select first_name, last_name from job_applications inner join jobs on job_applications.job_id = jobs.id inner join users on job_applications.professional_id = users.id where jobs.client_id = ?`
     // FETCHING THE PROFESSIONAL FIRST NAMES AND LAST NAMES BY CLIENT ID
     const professional = await db.query(sql , { replacements:  [req.params.id],type: db.QueryTypes.SELECT });
-    // const first_name = professional[0].first_name
-    // const last_name = professional[0].last_name
         res.status(200).json({service, professional})
     } catch (e) {
         res.status(400)

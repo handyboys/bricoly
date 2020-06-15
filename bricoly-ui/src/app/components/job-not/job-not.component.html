@@ -1,20 +1,26 @@
-<div class="row">
-    <div class="col-sm-6">
-      <div class="card">
-        <div class="card-body">
-          <h5 class="card-title">{{allNoti.service}}</h5>
-          <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-          <a href="#" class="btn btn-primary">Go somewhere</a>
+<div class="media">
+  <div class="d-flex" *ngFor = "let names of professional" style="margin-top: 1.5%;">
+    <!-- Card -->
+    <mdb-card
+      style="background-image: url('https://mdbootstrap.com/img/Photos/Horizontal/Work/4-col/img%20%2814%29.jpg')"
+      class="card-image mb-3 mx-2"
+    >
+      <!-- Content -->
+      <div class="text-white text-center d-flex align-items-center rgba-black-strong py-5 px-4">
+        <div>
+          <h3 class="card-title pt-2"><h5>{{names.first_name}} {{names.last_name}}</h5> applied for your job.</h3>
+          <h5>{{allNoti.service}}</h5>
+          <a mdbBtn color="blue" class="waves-light" mdbWavesEffect>
+            <mdb-icon far icon="clone" class="left"></mdb-icon>
+            Apply for the job</a
+          >
         </div>
       </div>
-    </div>
-    <div class="col-sm-6" *ngFor = "let names in allNoti.professional">
-      <div class="card">
-        <div class="card-body">
-          <h5 class="card-title">{{allNoti.professional.first_name}}</h5>
-          <h5 class="card-title">{{allNoti.professional.last_name}}</h5>
-          <a href="#" class="btn btn-primary">Go somewhere</a>
-        </div>
-      </div>
-    </div>
+      <!-- Content -->
+    </mdb-card>
+    <!-- Card -->
   </div>
+</div>
+
+
+
