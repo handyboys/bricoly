@@ -13,29 +13,21 @@ var jobs = db.import('../database/models/jobs');
  */
 exports.selectCategory = (req, res) => {
 
-/**
- * @function selectCategory
- * @param req {Object} - The request object coming from the client
- * @param res {Object} - The response object that will be sent to the client
- * @returns {void}
- * @async
- */
+  try {
+    db.sync({ force: false })
+      .then(() => {
+        return service_categories.findAll({ include: [] })
+      })
+      .then(selectCategories => {
+        res.status(200).json(selectCategories);
+      })
 
-exports.selectCategory =(req, res) => { 
- try { 
-     db.sync({force:false})
-     .then(()=>{
-  //  FETCHING ALL THE SERVICE CATEGORIES 
-return service_categories.findAll({include :[]})
-})
-.then(selectCategories => {   
-  res.status(200).json(selectCategories);
-})
- } catch(e){ 
-     console.log(e);
-     res.status(400);
- }
-} 
+  } catch (e) {
+    console.log(e);
+    res.status(400);
+  }
+
+}
 
 /**
  * @function selectService
