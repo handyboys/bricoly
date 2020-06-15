@@ -10,12 +10,20 @@ import { AppComponent } from './app.component';
 import { ToggleFilterDirective } from './directives/toggle-filter.directive';
 import { AuthInterceptor } from './interceptors/auth.interceptor';
 import { NavbarComponent } from './components/navbar/navbar.component';
+import { FooterComponent } from './components/footer/footer.component';
+import { AboutUsComponent } from './components/about-us/about-us.component';
+import { BlogComponent } from './components/blog/blog.component';
+import { JobNotComponent } from './components/job-not/job-not.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ToggleFilterDirective,
     NavbarComponent,
+    FooterComponent,
+    AboutUsComponent,
+    BlogComponent,
+    JobNotComponent,
   ],
   imports: [
     BrowserModule,

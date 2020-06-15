@@ -18,6 +18,7 @@ app.use(express.urlencoded({extended:true}));
 app.use('/auth', router.auth);
 app.use('/job-post', router.jobPost)
 app.use('/jobs', router.jobs)
+app.use('/job', router.jobNot)
 
 
 const port = process.env.PORT || 8080;

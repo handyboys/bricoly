@@ -36,7 +36,7 @@ export class AuthService {
   signIn(user: User) {
     let api = this.endpoint + '/signin';
     console.log('signin service func engaged');
-    return this.http.post(api, user)
+    return this.http.post<User>(api, user)
       .subscribe((res: any) => {
         localStorage.setItem('accessToken', res.accessToken);
         localStorage.setItem('userId', res.id);

@@ -9,7 +9,7 @@ import {Category} from '../../models/category/category.model';
 })
 export class SignupProfComponent implements OnInit {
   @Input() pattern: string;
-  category:Category = new Category(null,null);
+  category:Category = new Category();
   categories : Category[]=[]
   constructor() { }
 
