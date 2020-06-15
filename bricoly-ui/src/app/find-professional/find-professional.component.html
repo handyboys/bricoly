@@ -1,0 +1,36 @@
+<div >
+    <app-filter (filterEvent)="receiveFilter($event)"></app-filter>
+    <div class="container" style= "margin-top: 6%;">
+        
+        <div class="row" style="margin-top: 40px;" >
+            <div class="card-deck"  style="margin-bottom: 10px ;">
+                <!-- Card -->
+                <div class="col-sm-4 col-md-4 mb-3" *ngFor = "let profDetail of profDetails" >
+                    <mdb-card >
+                        <div class="view overlay waves-light" mdbWavesEffect>
+                            <!-- Card img -->
+                            <mdb-card-img src="https://mdbootstrap.com/img/Photos/Others/images/16.jpg" alt="Card image cap"></mdb-card-img>
+                            <a>
+                                <div class="mask rgba-white-slight"></div>
+                            </a>
+                        </div>
+                        <!--Card content-->
+                        <mdb-card-body>
+                            <!--Title-->
+                            <mdb-card-title >
+                                <a href="#"><h4>{{profDetail.first_name +' '+profDetail.last_name}}</h4></a>
+                            </mdb-card-title>
+                            
+                            <!--Text-->
+                            <mdb-card-text>{{profDetail.description}} 
+                            </mdb-card-text>
+                            
+                            
+                        </mdb-card-body>
+                    </mdb-card>
+                </div>
+                <br>
+            </div>
+        </div>
+    </div>
+</div>
