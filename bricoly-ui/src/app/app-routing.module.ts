@@ -13,10 +13,6 @@ const routes: Routes = [
   {
     path: 'jobs',
     loadChildren : () => import('./modules/jobs/jobs.module').then(module => module.JobsModule)
-  },
-  {
-    path: 'notification', 
-    component : JobNotComponent
   }
 ];
   

@@ -5,4 +5,4 @@
 USE bricolyDB;
 
 INSERT INTO job_applications(job_id, professional_id)
-VALUES (4, 1)
+VALUES (3, 1);

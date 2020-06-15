@@ -8,14 +8,14 @@ import { catchError } from 'rxjs/operators';
   providedIn: 'root'
 })
 export class JobNotService {
-  endpoint : string = 'http://localhost:8080/job'
+  endpoint = 'http://localhost:8080/job'
   constructor(private http: HttpClient, private router : Router, private activatedRoute:ActivatedRoute) { }
 
   
-  getNotificaion():Observable <any>{
-    var id = 1
+  getNotificaion(){
+    const id : number = Number(localStorage.getItem('userId'))
     let api = this.endpoint + `/notification/${id}`
-     return this.http.get<any>(api)
+     return this.http.get(api)
     .pipe(
       catchError(this.handleError)
     )

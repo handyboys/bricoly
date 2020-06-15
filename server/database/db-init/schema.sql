@@ -19,7 +19,7 @@ CREATE TABLE users (
 );
 
 CREATE TABLE professionals (
-	id INT NOT NULL,
+	id INT NOT NULL AUTO_INCREMENT,
 	category_id INT NOT NULL,
 	adress TEXT NOT NULL,
 	longitude DECIMAL NOT NULL,

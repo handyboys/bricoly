@@ -3,6 +3,6 @@
 
 USE bricolyDB;
 
-INSERT INTO professionals(id, category_id, adress, longitude, latitude, motorized, description)
+INSERT INTO professionals(category_id, adress, longitude, latitude, motorized, description)
 VALUES
-(1,4, 'nope', 3.14, 5.1, true, 'nnnope')
+(4, 'nope', 3.14, 5.1, true, 'nnnope')
