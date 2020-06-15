@@ -1,0 +1,14 @@
+<div class="text-center">
+    <h3>Select job location</h3>
+    <button mdbBtn type="button" color="primary" outline="true" mdbWavesEffect (click)="setCurrentLocation()">Get my
+        current location</button>
+    <br><br>
+</div>
+<agm-map [latitude]="marker.lat" [longitude]="marker.lng" (mapClick)="placeMarker($event)" [(zoom)]="mapZoom">
+    <!-- (mapClick)="placeMarker($event)" -->
+    <agm-marker [latitude]="marker.lat" [longitude]="marker.lng"></agm-marker>
+</agm-map>
+<br>
+<div class="text-center">
+    <button routerLink="/job-post/job-details" (click)="onClick()" mdbBtn type="button" color="primary" mdbWavesEffect>Next</button>
+</div>

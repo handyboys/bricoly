@@ -19,7 +19,7 @@ const sequelize = require('sequelize');/////
 // module.exports = dbConnection;
 
 
-const dbConnection = new sequelize('bricolyDB', 'root', '', {
+const dbConnection = new sequelize('bricolyDB', 'root', 'root', {
   dialect: 'mysql',
   // host: 'localhost',
   // port: '3306',

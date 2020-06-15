@@ -20,6 +20,10 @@ export class SignupComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  professionalSelect() {
+    this.newUser.isProfessional = !this.newUser.isProfessional;
+  }
+
   onSubmit() {
     this.authService.signUp(this.newUser)
       .subscribe(data => {
@@ -28,4 +32,7 @@ export class SignupComponent implements OnInit {
         localStorage.setItem('accessToken', data.accessToken)
       }) 
   }
+
+  // TODO : remove when done 
+  get diagnostic() { return JSON.stringify(this.newUser) }
 }

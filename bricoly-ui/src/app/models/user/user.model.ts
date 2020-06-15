@@ -7,6 +7,11 @@ export class User {
         public email: string = null,
         public password: string = null,
         public phone: number = null,
-        public profilePictureUrl: string = null
+        public profilePictureUrl: string = null,
+        public isProfessional: boolean = false, // Users are initially assumed to be clients, not professional
+        public category_id: number = null,
+        public address: string = null,
+        public motorized: boolean = null,
+        public description: string = null
     ) {}
 }

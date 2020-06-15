@@ -32,7 +32,7 @@ import { JobNotComponent } from './components/job-not/job-not.component';
     FormsModule,
     HttpClientModule,
     AgmCoreModule.forRoot({
-      apiKey: ''
+      apiKey: 'AIzaSyBMYPnWea___Dw9-tH1JyxaAGuvAI0iWvA'
     })
   ],
   providers: [

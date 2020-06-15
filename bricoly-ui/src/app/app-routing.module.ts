@@ -4,11 +4,18 @@ import { Routes, RouterModule } from '@angular/router';
 
 
 const routes: Routes = [
-  { path:'job-post',
-  loadChildren: ()=> import('./modules/job-post/job-post.module').then(m => m.JobPostModule)},
+  {
+    path: 'job-post',
+    loadChildren: () => import('./modules/job-post/job-post.module').then(m => m.JobPostModule)
+  },
+  {
+    path: '',
+    redirectTo: 'auth',
+    pathMatch: 'full'
+  },
   {
     path: 'auth',
-    loadChildren : () => import('./modules/auth/auth.module').then(module => module.AuthModule)
+    loadChildren: () => import('./modules/auth/auth.module').then(module => module.AuthModule)
   },
   {
     path: 'jobs',
@@ -19,7 +26,7 @@ const routes: Routes = [
     component : JobNotComponent
   }
 ];
-  
+
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]

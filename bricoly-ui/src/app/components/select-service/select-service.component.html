@@ -1,10 +1,11 @@
-
-<div class="list-group" >
-  <a href="/job-post/service-type" (click)="sendService(service)" *ngFor="let service of services" class="list-group-item list-group-item-action flex-column align-items-start ">
-    <div class="d-flex w-100 justify-content-between" >
-      <h5 class="mb-1" >{{service.service}}</h5>
+<div class="text-center" style="margin-bottom: 5%;">
+  <h4 class="mb-2">What service are you seeking ?</h4>
+</div>
+<div class="list-group text-center">
+  <a routerLink="/job-post/service-type" (click)="sendService(service)" *ngFor="let service of services"
+    class="list-group-item list-group-item-action flex-column align-items-start ">
+    <div class="d-flex w-100 justify-content-between">
+      <h5 class="mb-1">{{service.service}}</h5>
     </div>
-    <p class="mb-1">Service Description</p>
   </a>
 </div>
-

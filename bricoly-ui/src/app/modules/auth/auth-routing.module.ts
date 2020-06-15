@@ -8,7 +8,7 @@ import { SignupProfComponent } from '../../components/signup-prof/signup-prof.co
 const routes: Routes = [
   {
     path: '',
-    redirectTo : '/signin',
+    redirectTo : 'signin',
     pathMatch: 'full'
   },
   {

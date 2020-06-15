@@ -1,6 +1,8 @@
 import { Component, OnInit,Input ,Output,EventEmitter } from '@angular/core';
 import { HttpClient} from '@angular/common/http';
 
+import { ClientType } from '../../interfaces/client-type';
+
 
 @Component({
   selector: 'app-client-type',
@@ -8,10 +10,15 @@ import { HttpClient} from '@angular/common/http';
   styleUrls: ['./client-type.component.scss']
 })
 export class ClientTypeComponent implements OnInit {
-  client_type: string = null;
-  related_info: string = null;
- @Output () selectClientTypeEvent = new EventEmitter<string>();
- @Output () selectRelatedInfoEvent = new EventEmitter<string>();
+  @Output () selectClientTypeEvent = new EventEmitter<ClientType>();
+ 
+  clientType: ClientType = {
+    type: null,
+    related_info: null
+  }
+
+  canProceed = this.clientType.related_info && this.clientType.type;
+ 
   constructor( private http:HttpClient ) { 
     // this.getClientTypes() ;
   }
@@ -30,13 +37,11 @@ export class ClientTypeComponent implements OnInit {
 
   ngOnInit(): void {
   }
-  onClick(selectedType){
-    this.selectClientTypeEvent.emit(selectedType)
+  onClick(){
+    this.selectClientTypeEvent.emit(this.clientType)
   }
 
-  setRelatedInfo(value){
-    this.selectClientTypeEvent.emit(value)
-  }
+  
 
-  get diagnostic() { return JSON.stringify(this.client_type) }
+  get diagnostic() { return JSON.stringify(this.clientType) }
 }

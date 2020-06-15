@@ -1,0 +1,115 @@
+<div class="container">
+    <h4>Job details</h4>
+    <h6 class="text-muted mb-2">
+        Please review the details of the job. If everything looks correct, hit the confirm
+        button below to create the job.
+    </h6>
+</div>
+<!-- Category -->
+<mdb-card class="col-12">
+    <mdb-card-body>
+
+        <!--Title-->
+        <mdb-card-title>
+            <h6 class="text-muted mb-2">Category</h6>
+            <h5>{{ jobDraft.category }}</h5>
+        </mdb-card-title>
+
+    </mdb-card-body>
+</mdb-card>
+<!-- Service -->
+<mdb-card class="col-12">
+    <mdb-card-body>
+
+        <!--Title-->
+        <mdb-card-title>
+            <h6 class="text-muted mb-2">Service</h6>
+            <h5>{{ jobDraft.service }}</h5>
+        </mdb-card-title>
+
+    </mdb-card-body>
+</mdb-card>
+
+<!-- Service Type -->
+<mdb-card class="col-12">
+    <mdb-card-body>
+
+        <!--Title-->
+        <mdb-card-title>
+            <h6 class="text-muted mb-2">Serice Type</h6>
+            <h5>{{ jobDraft.service_type }}</h5>
+        </mdb-card-title>
+
+    </mdb-card-body>
+</mdb-card>
+
+<!-- Location type -->
+<mdb-card class="col-12">
+    <mdb-card-body>
+
+        <!--Title-->
+        <mdb-card-title>
+            <h6 class="text-muted mb-2">Location Type</h6>
+            <h5>{{ jobDraft.client_type }}</h5>
+        </mdb-card-title>
+
+    </mdb-card-body>
+</mdb-card>
+
+<!-- Job description -->
+<mdb-card class="col-12">
+    <mdb-card-body>
+
+        <!--Title-->
+        <mdb-card-title>
+            <h6 class="text-muted mb-2">Job description</h6>
+            <h5>{{ jobDraft.related_info }}</h5>
+        </mdb-card-title>
+
+    </mdb-card-body>
+</mdb-card>
+
+<!-- Location -->
+<mdb-card class="col-12">
+    <mdb-card-body>
+
+        <!--Title-->
+        <mdb-card-title>
+            <h6 class="text-muted mb-2">Location</h6>
+        </mdb-card-title>
+        <agm-map [latitude]="jobDraft.latitude" [longitude]="jobDraft.longitude">
+            <agm-marker [latitude]="jobDraft.latitude" [longitude]="jobDraft.longitude"></agm-marker>
+        </agm-map>
+
+    </mdb-card-body>
+</mdb-card>
+
+<br>
+<!-- TODO : add edit functionality -->
+<!-- <button mdbBtn color="primary" outline="true" mdbWavesEffect>Edit</button> -->
+<button mdbBtn color="secondary" class="float-right" mdbWavesEffect (click)="basicModal.show();createJob()">Confirm</button>
+
+<div mdbModal #basicModal="mdbModal" class="modal fade bottom" tabindex="-1" role="dialog"
+    aria-labelledby="myBasicModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-frame modal-bottom" role="document">
+        <div class="modal-content">
+            <div class="modal-body text-center" [hidden]="jobCreated">
+                <div class="spinner-grow text-danger rounded-circle" role="status">
+                    <span class="sr-only">Loading...</span>
+                </div>
+                <h6>Creating new job, please wait ...</h6>
+            </div>
+            <div class="modal-body text-center" [hidden]="!jobCreated && validDraft">
+                <mdb-icon fas icon="check-circle green-text fa-lg"  style="margin-bottom: 5px;"></mdb-icon><br>
+                <h6>Your job was created successfully</h6>
+                <button mdbBtn color="secondary" class="" outline="true" mdbWavesEffect routerLink="/">Home page</button>
+                <button mdbBtn color="secondary" class="" mdbWavesEffect routerLink="/job-post">Post a new job</button>
+            </div>
+            <div class="modal-body text-center" [hidden]="validDraft">
+                <i class="fas fa-exclamation-circle red-text fa-lg" style="margin-bottom: 5px;"></i>
+                <h6>Oops ! Critical information about the job is missing. Please re-enter your information. It will only take two minutes.</h6>
+                <button mdbBtn color="secondary" class="" mdbWavesEffect routerLink="/job-post">Post a new job</button>
+            </div>
+        </div>
+    </div>
+</div>
