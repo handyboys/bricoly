@@ -19,7 +19,7 @@ module.exports = function(sequelize, DataTypes) {
         key: 'id'
       }
     },
-    adress: {
+    adress: {                  // 
       type: DataTypes.TEXT,
       allowNull: false
     },

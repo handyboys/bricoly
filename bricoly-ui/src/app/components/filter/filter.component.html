@@ -1,0 +1,44 @@
+<form #filterForm ="ngForm" (ngSubmit)="filterSearch(filterForm)" >
+  <div class="card card-intro blue-gradient">
+    
+    <div class="card-body white-text rgba-black-light text-center">
+      
+      <!--Grid row-->
+      <div class="row d-flex justify-content-center">
+        
+        <!--Grid column-->
+        <div class="col-md-3">
+          <i class="far fa-star"></i>
+          <i class="far fa-star"></i>
+          <i class="far fa-star"></i>
+          <i class="far fa-star"></i>
+          <i class="far fa-star"></i>   
+        </div>
+        <!--Grid column-->
+        <!--Grid column-->
+        <div class="col-md-3">
+          <select class="custom-select custom-select-sm" name="category" ngModel>
+            <option selected>Select category</option>
+            <option  name ="profCategory" *ngFor ="let category of categories" [ngValue]="category.id" >{{category.category}}</option>
+          </select>
+        </div>
+        <!--Grid column-->
+        
+        <!--Grid column-->
+        <div class="col-md-3">
+          <select class="custom-select custom-select-sm" name="cities" ngModel>
+            <option selected>Select your city</option>
+            <option name ="tunCities" *ngFor="let city of tunCities" >{{city.city}}</option>
+          </select>
+        </div>
+        <!--Grid column-->
+        <div class="col-md-3">
+          <button class="btn blue-gradient btn-rounded waves-light" mdbBtn type="submit" gradient="grey" size="sm" mdbWavesEffect >Search</button>
+        </div>      
+      </div>
+      <!--Grid row-->
+      
+    </div>
+    
+  </div>
+</form>  

@@ -21,7 +21,7 @@ export class SignupComponent implements OnInit {
   }
 
   professionalSelect() {
-    this.newUser.isProfessional = !this.newUser.isProfessional;
+    this.newUser.is_professional = !this.newUser.is_professional;
   }
 
   onSubmit() {
