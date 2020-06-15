@@ -22,8 +22,8 @@ CREATE TABLE professionals (
 	id INT NOT NULL,
 	category_id INT NOT NULL,
 	adress TEXT NOT NULL,
-	longitude DECIMAL NOT NULL,
-	latitude DECIMAL NOT NULL,
+	longitude FLOAT NOT NULL,
+	latitude FLOAT NOT NULL,
 	motorized BOOLEAN NOT NULL,
 	description TEXT NOT NULL,
 	PRIMARY KEY (id)
@@ -58,8 +58,8 @@ CREATE TABLE jobs (
 	service_id INT NOT NULL,
 	client_type VARCHAR(255),
 	status varchar(255) NOT NULL DEFAULT 'open', -- TODO : add predefined values {open, in_progress, closed}
-	longitude decimal NOT NULL,
-	latitude decimal NOT NULL,
+	longitude FLOAT NOT NULL,
+	latitude FLOAT NOT NULL,
 	related_info TEXT ,
 	PRIMARY KEY (id)
 );
@@ -74,7 +74,7 @@ CREATE TABLE contracts (
 	closure_date DATETIME,
 	expected_start_date DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
 	duration INT NOT NULL, -- duration is expressed in days
-	expected_price DECIMAL,
+	expected_price INT,
 	tasks TEXT,
 	PRIMARY KEY (id)
 );
@@ -85,7 +85,7 @@ CREATE TABLE reviews (
 	service_quality INT, -- Integer representing the number of stars
 	price INT, -- same as above
 	communication INT, -- same as above
-	overall_rating decimal , -- average stars rating of three above
+	overall_rating FLOAT , -- average stars rating of three above
 	contract_id INT NOT NULL,
 	PRIMARY KEY (id)
 );
