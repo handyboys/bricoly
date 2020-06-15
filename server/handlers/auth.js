@@ -6,6 +6,9 @@ var users = db.import('../database/models/users.js');
 // importing users' credentials' table's model
 var credentials = db.import ('../database/models/credentials.js');
 
+
+// TODO : change async handling using await instead of .then
+
 /**
  * @function signUp - sending and saving the user's data in the database 
  * @param req {Object} - The request object coming from the client
@@ -13,7 +16,6 @@ var credentials = db.import ('../database/models/credentials.js');
  * @returns {void}
  * @async
  */
-
 exports.signUp = async (req, res) => {
     console.log(req.body);
     // TODO - add req body paramter validation IMPORTANT !!!

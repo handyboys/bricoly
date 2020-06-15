@@ -30,7 +30,7 @@ import { BlogComponent } from './components/blog/blog.component';
     FormsModule,
     HttpClientModule,
     AgmCoreModule.forRoot({
-      apiKey: ''
+      apiKey: 'AIzaSyBMYPnWea___Dw9-tH1JyxaAGuvAI0iWvA'
     })
   ],
   providers: [
