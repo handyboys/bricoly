@@ -4,17 +4,21 @@ import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import { JobsRoutingModule } from './jobs-routing.module';
 import { JobCardComponent } from '../../components/job-card/job-card.component';
 import { JobFeedComponent } from '../../components/job-feed/job-feed.component';
+import { JobNotComponent } from "../../components/job-not/job-not.component";
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
   declarations: [
     JobCardComponent,
-    JobFeedComponent
+    JobFeedComponent,
+    JobNotComponent
   ],
   imports: [
     CommonModule,
     JobsRoutingModule,
     MDBBootstrapModule.forRoot(),
+    FormsModule
   ],
 })
 export class JobsModule { }

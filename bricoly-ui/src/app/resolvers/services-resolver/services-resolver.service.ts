@@ -15,7 +15,6 @@ export class ServicesResolverService implements Resolve<any> {
   ) { }
 
   resolve(route: ActivatedRouteSnapshot): Observable<Service[]> {
-    // const id: number = route.params['category_id'];
     const cat: Category = JSON.parse(localStorage.getItem('selectedCategory'));
     return this.jobPost.getServices(cat.id)
   }
