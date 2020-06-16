@@ -6,7 +6,7 @@ import { ServiceTypeComponent } from '../../components/service-type/service-type
 import { FormsModule } from '@angular/forms';
 import { NgModule, Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { MDBBootstrapModule } from 'angular-bootstrap-md'; 
+import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import {PostjobComponent} from './../../components/job-post/postjob.component'
 import { JobPostRoutingModule } from './job-post-routing.module';
 
@@ -16,7 +16,7 @@ import { JobPostRoutingModule } from './job-post-routing.module';
     CommonModule,
     JobPostRoutingModule,
     MDBBootstrapModule.forRoot(),
-    FormsModule 
+    FormsModule
   ],
   declarations: [
     SelectCategoryComponent,
@@ -24,7 +24,8 @@ import { JobPostRoutingModule } from './job-post-routing.module';
     PostjobComponent,
     ClientTypeComponent,
     ServiceTypeComponent
-  ]
+  ],
+
 
 })
 export class JobPostModule { }

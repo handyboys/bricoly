@@ -1,0 +1,26 @@
+
+
+<div class="container">
+<div class="card text-center ">
+  <div class="card-header">
+Category
+  </div>
+  <div class="row row-cols-5">
+  <div class="card-body col" *ngFor = "let selectCategory of selectCategories" >
+
+      <button routerLink="/job-post/select-service" (click)='sendCategory(selectCategory)'>
+        <img src="https://img.icons8.com/flat_round/80/000000/paint-bucket.png"/></button>
+
+      <p >{{selectCategory.category}}</p>
+    </div>
+  </div>
+<div class="card-footer text-muted">
+   choose your Category
+  </div>
+</div>
+</div>
+
+
+
+
+
