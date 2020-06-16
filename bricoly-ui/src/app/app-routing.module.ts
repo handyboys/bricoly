@@ -1,7 +1,6 @@
-import { JobNotComponent } from './components/job-not/job-not.component';
 import { NgModule, Component } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { FindProfessionalComponent } from './find-professional/find-professional.component';
+import { FindProfessionalComponent } from './components/find-professional/find-professional.component';
 
 
 const routes: Routes = [
