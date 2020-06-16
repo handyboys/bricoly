@@ -1,3 +1,5 @@
+{{ signupProfForm.value | json }}
+
 <!-- Default form contact -->
 <form class="text-center border border-light p-5" #signupProfForm="ngForm" (ngSubmit)="onSubmit(signupProfForm)" action="#!">
   
@@ -69,15 +71,21 @@
 <!-- Subject -->
 <div class="form-row mb-4">
   <select class="form-control custom-select mb-4"  name="profCategory" required ngModel>
-    <option value=""  disable selected >Choose Category</option>
+    <option value=""  disabled selected >Choose Category</option>
     <option  name ="profCategory" *ngFor ="let category of categories" [ngValue]="category.id" >{{category.category}}</option>
   </select> 
 </div>
-<!-- Name -->
+
+
+<!-- Address -->
 <div class="form-row mb-4">
-  <input type="text" id="address" class="form-control mb-4" placeholder="enter your adress" 
-  [(ngModel)]="newUser.adress" name="address" #address="ngModel" >
+  <select class="form-control custom-select mb-4"  name="profCity" required ngModel>
+    <option value=""  disabled selected >Choose you city</option>
+    <option  name ="profCity" *ngFor ="let city of cities" [ngValue]="city" >{{city}}</option>
+  </select> 
 </div>
+
+
 <!-- profile Description -->
 <div class="form-row mb-4">
   <textarea class="form-control rounded-1" id="exampleFormControlTextarea2" rows="3" placeholder="Description"
@@ -94,6 +102,5 @@
 
 <!-- Send button -->
 <button mdbBtn color="info" block="true" class="my-4" type="submit" >Send</button>
+signupProfForm
 
-</form>
-<!-- Default form contact -->

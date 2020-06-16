@@ -7,7 +7,7 @@
     <a (click)="sendCategory(category)">
       <mdb-card class="text-center">
         <mdb-card-body>
-          <img src="https://img.icons8.com/cotton/64/000000/electricity.png" style="margin-bottom: 5%;" />
+          <img [src]="category.icon_url" style="margin-bottom: 5%;" />
           <mdb-card-title>
             <h5 class="mb-2">{{ category.category }}</h5>
           </mdb-card-title>
