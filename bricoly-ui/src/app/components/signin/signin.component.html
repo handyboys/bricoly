@@ -27,7 +27,14 @@
   
   <!-- Sign up button -->
   <button mdbBtn color="info" block="true" class="my-4" type="submit" [disabled]="signinForm.form.invalid">Sign in</button>
-  {{diagnostic}}
+  
+  
+    <!-- Register -->
+    <p>New to Bricoly ?
+      <a routerLink="/auth/signup" routerLinkActive="active">Register</a>
+    </p>
+  
+  
   </form>
     <!-- Default form register -->
     

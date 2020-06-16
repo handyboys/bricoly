@@ -15,10 +15,15 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { CarouselComponent } from './components/carousel/carousel.component';
 import { HomeComponent } from './components/home/home.component';
 import { HowItWorksComponent } from './components/how-it-works/how-it-works.component';
-import { HomeCategoryIconsComponent } from './components/home-category-icons/home-category-icons.component';
 import { ReviewCardsComponent } from './components/review-cards/review-cards.component';
 
-
+import {  CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { FindProfessionalComponent } from './components/find-professional/find-professional.component';
+import { FilterComponent } from './components/filter/filter.component';
+import { FooterComponent } from './components/footer/footer.component';
+import { AboutUsComponent } from './components/about-us/about-us.component';
+import { BlogComponent } from './components/blog/blog.component';
+import { HomeCategoryIconsComponent } from './components/home-category-icons/home-category-icons.component';
 
 @NgModule({
   declarations: [
@@ -28,12 +33,13 @@ import { ReviewCardsComponent } from './components/review-cards/review-cards.com
     CarouselComponent,
     HomeComponent,
     HowItWorksComponent,
-    HomeCategoryIconsComponent,
     ReviewCardsComponent,
-
-
-
-
+    FindProfessionalComponent,
+    FilterComponent,
+    FooterComponent,
+    AboutUsComponent,
+    BlogComponent,
+    HomeCategoryIconsComponent,
   ],
 
   imports: [
@@ -43,8 +49,11 @@ import { ReviewCardsComponent } from './components/review-cards/review-cards.com
     FormsModule,
     HttpClientModule,
     AgmCoreModule.forRoot({
-      apiKey: ''
+      apiKey: 'AIzaSyBMYPnWea___Dw9-tH1JyxaAGuvAI0iWvA'
     })
+  ],
+  schemas: [
+    CUSTOM_ELEMENTS_SCHEMA
   ],
 
   providers: [
@@ -55,6 +64,7 @@ import { ReviewCardsComponent } from './components/review-cards/review-cards.com
     }
 
   ],
+
   bootstrap: [AppComponent]
 })
 export class AppModule { }

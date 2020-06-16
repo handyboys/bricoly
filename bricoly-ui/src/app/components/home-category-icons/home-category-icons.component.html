@@ -1,26 +1,19 @@
-
-
-<div class="container">
-<div class="card text-center ">
-  <div class="card-header">
-Category
-  </div>
-  <div class="row row-cols-5">
-  <div class="card-body col" *ngFor = "let selectCategory of selectCategories" >
-
-      <button routerLink="/job-post/select-service" (click)='sendCategory(selectCategory)'>
-        <img src="https://img.icons8.com/flat_round/80/000000/paint-bucket.png"/></button>
-
-      <p >{{selectCategory.category}}</p>
-    </div>
-  </div>
-<div class="card-footer text-muted">
-   choose your Category
-  </div>
+<div class="text-center" style="margin-bottom: 5%;">
+  <h4 class="mb-2">What category of professionals are you looking for ?</h4>
 </div>
+<div class="card-deck">
+
+  <div class="col-sm-4 col-md-4 mb-3" *ngFor="let category of selectCategories">
+    <a (click)="sendCategory(category)">
+      <mdb-card class="text-center">
+        <mdb-card-body>
+          <img [src]="category.icon_url" style="margin-bottom: 5%;" />
+          <mdb-card-title>
+            <h5 class="mb-2">{{ category.category }}</h5>
+          </mdb-card-title>
+        </mdb-card-body>
+      </mdb-card>
+    </a>
+  </div>
+
 </div>
-
-
-
-
-

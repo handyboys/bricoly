@@ -1,0 +1,19 @@
+agm-map {
+    height: 300px;
+}
+.progress-bar.indeterminate {
+    height: 5px;
+    position: relative;
+    animation: progress-indeterminate 3s linear infinite;
+}
+
+@keyframes progress-indeterminate {
+    from {
+        left: -25%;
+        width: 50%;
+    }
+    to {
+        left: 100%;
+        width: 50%;
+    }
+}
