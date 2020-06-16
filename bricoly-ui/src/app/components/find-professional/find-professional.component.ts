@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { ProfDetails } from '../interfaces/profDetails/prof-details';
-import { FindProfessionalService } from '../services/findProfessional/find-professional.service';
+import { ProfDetails } from '../../interfaces/profDetails/prof-details';
+import { FindProfessionalService } from '../../services/findProfessional/find-professional.service'
 
 
 @Component({
