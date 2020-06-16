@@ -10,7 +10,7 @@ import { AppComponent } from './app.component';
 import { ToggleFilterDirective } from './directives/toggle-filter.directive';
 import { AuthInterceptor } from './interceptors/auth.interceptor';
 import { NavbarComponent } from './components/navbar/navbar.component';
-import { FindProfessionalComponent } from './find-professional/find-professional.component';
+import { FindProfessionalComponent } from './components/find-professional/find-professional.component';
 import { FilterComponent } from './components/filter/filter.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { AboutUsComponent } from './components/about-us/about-us.component';

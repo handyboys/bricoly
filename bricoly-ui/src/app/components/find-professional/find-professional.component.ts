@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { ProfDetails } from '../interfaces/profDetails/prof-details';
-import { FindProfessionalService } from '../services/findProfessional/find-professional.service';
+import { ProfDetails } from '../../interfaces/profDetails/prof-details';
+import { FindProfessionalService } from '../../services/findProfessional/find-professional.service';
 
 
 @Component({
@@ -23,33 +23,16 @@ export class FindProfessionalComponent implements OnInit {
     
   }
   
-  // onActivate(elementRef){
-  //   console.log(elementRef)
-  //   if (elementRef.filterEvent){
-  //       elementRef.filterEvent.subscribe((event)=> {
-  //         console.log("EVENTTT", event)
-  //         this.myFilter = event
-       
-  //     });
-  //   }
-  // }
-
   receiveFilter($event){ 
     this.myFilter = $event;
-    
     if(this.myFilter){ 
 
       console.log("FILTERRRR", this.myFilter);
       return this.profDetails.filter(profDetail =>{
-      return profDetail.category_id == this.myFilter.category;
+      return  this.myFilter.category === profDetail.category_id;
      });
     }
   }
-    
-
-
- 
-     
   
   ngOnInit(): void {
  
