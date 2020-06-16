@@ -3,7 +3,7 @@ import { ProfDetails } from '../../interfaces/profDetails/prof-details';
 import { FindProfessionalService } from '../../services/findProfessional/find-professional.service'
 import { JobPostService } from '../../services/jobPost/job-post.service';
 import { Category } from '../../models/category/category.model';
-
+import { CITIES } from '../../../../cities.js'
 
 @Component({
   selector: 'app-find-professional',
@@ -13,8 +13,12 @@ import { Category } from '../../models/category/category.model';
 export class FindProfessionalComponent implements OnInit {
 
   profDetails: ProfDetails[];
-  selectedCategoryId: number;
   categories: Category[];
+  cities: string[] = Object.keys(CITIES);
+
+  // Filter props
+  selectedCategoryId: number;
+  selectedCity: string;
 
   constructor(private findProf: FindProfessionalService, private findCat: JobPostService) {
 
@@ -52,7 +56,7 @@ export class FindProfessionalComponent implements OnInit {
 
 
 
-  get diagnostic() { return this.selectedCategoryId }
+  get diagnostic() { return `${this.selectedCategoryId}, ${this.selectedCity}` }
 
   ngOnInit(): void {
     this.findCat.getCategories()

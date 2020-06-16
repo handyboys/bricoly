@@ -1,11 +1,22 @@
-<div>
+<div class="container" style="margin-top: 2%;">
     <!-- <app-filter (filterEvent)="receiveFilter($event)"></app-filter> -->
-    <div class="col-md-3">
-        <select class="custom-select custom-select-sm" [(ngModel)]="selectedCategoryId">
-            <option selected disabled>Select Category</option>
-            <option name="profCategory" *ngFor="let category of categories" [value]="category.id">
-                {{category.category}}</option>
-        </select>
+    <div class="col-md-4 text-center">
+        <div>
+            <h5 class="text-muted">Category</h5>
+            <select class="custom-select browser-default" [(ngModel)]="selectedCategoryId">
+                <option [value]="0" selected>All Categories</option>
+                <option name="profCategory" *ngFor="let category of categories" [value]="category.id">
+                    {{category.category}}</option>
+            </select>
+        </div>
+        <div>
+            <h5 class="text-muted">City</h5>
+            <select class="custom-select browser-default" [(ngModel)]="selectedCity">
+                <option [value]="0" selected>All Cities</option>
+                <option name="profCategory" *ngFor="let city of cities" [value]="city">
+                    {{city}}</option>
+            </select>
+        </div>
     </div>
     {{diagnostic}}
     <div class="container" style="margin-top: 6%;">
@@ -13,7 +24,8 @@
         <div class="row" style="margin-top: 40px;">
             <div class="card-deck" style="margin-bottom: 10px ;">
                 <!-- Card -->
-                <div class="col-sm-4 col-md-4 mb-3" *ngFor="let profDetail of ( profDetails | filterProfessionals: selectedCategoryId )">
+                <div class="col-sm-4 col-md-4 mb-3"
+                    *ngFor="let profDetail of ( profDetails | filterProfessionals: selectedCategoryId : selectedCity )">
                     <mdb-card>
                         <div class="view overlay waves-light" mdbWavesEffect>
                             <!-- Card img -->
