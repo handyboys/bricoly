@@ -10,6 +10,10 @@ module.exports = function(sequelize, DataTypes) {
     category: {
       type: DataTypes.STRING(255),
       allowNull: false
+    },
+    icon_url: {
+      type: DataTypes.STRING(255),
+      allowNull: false
     }
   }, {
     tableName: 'service_categories'

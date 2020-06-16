@@ -1,14 +1,97 @@
 -- To insert data into db execute the following command from the terminal
 -- mysql -u root -p < server/database/db-init/mock-data/services.sql
-
 USE bricolyDB;
-INSERT INTO services (service , category_id)
- VALUES
- ('interior painting',34),
- ('exterior painting',34),
- ('wall paper',34),
- ('Decorative painting',34),
- ('installation Ac',36),
- ('Reparation Ac',36),
- ('Gaz furnaces',36);
- 
+
+INSERT INTO services (service, category_id) VALUES ('Leaking Pipes', 1);
+INSERT INTO services (service, category_id) VALUES ('Night Guards', 2);
+INSERT INTO services (service, category_id) VALUES ('Mock Service - 961', 3);
+INSERT INTO services (service, category_id) VALUES ('Exterior Painting', 4);
+INSERT INTO services (service, category_id) VALUES ('Mock Service - 705', 5);
+INSERT INTO services (service, category_id) VALUES ('Air Conditioners', 6);
+INSERT INTO services (service, category_id) VALUES ('Mock Service - 951', 7);
+INSERT INTO services (service, category_id) VALUES ('Mock Service - 392', 8);
+INSERT INTO services (service, category_id) VALUES ('Mock Service - 187', 9);
+INSERT INTO services (service, category_id) VALUES ('Mock Service - 455', 10);
+INSERT INTO services (service, category_id) VALUES ('Mock Service - 108', 11);
+INSERT INTO services (service, category_id) VALUES ('Mock Service - 008', 12);
+INSERT INTO services (service, category_id) VALUES ('Mock Service - 447', 13);
+INSERT INTO services (service, category_id) VALUES ('Mock Service - 076', 14);
+INSERT INTO services (service, category_id) VALUES ('Water Systems', 1);
+INSERT INTO services (service, category_id) VALUES ('Alarm Systems', 2);
+INSERT INTO services (service, category_id) VALUES ('Mock Service - 816', 3);
+INSERT INTO services (service, category_id) VALUES ('Interior Painting', 4);
+INSERT INTO services (service, category_id) VALUES ('Mock Service - 445', 5);
+INSERT INTO services (service, category_id) VALUES ('Refrigerators', 6);
+INSERT INTO services (service, category_id) VALUES ('Mock Service - 749', 7);
+INSERT INTO services (service, category_id) VALUES ('Mock Service - 867', 8);
+INSERT INTO services (service, category_id) VALUES ('Mock Service - 144', 9);
+INSERT INTO services (service, category_id) VALUES ('Mock Service - 686', 10);
+INSERT INTO services (service, category_id) VALUES ('Mock Service - 940', 11);
+INSERT INTO services (service, category_id) VALUES ('Mock Service - 866', 12);
+INSERT INTO services (service, category_id) VALUES ('Mock Service - 049', 13);
+INSERT INTO services (service, category_id) VALUES ('Mock Service - 029', 14);
+INSERT INTO services (service, category_id) VALUES ('Unclogging', 1);
+INSERT INTO services (service, category_id) VALUES ('Surveillance Cameras', 2);
+INSERT INTO services (service, category_id) VALUES ('Mock Service - 533', 3);
+INSERT INTO services (service, category_id) VALUES ('Paper Hanging', 4);
+INSERT INTO services (service, category_id) VALUES ('Mock Service - 119', 5);
+INSERT INTO services (service, category_id) VALUES ('Central ACs', 6);
+INSERT INTO services (service, category_id) VALUES ('Mock Service - 222', 7);
+INSERT INTO services (service, category_id) VALUES ('Mock Service - 504', 8);
+INSERT INTO services (service, category_id) VALUES ('Mock Service - 228', 9);
+INSERT INTO services (service, category_id) VALUES ('Mock Service - 720', 10);
+INSERT INTO services (service, category_id) VALUES ('Mock Service - 354', 11);
+INSERT INTO services (service, category_id) VALUES ('Mock Service - 062', 12);
+INSERT INTO services (service, category_id) VALUES ('Mock Service - 303', 13);
+INSERT INTO services (service, category_id) VALUES ('Mock Service - 025', 14);
+INSERT INTO services (service, category_id) VALUES ('Mock Service - 363', 1);
+INSERT INTO services (service, category_id) VALUES ('Mock Service - 628', 2);
+INSERT INTO services (service, category_id) VALUES ('Mock Service - 368', 3);
+INSERT INTO services (service, category_id) VALUES ('Spray Painting', 4);
+INSERT INTO services (service, category_id) VALUES ('Mock Service - 230', 5);
+INSERT INTO services (service, category_id) VALUES ('Mock Service - 344', 7);
+INSERT INTO services (service, category_id) VALUES ('Mock Service - 698', 8);
+INSERT INTO services (service, category_id) VALUES ('Mock Service - 165', 9);
+INSERT INTO services (service, category_id) VALUES ('Mock Service - 824', 10);
+INSERT INTO services (service, category_id) VALUES ('Mock Service - 964', 11);
+INSERT INTO services (service, category_id) VALUES ('Mock Service - 334', 12);
+INSERT INTO services (service, category_id) VALUES ('Mock Service - 783', 13);
+INSERT INTO services (service, category_id) VALUES ('Mock Service - 805', 14);
+INSERT INTO services (service, category_id) VALUES ('Mock Service - 935', 1);
+INSERT INTO services (service, category_id) VALUES ('Mock Service - 707', 2);
+INSERT INTO services (service, category_id) VALUES ('Mock Service - 491', 3);
+INSERT INTO services (service, category_id) VALUES ('Mock Service - 975', 5);
+INSERT INTO services (service, category_id) VALUES ('Mock Service - 362', 7);
+INSERT INTO services (service, category_id) VALUES ('Mock Service - 702', 8);
+INSERT INTO services (service, category_id) VALUES ('Mock Service - 095', 9);
+INSERT INTO services (service, category_id) VALUES ('Mock Service - 459', 10);
+INSERT INTO services (service, category_id) VALUES ('Mock Service - 200', 11);
+INSERT INTO services (service, category_id) VALUES ('Mock Service - 384', 12);
+INSERT INTO services (service, category_id) VALUES ('Mock Service - 134', 13);
+INSERT INTO services (service, category_id) VALUES ('Mock Service - 790', 14);
+INSERT INTO services (service, category_id) VALUES ('Mock Service - 004', 1);
+INSERT INTO services (service, category_id) VALUES ('Mock Service - 642', 2);
+INSERT INTO services (service, category_id) VALUES ('Mock Service - 093', 3);
+INSERT INTO services (service, category_id) VALUES ('Mock Service - 456', 5);
+INSERT INTO services (service, category_id) VALUES ('Mock Service - 232', 7);
+INSERT INTO services (service, category_id) VALUES ('Mock Service - 335', 8);
+INSERT INTO services (service, category_id) VALUES ('Mock Service - 802', 9);
+INSERT INTO services (service, category_id) VALUES ('Mock Service - 452', 10);
+INSERT INTO services (service, category_id) VALUES ('Mock Service - 034', 11);
+INSERT INTO services (service, category_id) VALUES ('Mock Service - 813', 12);
+INSERT INTO services (service, category_id) VALUES ('Mock Service - 345', 13);
+INSERT INTO services (service, category_id) VALUES ('Mock Service - 864', 14);
+INSERT INTO services (service, category_id) VALUES ('Mock Service - 756', 1);
+INSERT INTO services (service, category_id) VALUES ('Mock Service - 729', 2);
+INSERT INTO services (service, category_id) VALUES ('Mock Service - 819', 3);
+INSERT INTO services (service, category_id) VALUES ('Mock Service - 982', 5);
+INSERT INTO services (service, category_id) VALUES ('Mock Service - 877', 7);
+INSERT INTO services (service, category_id) VALUES ('Mock Service - 116', 8);
+INSERT INTO services (service, category_id) VALUES ('Mock Service - 195', 9);
+INSERT INTO services (service, category_id) VALUES ('Mock Service - 385', 10);
+INSERT INTO services (service, category_id) VALUES ('Mock Service - 046', 11);
+INSERT INTO services (service, category_id) VALUES ('Mock Service - 268', 12);
+INSERT INTO services (service, category_id) VALUES ('Mock Service - 939', 13);
+INSERT INTO services (service, category_id) VALUES ('Mock Service - 492', 14);
+INSERT INTO services (service, category_id) VALUES ('Mock Service - 205', 1);
+INSERT INTO services (service, category_id) VALUES ('Mock Service - 950', 2);

@@ -1,20 +1,22 @@
-import { JobNotService } from './../../services/jobNot/job-not.service';
-import { Component, OnInit } from '@angular/core';
-import { User } from '../../models/user/user.model';
+import { Component, OnInit} from '@angular/core';
+import {ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-job-not',
   templateUrl: './job-not.component.html',
   styleUrls: ['./job-not.component.scss']
 })
+
 export class JobNotComponent implements OnInit {
   allNoti;
-  constructor(private jobsNot : JobNotService) {
-    this.jobsNot.getNotificaion()
-    .subscribe((data)=>{
-       this.allNoti = data;
-       console.log(this.allNoti)
-       });  
+  professional;
+  // @ViewChild('element') element;
+  // public position = { X: 'Right', Y: 'Top' };
+  constructor(private route: ActivatedRoute, private router: Router) {
+    this.allNoti = this.route.snapshot.data.notification
+    this.professional = this.allNoti.professional
+    console.log(this.allNoti)
+    console.log(this.professional)
   }
 
   ngOnInit(): void {

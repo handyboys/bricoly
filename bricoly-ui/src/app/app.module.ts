@@ -15,7 +15,8 @@ import { FilterComponent } from './components/filter/filter.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { AboutUsComponent } from './components/about-us/about-us.component';
 import { BlogComponent } from './components/blog/blog.component';
-import { JobNotComponent } from './components/job-not/job-not.component';
+import { JobHistoryComponent } from './components/job-history/job-history.component';
+
 
 @NgModule({
   declarations: [
@@ -27,7 +28,7 @@ import { JobNotComponent } from './components/job-not/job-not.component';
     FooterComponent,
     AboutUsComponent,
     BlogComponent,
-    JobNotComponent,
+    JobHistoryComponent,
   ],
   imports: [
     BrowserModule,

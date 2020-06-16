@@ -1,0 +1,24 @@
+<div class="container-fluid mt-5">
+    <div class="row">
+        <div class="col-md-8 offset-md-2">
+            <div class="dark-font">
+                <mdb-breadcrumb customClass="purple lighten-4">
+                    <mdb-breadcrumb-item fontWeight="light">My Jobs</mdb-breadcrumb-item>
+                </mdb-breadcrumb>
+            </div>
+
+            <mdb-card *ngFor="let myJob of myJobs" class="mt-2">
+                <mdb-card-header>{{myJob.first_name +' '+myJob.last_name}}</mdb-card-header>
+                <mdb-card-body>
+                    <mdb-card-title>
+                        <h5>{{myJob.service}}</h5>
+                        <h6 class="text-muted mb-2">{{myJob.service_type}}</h6>
+                    </mdb-card-title>
+                    <mdb-card-text>{{myJob.description}}</mdb-card-text>
+                    <mdb-icon fas icon="map-marker-alt" ngClass="location-icon"></mdb-icon><small>{{myJob.longitude+','+myJob.latitude }}</small><br>
+                    <a href="" mdbBtn color="secondary">Apply</a>
+                </mdb-card-body>
+            </mdb-card>
+        </div>
+    </div>
+</div>
