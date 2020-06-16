@@ -37,5 +37,5 @@ mysql -u root -proot < job-app.sql
 echo "######### DONE ! Proceeding .."
 
 echo "Adding REVIEWS mock data .."
-mysql -u root -proot < users.sql
+mysql -u root -proot < reviews.sql
 echo "######### DONE ! Proceeding .."
