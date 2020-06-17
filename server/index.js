@@ -26,6 +26,7 @@ app.use('/job-post', router.jobPost)
 app.use('/jobs', router.jobs)
 app.use('/findProf', router.findProf)
 app.use('/job', router.jobNot)
+app.use('/reviews', router.createReviews)
 
 
 const port = process.env.PORT || 8080;

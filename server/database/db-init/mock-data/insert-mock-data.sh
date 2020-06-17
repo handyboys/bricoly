@@ -5,37 +5,37 @@
 # 3- ./insert-mock-data.sh
 
 echo "Creating bricolyDB .."
-mysql -u root -proot < ../schema.sql
+mysql -u root  < ../schema.sql
 echo "######### DONE ! Proceeding .."
 
 echo "Adding CATEGORIES mock data .."
-mysql -u root -proot < categories.sql
+mysql -u root  < categories.sql
 echo "######### DONE ! Proceeding .."
 
 echo "Adding SERVICES mock data .."
-mysql -u root -proot < services.sql
+mysql -u root  < services.sql
 echo "######### DONE ! Proceeding .."
 
 echo "Adding USERS mock data .."
-mysql -u root -proot < users.sql
+mysql -u root < users.sql
 echo "######### DONE ! Proceeding .."
 
 echo "Adding PROFESSIONALS mock data .."
-mysql -u root -proot < professionals.sql
+mysql -u root < professionals.sql
 echo "######### DONE ! Proceeding .."
 
 echo "Adding CREDENTIALS mock data .."
-mysql -u root -proot < credentials.sql
+mysql -u root < credentials.sql
 echo "######### DONE ! Proceeding .."
 
 echo "Adding JOBS mock data .."
-mysql -u root -proot < jobs.sql
+mysql -u root < jobs.sql
 echo "######### DONE ! Proceeding .."
 
 echo "Adding JOB APPLICATIONS mock data .."
-mysql -u root -proot < job-app.sql
+mysql -u root < job-app.sql
 echo "######### DONE ! Proceeding .."
 
 echo "Adding REVIEWS mock data .."
-mysql -u root -proot < reviews.sql
+mysql -u root < reviews.sql
 echo "######### DONE ! Proceeding .."
