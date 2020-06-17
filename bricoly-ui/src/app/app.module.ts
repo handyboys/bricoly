@@ -23,6 +23,7 @@ import { FilterComponent } from './components/filter/filter.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { AboutUsComponent } from './components/about-us/about-us.component';
 import { BlogComponent } from './components/blog/blog.component';
+import { FilterProfessionalsPipe } from './pipes/filter-professionals.pipe';
 import { HomeCategoryIconsComponent } from './components/home-category-icons/home-category-icons.component';
 
 @NgModule({
@@ -39,6 +40,7 @@ import { HomeCategoryIconsComponent } from './components/home-category-icons/hom
     FooterComponent,
     AboutUsComponent,
     BlogComponent,
+    FilterProfessionalsPipe,
     HomeCategoryIconsComponent,
   ],
 
