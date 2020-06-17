@@ -1,0 +1,26 @@
+.modal-header  {
+  background-color: rgb(92, 209, 245);
+}
+.card-body{
+  width: 100%;
+  background: transparent;
+  border: none;
+  text-align: justify;
+
+  max-height: 400px;
+}
+.form-control{
+  resize: none;
+  word-break: break-word;
+  position: relative;
+  display: block;
+}
+.avatar{
+  size: 20px;
+}
+.chat-message{
+  overflow-x: scroll;
+}
+
+
+

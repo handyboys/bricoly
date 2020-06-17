@@ -5,7 +5,7 @@
 # 3- ./insert-mock-data.sh
 
 echo "Creating bricolyDB .."
-mysql -u root -proot < ../schema.sql
+mysql -u root  -proot < ../schema.sql
 echo "######### DONE ! Proceeding .."
 
 echo "Adding CATEGORIES mock data .."
@@ -13,7 +13,7 @@ mysql -u root -proot < categories.sql
 echo "######### DONE ! Proceeding .."
 
 echo "Adding SERVICES mock data .."
-mysql -u root -proot < services.sql
+mysql -u root  -proot < services.sql
 echo "######### DONE ! Proceeding .."
 
 echo "Adding USERS mock data .."

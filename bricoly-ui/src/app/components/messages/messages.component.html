@@ -1,0 +1,111 @@
+
+<button mdbBtn type="button" gradient="blue" rounded="true" mdbWavesEffect data-toggle="modal" data-target="#basicExample" (click)="frame.show()"
+  >CHAT</button>
+
+<div mdbModal #frame="mdbModal" class="modal fade right show" id="sideModalBRSuccess" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+  aria-hidden="true">
+  <div class="modal-dialog modal-lg modal-side modal-bottom-right " role="document">
+    <!--Content-->
+    <div class="modal-content">
+      <!--Header-->
+
+      <div class="modal-header">
+        <p class="heading lead">contact a professional</p>
+
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="frame.hide()">
+          <span aria-hidden="true" class="white-text">&times;</span>
+        </button>
+        <!--profile image-->
+        <div class="profile-photo" >
+          <img src="https://mdbootstrap.com/img/Photos/Avatars/avatar-6.jpg" alt="avatar"
+               class="avatar rounded-circle mr-2 ml-2 " size="sm">
+          <span class="state"></span>
+        </div>
+        <!-- profile image-->
+      </div>
+
+      <!--Body-->
+      <div class="card cloudy-knoxville-gradient chat-room col-xl-12">
+        <div class="card-body">
+          <!-- Grid row -->
+          <div class="row px-lg-2 px-2">
+            <!-- Grid column -->
+            <div class="col-md-12 col-xl-12 pl-md-3 px-lg-auto px-0">
+              <div class="chat-message">
+                <ul class="list-unstyled chat-1 scrollbar-blue">
+                  <li class="d-flex justify-content-between mb-4" *ngFor="let data of output">
+
+
+                    <div class="text-wrap  display: block ">
+                      <div class="header">
+                        <strong class="primary-font">{{data.handle}}</strong>
+                        <!-- <small class="pull-right text-muted"><i class="far fa-clock"></i> 12 mins ago</small> -->
+                      </div>
+
+                      <p class="mb-0"> {{data.message}}</p>
+                    </div>
+                  </li>
+                  <!-- <li class="d-flex justify-content-between mb-4">
+                    <div class="chat-body white p-3 z-depth-1">
+                      <div class="header">
+                        <strong class="primary-font">Lara Croft</strong>
+                      </div>
+                      <hr class="w-100">
+                      <p class="mb-0">
+                        Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque
+                        laudantium.
+                      </p>
+                    </div>
+                    <img src="https://mdbootstrap.com/img/Photos/Avatars/avatar-5.jpg" alt="avatar"
+                      class="avatar rounded-circle mr-0 ml-3 z-depth-1">
+                  </li> -->
+                </ul>
+                <div id="feedback">
+                  <p>{{feedback}}</p>
+                </div>
+                <div class="white">
+                  <div class="form-group basic-textarea">
+                    <textarea class="form-control pl-2 my-0" id="exampleFormControlTextarea2" rows="6"
+                      placeholder="Type your message here..." (keypress)="messageTyping()" [(ngModel)]="message"></textarea>
+                  </div>
+                </div>
+
+
+              </div>
+            </div>
+            <!-- Grid column -->
+          </div>
+          <!-- Grid row -->
+        </div>
+      </div>
+
+      <!--Footer-->
+      <div class="modal-footer justify-content-center">
+
+        <div>
+          <a>
+            <mdb-icon far icon="file-image" class="mr-2"></mdb-icon>
+          </a>
+          <a>
+            <mdb-icon far icon="laugh" class="mr-2"></mdb-icon>
+          </a>
+          <a>
+            <mdb-icon fas icon="gamepad" class="mr-2"></mdb-icon>
+          </a>
+          <a>
+            <mdb-icon fas icon="paperclip" class="mr-2"></mdb-icon>
+          </a>
+          <a>
+            <mdb-icon fas icon="camera" class="mr-2"></mdb-icon>
+          </a>
+
+        </div>
+        <a mdbBtn type="button" color="info" mdbWavesEffect   (click)="sendMessage()">Send</a>
+      </div>
+    </div>
+    <!--/.Content-->
+  </div>
+</div>
+
+
+
