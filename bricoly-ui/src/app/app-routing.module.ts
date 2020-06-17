@@ -2,7 +2,6 @@ import { NgModule, Component } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { FindProfessionalComponent } from './components/find-professional/find-professional.component';
 
-
 const routes: Routes = [
   {path : 'messages',
   loadChildren: ()=> import('./modules/messages/messages/messages.module').then(m => m.MessagesModule)
@@ -28,6 +27,7 @@ const routes: Routes = [
     path:'findProf',
     component: FindProfessionalComponent,
   },
+  
 ];
 
 @NgModule({

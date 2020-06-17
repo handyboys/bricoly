@@ -18,8 +18,24 @@ export class JobsService {
    * @function getAllJobs - get all jobs request
    * @returns observable that contains all jobs data
    */
+
   getAllJobs(): Observable<any> {
+    const id : number = Number(localStorage.getItem('userId'))
     let api = this.endpoint + '/feed';
+    console.log('History service func engaged ..')
+    return this.http.get(api)
+      .pipe(
+        catchError(this.handleError)
+      )
+  }
+  /**
+   * @function getAllJobs - get all jobs request basing on the user id 
+   * @returns observable that contains all jobs data
+   */
+
+  getJobHistory(): Observable<any> {
+    const id : number = Number(localStorage.getItem('userId'))
+    let api = this.endpoint + `/history/${id}`;
     console.log('feed service func engaged ..')
     return this.http.get(api)
       .pipe(
@@ -33,6 +49,7 @@ export class JobsService {
    * @param {HttpErrorResponse} error - object representing occuring object
    * @returns { Observable } - object representing the occuring error
    */
+
   handleError(error : HttpErrorResponse) {
     let msg = '';
     if (error.error instanceof ErrorEvent) {
