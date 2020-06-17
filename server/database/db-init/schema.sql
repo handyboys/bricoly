@@ -87,7 +87,7 @@ CREATE TABLE reviews (
 	price INT, -- same as above
 	communication INT, -- same as above
 	overall_rating DECIMAL(2,1) , -- average stars rating of three above
-	job_id INT NOT NULL,
+	job_applications_id INT NOT NULL,
 	PRIMARY KEY (id)
 );
 
@@ -107,7 +107,7 @@ CREATE TABLE images (
 );
 
 CREATE TABLE job_applications (
-	id INT NOT NULL AUTO_INCREMENT,
+	id INT NOT NULL AUTO_INCREMENT ,
 	job_id INT NOT NULL,
 	professional_id INT NOT NULL,
 	PRIMARY KEY (id)
