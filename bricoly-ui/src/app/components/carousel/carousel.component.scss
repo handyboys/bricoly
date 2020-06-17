@@ -1,48 +1,41 @@
-
-.slider{
-  width: 100vw;
+.slider {
+  width: auto;
   height: 100vh;
-  background-image: url( "https://www.njimedia.com/wp-content/uploads/2018/03/83d70063498577.5ab28d9d4fe0a.jpg");
+  background-image: url("../../../assets/carousel_banner.svg");
   background-position: center;
   background-size: cover;
+  
 
-
-
- .slider-content{
-  width: 100vw;
-  height: 100vh;
-  background-color: rgba(0, 0, 0, 0.5);
-  .h1{
-  font-size: 70px;
-  font-weight: 900;
-  line-height: 1.2;
-  color: white;
-  font-family: playfair display,serif;
-
-  }
-  .slider-content--cta{
-    border: 2px solid #fff;
-    background-color: rgba(241, 246, 241, 0.151);
-    background: 0 0 ;
-    color: #fff;
-    text-decoration: none;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    font-size: 14px;
-    font-weight: 700;
-
+  .slider-content {
+    width: auto;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.178);
+    .h1 {
+      font-weight: 900;
+      line-height: 1.2;
+      color: white;
+    }
+    .slider-content--cta {
+      border: 2px solid #fff;
+      background-color: rgba(241, 246, 241, 0.151);
+      background: 0 0;
+      color: #fff;
+      text-decoration: none;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      font-size: 14px;
+      font-weight: 700;
+    }
   }
 }
-
-}
-img{
-  margin: auto;
-  left: 0;
-  right: 0;
-  width: 50px;
-  margin-top: 70px;
-  border: 1px solid black;
-  font-weight: 700;
-  font-size: 1.2rem;
-  cursor: pointer;
-}
+// img {
+//   margin: auto;
+//   left: 0;
+//   right: 0;
+//   width: 50px;
+//   margin-top: 70px;
+//   border: 1px solid black;
+//   font-weight: 700;
+//   font-size: 1.2rem;
+//   cursor: pointer;
+// }
