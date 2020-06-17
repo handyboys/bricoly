@@ -38,23 +38,57 @@
                         <mdb-card-img src="https://mdbootstrap.com/img/Photos/Others/images/16.jpg"
                             alt="Card image cap">
                         </mdb-card-img>
-                        <a>
-                            <div class="mask rgba-white-slight"></div>
-                        </a>
+                        <div class="mask rgba-white-slight"></div>
                     </div>
                     <!--Card content-->
                     <mdb-card-body>
                         <!--Title-->
                         <mdb-card-title>
-                            <a href="#">
-                                <h4>{{profDetail.first_name + ' ' + profDetail.last_name}}</h4>
-                            </a>
+                            <h4>{{profDetail.first_name + ' ' + profDetail.last_name}}</h4>
                         </mdb-card-title>
 
                         <!--Text-->
                         <mdb-card-text>{{profDetail.description}}
                         </mdb-card-text>
                     </mdb-card-body>
+                    <button type="button" mdbBtn color="primary" class="relative waves-light"
+                        (click)="basicModal.show()" mdbWavesEffect>Launch demo modal</button>
+
+                    <div mdbModal #basicModal="mdbModal" class="modal fade" tabindex="-1" role="dialog"
+                        aria-labelledby="myBasicModalLabel" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close pull-right" aria-label="Close"
+                                        (click)="basicModal.hide()">
+                                        <span aria-hidden="true">×</span>
+                                    </button>
+                                    <h4 class="modal-title w-100" id="myModalLabel">
+                                        {{profDetail.first_name + ' ' + profDetail.last_name}}</h4>
+                                </div>
+                                <div class="modal-body">
+                                    <div class="container-fluid">
+                                        <div class="row">
+                                            <p>
+                                                <b>Business :</b>{{profDetail.category}}
+                                                <b>Email: </b>{{profDetail.email}}<br>
+                                                <b>City : </b><br>
+                                                <b>Phone:</b>{{profDetail.phone}}<br>
+                                                <b>Description:</b>{{profDetail.description}}<br>
+                                               
+                                            </p><br>
+                                        </div>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" mdbBtn color="secondary" class="waves-light"
+                                            aria-label="Close" (click)="basicModal.hide()" mdbWavesEffect>Close</button>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
                 </mdb-card>
             </div>
             <br>
