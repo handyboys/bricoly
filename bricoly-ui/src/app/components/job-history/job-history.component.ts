@@ -17,6 +17,8 @@ export class JobHistoryComponent implements OnInit {
       this.myJobs = data;
       console.log(this.myJobs)
     })
+
+    
   }
 
   ngOnInit(): void {

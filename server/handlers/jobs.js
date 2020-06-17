@@ -10,7 +10,9 @@ var service_categories = db.import('../database/models/service_categories.js');
 //importing jobs' table's model
 var Jobs = db.import('../database/models/jobs.js');
 
+var job_applications = db.import('../database/models/job_applications.js');
 
+var professionals = db.import('../database/models/professionals.js')
 /**
 * @function getJobs - sending json for all the jobs
 * @param req {Object} - The request object coming from the client
@@ -63,31 +65,37 @@ exports.getJobs = async (req, res) => {
     }
 }
 exports.getJobHistory = async (req, res) => {
-    console.log("HELLLOOOOOOOOO", req.params.id)
+    var query = `select * from job_applications inner join jobs on job_applications.id = jobs.id inner join users on jobs.client_id = users.id inner join services on services.id = service_id where users.id = ?;
+ `
     try {
-        var jobsHistory = await Jobs.findAll({ where: { client_id: req.params.id } })
+        var user = await users.findAll({ where: { id: req.params.id } })
+        if (user.is_professional) {
+            var jobApps = await db.query(query, { replacements: [req.params.id], type: db.QueryTypes.SELECT });
+            res.status(200).send(jobApps)
+        } else {
+            var jobsHistory = await Jobs.findAll({ where: { client_id: req.params.id } })
+            var myJobsHistory = await Promise.all(jobsHistory.map(async element => {
 
-        var myJobsHistory = await Promise.all(jobsHistory.map(async element =>{ 
-        
-            var jobHistory = { 
-              client_type: element.dataValues.client_type,
-              description: element.dataValues.related_info,
-              longitude: element.dataValues.longitude,
-              latitude: element.dataValues.latitude,
-              service_type: element.dataValues.service_type
-            }
-            var { first_name, last_name } = await users.findByPk(element.dataValues.client_id);
+                var jobHistory = {
+                    client_type: element.dataValues.client_type,
+                    description: element.dataValues.related_info,
+                    longitude: element.dataValues.longitude,
+                    latitude: element.dataValues.latitude,
+                    service_type: element.dataValues.service_type
+                }
+                var { first_name, last_name } = await users.findByPk(element.dataValues.client_id);
 
-            var { service, category_id } = await services.findByPk(element.dataValues.service_id);
-            var { category } = await service_categories.findByPk(category_id)
-            jobHistory['first_name'] = first_name
-            jobHistory['last_name'] = last_name
-            jobHistory['service'] = service
-            jobHistory['category'] = category
-            //adding all the info to the open jobs array
-            return jobHistory
-        }))
-        res.status(200).json(myJobsHistory);
+                var { service, category_id } = await services.findByPk(element.dataValues.service_id);
+                var { category } = await service_categories.findByPk(category_id)
+                jobHistory['first_name'] = first_name
+                jobHistory['last_name'] = last_name
+                jobHistory['service'] = service
+                jobHistory['category'] = category
+                //adding all the info to the open jobs array
+                return jobHistory
+            }))
+            res.status(200).json(myJobsHistory);
+        }
     } catch (e) {
         console.log(e);
         res.status(400).send(e)
