@@ -43,10 +43,11 @@ export class JobsService {
       )
   }
 
+
   /**
    * @function handleError - server/client-side error handling function
    * @param {HttpErrorResponse} error - object representing occuring object
-   * @returns { Observable } - object representing the occuring error 
+   * @returns { Observable } - object representing the occuring error
    */
 
   handleError(error : HttpErrorResponse) {

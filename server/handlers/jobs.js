@@ -21,7 +21,8 @@ var professionals = db.import('../database/models/professionals.js')
 * @async
 */
 
-exports.getJobs = async (req, res) => {
+
+exports.getJobs = async (req, res)=>{
     console.log("123")
     try {
         db.sync({ force: false })
@@ -37,6 +38,7 @@ exports.getJobs = async (req, res) => {
                 var openJobs = await Promise.all(AllJobs.map(async element => {
                     //an object that contains all the info from the db 
                     var job = {
+                        id :element.dataValues.id,
                         client_type: element.dataValues.client_type,
                         description: element.dataValues.related_info,
                         longitude: element.dataValues.longitude,
@@ -64,18 +66,38 @@ exports.getJobs = async (req, res) => {
         res.status(400).send(e)
     }
 }
+
+exports.postJobs = async (req, res)=>{
+    try {
+       await db.sync({force:false})
+        await job_applications.create({
+                job_id: req.body.job_id,
+                professional_id : req.body.professional_id
+            });
+    //sending a json for all the open jobs info
+            res.status(200).json({message:"sucess"})
+        
+    } catch (e) {
+        console.log(e)
+        res.status(404).json({erreur: e})
+    }
+    
+}
+
 exports.getJobHistory = async (req, res) => {
-    var query = `select * from job_applications inner join jobs on job_applications.id = jobs.id inner join users on jobs.client_id = users.id inner join services on services.id = service_id where users.id = ?;
+    var query = `select * from job_applications inner join jobs on job_applications.job_id = jobs.id inner join users on jobs.client_id = users.id inner join services on services.id = jobs.service_id where professional_id = ?;
  `
     try {
-        var user = await users.findAll({ where: { id: req.params.id } })
-        if (user.is_professional) {
+        var allUsers = await users.findAll({ where: { id: req.params.id } })
+        var user = allUsers[0]
+        
+        if (user.dataValues.is_professional === 1) {
             var jobApps = await db.query(query, { replacements: [req.params.id], type: db.QueryTypes.SELECT });
             res.status(200).send(jobApps)
         } else {
             var jobsHistory = await Jobs.findAll({ where: { client_id: req.params.id } })
             var myJobsHistory = await Promise.all(jobsHistory.map(async element => {
-
+            
                 var jobHistory = {
                     client_type: element.dataValues.client_type,
                     description: element.dataValues.related_info,
@@ -100,4 +122,5 @@ exports.getJobHistory = async (req, res) => {
         console.log(e);
         res.status(400).send(e)
     }
+    
 }

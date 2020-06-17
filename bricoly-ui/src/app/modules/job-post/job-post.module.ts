@@ -8,10 +8,11 @@ import { JobDetailsComponent } from '../../components/job-details/job-details.co
 import { FormsModule } from '@angular/forms';
 import { NgModule, Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { MDBBootstrapModule } from 'angular-bootstrap-md'; 
+import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import {PostjobComponent} from './../../components/job-post/postjob.component'
 import { JobPostRoutingModule } from './job-post-routing.module';
 import { AgmCoreModule } from '@agm/core';
+import {  CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 
 @NgModule({
   imports: [
@@ -21,7 +22,10 @@ import { AgmCoreModule } from '@agm/core';
       apiKey: 'AIzaSyBMYPnWea___Dw9-tH1JyxaAGuvAI0iWvA'
     }),
     MDBBootstrapModule.forRoot(),
-    FormsModule 
+    FormsModule
+  ],
+  schemas: [
+    CUSTOM_ELEMENTS_SCHEMA
   ],
   declarations: [
     SelectCategoryComponent,
@@ -31,7 +35,8 @@ import { AgmCoreModule } from '@agm/core';
     ServiceTypeComponent,
     SelectJobLocationComponent,
     JobDetailsComponent
-  ]
+  ],
+
 
 })
 export class JobPostModule { }

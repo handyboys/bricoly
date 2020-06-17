@@ -5,7 +5,8 @@ module.exports = function(sequelize, DataTypes) {
     id: {
       type: DataTypes.INTEGER,
       allowNull: false,
-      primaryKey: true
+      primaryKey: true,
+      autoIncrement : true
     },
     comment: {
       type: DataTypes.TEXT,
@@ -27,11 +28,11 @@ module.exports = function(sequelize, DataTypes) {
       type: DataTypes.DECIMAL,
       allowNull: true
     },
-    contract_id: {
+    job_applications_id : {
       type: DataTypes.INTEGER,
       allowNull: false,
       references: {
-        model: 'contracts',
+        model: 'job_applications',
         key: 'id'
       }
     }

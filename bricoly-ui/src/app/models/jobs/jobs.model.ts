@@ -1,5 +1,6 @@
 export class Job {
     constructor(
+       public id : number,
        public first_name : string,
        public last_name : string,
        public category : string,
