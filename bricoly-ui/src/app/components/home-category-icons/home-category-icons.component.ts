@@ -16,7 +16,7 @@ export class HomeCategoryIconsComponent implements OnInit {
   //   console.log('sel-cat constructor : ', this.route.snapshot.data)
   //  this.selectCategories = this.route.snapshot.data.categories;
   this.jobPost.getCategories().subscribe(data=>{
-    this.selectCategories= data;
+    this.selectCategories= [data[0], data[1], data[3]];
   })
   }
 

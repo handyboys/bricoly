@@ -1,19 +1,21 @@
-<div class="text-center" style="margin-bottom: 5%;">
-  <h4 class="mb-2">What category of professionals are you looking for ?</h4>
-</div>
-<div class="card-deck">
-
-  <div class="col-sm-4 col-md-4 mb-3" *ngFor="let category of selectCategories">
-    <a (click)="sendCategory(category)">
-      <mdb-card class="text-center">
-        <mdb-card-body>
-          <img [src]="category.icon_url" style="margin-bottom: 5%;" />
-          <mdb-card-title>
-            <h5 class="mb-2">{{ category.category }}</h5>
-          </mdb-card-title>
-        </mdb-card-body>
-      </mdb-card>
-    </a>
+<div class="container text-center" style="margin-top: 2%;">
+  <div class="text-center" >
+    <h2 class="mb-2">Every Service You Need For Your Home, or Business</h2>
+    <h4 class="text-muted">With Bricoly, you can get in touch with a wide range of professionals, electricians, plumbers, security guards and much more.
+      <br>Our goal is to help our clients with everything they would need for their home or their office.</h4>
   </div>
+  <div class="card-deck">
 
+        <mdb-card class="text-center" *ngFor="let category of selectCategories"> 
+          <mdb-card-body>
+            <img [src]="category.icon_url" style="margin-bottom: 5%;" />
+            <mdb-card-title>
+              <h5 class="mb-2">{{ category.category }}</h5>
+            </mdb-card-title>
+          </mdb-card-body>
+        </mdb-card>
+  </div>
+  <button style="margin-top: 2%;" type="button" mdbBtn color="secondary" mdbWavesEffect routerLink="/findProf">
+    View Full List  
+  </button>
 </div>
