@@ -1,5 +1,5 @@
 
-<mdb-card>
+<mdb-card class="col-md-5 cd" >
   <mdb-card-body>
     <mdb-card-title>
       <h4>Rate Your Experience</h4>
@@ -49,11 +49,11 @@
       </main>
     </mdb-card-text>
     <!--Textarea with icon prefix-->
-<div class="md-form">
+  <div class="md-form">
   <mdb-icon fas icon="pencil-alt" class="prefix"></mdb-icon>
   <textarea type="text" id="form8" class="md-textarea form-control" name="message" [(ngModel)]="newReviews.comment" #message="ngModel" mdbInput></textarea>
   <label for="form8">Add your Comment</label>
-</div>
+  </div>
   </mdb-card-body>
-  <button mdbBtn type="button" color="yellow" (click)="onSubmit($event)" mdbWavesEffect>Rate</button>
+  <button mdbBtn type="button" class="yellow darken-3 " (click)="onSubmit($event)" mdbWavesEffect>Rate</button>
 </mdb-card>

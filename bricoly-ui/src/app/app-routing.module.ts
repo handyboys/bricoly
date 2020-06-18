@@ -2,10 +2,12 @@ import { NgModule, Component } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { FindProfessionalComponent } from './components/find-professional/find-professional.component';
 
-
 const routes: Routes = [
   {path : 'messages',
   loadChildren: ()=> import('./modules/messages/messages/messages.module').then(m => m.MessagesModule)
+},
+{path : 'reviews',
+  loadChildren: ()=> import('./modules/reviews/reviews.module').then(m => m.ReviewsModule)
 },
   {
     path: 'job-post',

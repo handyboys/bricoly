@@ -3,8 +3,6 @@ import { NgModule, Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule,  HTTP_INTERCEPTORS } from '@angular/common/http';
 
-
-
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import { AgmCoreModule } from '@agm/core';
 import { AppRoutingModule } from './app-routing.module';
@@ -25,8 +23,7 @@ import { AboutUsComponent } from './components/about-us/about-us.component';
 import { BlogComponent } from './components/blog/blog.component';
 import { FilterProfessionalsPipe } from './pipes/filter-professionals.pipe';
 import { HomeCategoryIconsComponent } from './components/home-category-icons/home-category-icons.component';
-import { ReviewsComponent } from './components/reviews/reviews.component';
-import { StarRatingModule } from '@sreyaj/ng-star-rating';
+
 
 
 @NgModule({
@@ -45,7 +42,7 @@ import { StarRatingModule } from '@sreyaj/ng-star-rating';
     BlogComponent,
     FilterProfessionalsPipe,
     HomeCategoryIconsComponent,
-    ReviewsComponent,
+
   ],
 
   imports: [
@@ -57,7 +54,7 @@ import { StarRatingModule } from '@sreyaj/ng-star-rating';
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyBMYPnWea___Dw9-tH1JyxaAGuvAI0iWvA'
     }),
-    StarRatingModule
+
   ],
   schemas: [
     CUSTOM_ELEMENTS_SCHEMA
