@@ -10,6 +10,8 @@ import { ViewEncapsulation } from '@angular/core';
 })
 @HostListener('window:scroll', ['$event'])
 export class NavbarComponent implements OnInit {
+
+  user_id = localStorage.getItem('userId');
   showMenu : boolean =false
   constructor() { }
 

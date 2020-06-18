@@ -8,17 +8,17 @@ import { Job } from '../../models/jobs/jobs.model'; // User model
   styleUrls: ['./job-history.component.scss']
 })
 export class JobHistoryComponent implements OnInit {
- 
+  user_id = localStorage.getItem('userId');
   myJobs: Job[];
 
-  constructor(private jobsService : JobsService) { 
+  constructor(private jobsService: JobsService) {
     this.jobsService.getJobHistory()
-    .subscribe((data : Job[]) =>{
-      this.myJobs = data;
-      console.log(this.myJobs)
-    })
+      .subscribe((data: Job[]) => {
+        this.myJobs = data;
+        console.log(this.myJobs)
+      })
 
-    
+
   }
 
   ngOnInit(): void {

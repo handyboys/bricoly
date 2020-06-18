@@ -52,11 +52,11 @@
                         </mdb-card-text>
                     </mdb-card-body>
                     <button type="button" mdbBtn color="primary" class="relative waves-light"
-                        (click)="basicModal.show()" mdbWavesEffect>Launch demo modal</button>
+                        (click)="basicModal.show()" mdbWavesEffect >More Details</button>
 
                     <div mdbModal #basicModal="mdbModal" class="modal fade" tabindex="-1" role="dialog"
                         aria-labelledby="myBasicModalLabel" aria-hidden="true">
-                        <div class="modal-dialog modal-dialog-centered" role="document">
+                        <div class="modal-dialog modal-dialog-centered" role="document" *ngIf="user_id; else elseBlock">
                             <div class="modal-content">
                                 <div class="modal-header">
                                     <button type="button" class="close pull-right" aria-label="Close"
@@ -73,8 +73,8 @@
                                                 <b>Business :</b>{{profDetail.category}}
                                                 <b>Email: </b>{{profDetail.email}}<br>
                                                 <b>City : </b><br>
-                                                <b>Phone:</b>{{profDetail.phone}}<br>
-                                                <b>Description:</b>{{profDetail.description}}<br>
+                                                <b>Phone: </b>{{profDetail.phone}}<br>
+                                                <b>Description: </b>{{profDetail.description}}<br>
                                                
                                             </p><br>
                                         </div>
@@ -95,3 +95,14 @@
         </div>
     </div>
 </div>
+<ng-template #elseBlock > 
+    <div class="d-flex justify-content-center mt-5 mb-5">
+          <mdb-card>
+            <mdb-card-body>
+                <div class="alert alert-dark" role="alert">
+                    Not logged in.Please <a href="/auth/signin" class="alert-link">log in</a> to continue.
+                  </div>
+            </mdb-card-body>
+          </mdb-card>
+    </div>
+  </ng-template>

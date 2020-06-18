@@ -14,6 +14,7 @@ var services = db.import('../database/models/services.js');
  */
 
 exports.getAllNot = async (req, res) => {
+    console.log("request is herrrreee ")
     try {
         //     FINDING ALL JOBS BASED ON THE CLIENT ID AND THE STATUS 
         const notifaction = await jobs.findAll({ where: { status: 'open', client_id: req.params.id } })
@@ -26,7 +27,8 @@ exports.getAllNot = async (req, res) => {
         const professional = await db.query(sql, { replacements: [req.params.id], type: db.QueryTypes.SELECT });
         res.status(200).json({ service, professional })
     } catch (e) {
-        res.status(400)
+     
         console.log(e)
+        res.status(400)
     }
 }

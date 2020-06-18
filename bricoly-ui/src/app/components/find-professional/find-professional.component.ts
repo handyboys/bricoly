@@ -12,6 +12,7 @@ import { CITIES } from '../../../../cities.js'
 })
 export class FindProfessionalComponent implements OnInit {
 
+  user_id = localStorage.getItem('userId');
   profDetails: ProfDetails[];
   categories: Category[];
   cities: string[] = Object.keys(CITIES);
@@ -29,32 +30,6 @@ export class FindProfessionalComponent implements OnInit {
       });
 
   }
-
-  // onActivate(elementRef){
-  //   console.log(elementRef)
-  //   if (elementRef.filterEvent){
-  //       elementRef.filterEvent.subscribe((event)=> {
-  //         console.log("EVENTTT", event)
-  //         this.myFilter = event
-
-  //     });
-  //   }
-  // }
-
-  // receiveFilter($event) {
-  //   this.myFilter = $event;
-
-  //   if (this.myFilter) {
-
-  //     console.log("FILTERRRR", this.myFilter);
-  //     return this.profDetails.filter(profDetail => {
-  //       return profDetail.category_id == this.myFilter.category;
-  //     });
-  //   }
-  // }
-
-
-
 
   get diagnostic() { return `${this.selectedCategoryId}, ${this.selectedCity}` }
 
