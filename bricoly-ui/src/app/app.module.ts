@@ -25,6 +25,9 @@ import { AboutUsComponent } from './components/about-us/about-us.component';
 import { BlogComponent } from './components/blog/blog.component';
 import { FilterProfessionalsPipe } from './pipes/filter-professionals.pipe';
 import { HomeCategoryIconsComponent } from './components/home-category-icons/home-category-icons.component';
+import { ReviewsComponent } from './components/reviews/reviews.component';
+import { StarRatingModule } from '@sreyaj/ng-star-rating';
+
 
 @NgModule({
   declarations: [
@@ -42,6 +45,7 @@ import { HomeCategoryIconsComponent } from './components/home-category-icons/hom
     BlogComponent,
     FilterProfessionalsPipe,
     HomeCategoryIconsComponent,
+    ReviewsComponent,
   ],
 
   imports: [
@@ -52,7 +56,8 @@ import { HomeCategoryIconsComponent } from './components/home-category-icons/hom
     HttpClientModule,
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyBMYPnWea___Dw9-tH1JyxaAGuvAI0iWvA'
-    })
+    }),
+    StarRatingModule
   ],
   schemas: [
     CUSTOM_ELEMENTS_SCHEMA
