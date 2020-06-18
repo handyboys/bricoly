@@ -2,6 +2,7 @@ import { NgModule, Component } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { FindProfessionalComponent } from './components/find-professional/find-professional.component';
 import { HomeComponent } from './components/home/home.component';
+import { AboutUsComponent } from './components/about-us/about-us.component';
 
 const routes: Routes = [
   {path : 'messages',
@@ -28,7 +29,10 @@ const routes: Routes = [
     path:'findProf',
     component: FindProfessionalComponent,
   },
-  
+   {
+     path:'aboutus',
+     component: AboutUsComponent
+   }
 ];
 
 @NgModule({
