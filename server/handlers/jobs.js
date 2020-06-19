@@ -23,7 +23,6 @@ var professionals = db.import('../database/models/professionals.js')
 
 
 exports.getJobs = async (req, res) => {
-    console.log("123")
     try {
         db.sync({ force: false })
             // sync database
