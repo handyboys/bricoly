@@ -10,7 +10,8 @@ INSERT INTO
         longitude,
         latitude,
         motorized,
-        description
+        description,
+        average_review
     )
 VALUES
     (
@@ -20,7 +21,8 @@ VALUES
         10.171078,
         36.806112,
         1,
-        'Hello, my name is P1_FName, I am a painter based in Tunis.'
+        'Hello, my name is P1_FName, I am a painter based in Tunis.',
+        5
     ),
     (
         12,
@@ -29,7 +31,8 @@ VALUES
         10.171078,
         36.806112,
         0,
-        'Hello, my name is P2_FName, I am a painter based in Tunis.'
+        'Hello, my name is P2_FName, I am a painter based in Tunis.',
+        5
     ),
     (
         13,
@@ -38,7 +41,8 @@ VALUES
         10.193371,
         36.860117,
         1,
-        'Hello, my name is P3_FName, I am a painter based in Ariana.'
+        'Hello, my name is P3_FName, I am a painter based in Ariana.',
+        5
     ),
     (
         14,
@@ -47,7 +51,8 @@ VALUES
         10.097205,
         36.808029,
         1,
-        'Hello, my name is P4_FName, I am a painter based in Manouba.'
+        'Hello, my name is P4_FName, I am a painter based in Manouba.',
+        5
     ),
     (
         15,
@@ -56,7 +61,8 @@ VALUES
         10.097205,
         36.808029,
         0,
-        'Hello, my name is P5_FName, I am a painter based in Manouba.'
+        'Hello, my name is P5_FName, I am a painter based in Manouba.',
+        5
     ),
     (
         16,
@@ -65,7 +71,8 @@ VALUES
         10.171078,
         36.806112,
         1,
-        'Hello, my name is P7_FName, I am an exprert in Air Conditioners and Coolers based in Tunis.'
+        'Hello, my name is P7_FName, I am an exprert in Air Conditioners and Coolers based in Tunis.',
+        5
     ),
     (
         17,
@@ -74,7 +81,8 @@ VALUES
         10.171078,
         36.806112,
         1,
-        'Hello, my name is P8_FName, I am an exprert in Air Conditioners and Coolers based in Tunis.'
+        'Hello, my name is P8_FName, I am an exprert in Air Conditioners and Coolers based in Tunis.',
+        5
     ),
     (
         18,
@@ -83,7 +91,8 @@ VALUES
         10.193371,
         36.860117,
         0,
-        'Hello, my name is P9_FName, I am an exprert in Air Conditioners and Coolers based in Ariana.'
+        'Hello, my name is P9_FName, I am an exprert in Air Conditioners and Coolers based in Ariana.',
+        5
     ),
     (
         19,
@@ -92,5 +101,6 @@ VALUES
         10.193371,
         36.860117,
         1,
-        'Hello, my name is P10_FName, I am an exprert in Air Conditioners and Coolers based in Ariana.'
+        'Hello, my name is P10_FName, I am an exprert in Air Conditioners and Coolers based in Ariana.',
+        5
     );

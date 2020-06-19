@@ -1,26 +1,22 @@
-<div class="media">
-  <div class="d-flex" *ngFor = "let names of professional" style="margin-top: 1.5%;">
-    <!-- Card -->
-    <mdb-card
-      style="background-image: url('https://mdbootstrap.com/img/Photos/Horizontal/Work/4-col/img%20%2814%29.jpg')"
-      class="card-image mb-3 mx-2"
-    >
-      <!-- Content -->
-      <div class="text-white text-center d-flex align-items-center rgba-black-strong py-5 px-4">
-        <div>
-          <h3 class="card-title pt-2"><h5>{{names.first_name}} {{names.last_name}}</h5> applied for your job.</h3>
-          <h5>{{allNoti.service}}</h5>
-          <a mdbBtn color="blue" class="waves-light" mdbWavesEffect>
-            <mdb-icon far icon="clone" class="left"></mdb-icon>
-            Apply for the job</a
-          >
+<div class="container" style="margin-top: 2%;">
+    <div class="row">
+        <div class="card-deck" *ngFor = "let names of professional" style="margin-top: 6%;">
+          <div>
+            <mdb-card class="col-lg-8 col-lg-8 mb-8">
+              <mdb-card-body>
+                  <mdb-card-title>
+                    <h4>{{names.first_name}} {{names.last_name}} applied for your job</h4>
+                  </mdb-card-title>
+                  <h5 class="text-muted mb-2">Service:</h5>
+                  <mdb-card-text>
+                    {{allNoti.service}}
+                  </mdb-card-text>
+                  <a mdbBtn color="blue" class="waves-light" mdbWavesEffect>
+                    <mdb-icon far icon="clone" class="left"></mdb-icon>
+                    Apply for the job</a>
+              </mdb-card-body>
+            </mdb-card>
+          </div>
         </div>
-      </div>
-      <!-- Content -->
-    </mdb-card>
-    <!-- Card -->
-  </div>
+    </div>
 </div>
-
-
-
