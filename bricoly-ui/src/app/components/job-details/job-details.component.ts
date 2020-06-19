@@ -8,7 +8,8 @@ import { JobPostService } from 'src/app/services/jobPost/job-post.service';
   styleUrls: ['./job-details.component.scss']
 })
 export class JobDetailsComponent implements OnInit {
-
+  
+  userId = localStorage.getItem('userId');
   jobDraft: JobDraft = new JobDraft();
   validDraft: boolean = true;
   jobCreated: boolean = false;
