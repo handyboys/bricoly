@@ -3,7 +3,6 @@ import { Routes, RouterModule } from '@angular/router';
 import { FindProfessionalComponent } from './components/find-professional/find-professional.component';
 import { HomeComponent } from './components/home/home.component';
 
-
 const routes: Routes = [
   {
     path: 'messages',
@@ -34,6 +33,7 @@ const routes: Routes = [
     path: 'findProf',
     component: FindProfessionalComponent,
   },
+  
 ];
 
 @NgModule({
