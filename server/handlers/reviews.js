@@ -4,7 +4,7 @@ var Reviews = db.import('../database/models/reviews.js');
 //importing jobs' table's model
 var Jobs = db.import ('../database/models/jobs.js');
 
-var professionals = db.import('./database/models/professionals.js');
+var professionals = db.import('../database/models/professionals.js');
 
 
 exports.updateReviews = async(req,res)=>{
