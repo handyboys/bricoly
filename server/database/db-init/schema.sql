@@ -26,6 +26,7 @@ CREATE TABLE professionals (
 	latitude DECIMAL(13,10) NOT NULL,
 	motorized BOOLEAN NOT NULL,
 	description TEXT NOT NULL,
+	average_review DECIMAL(2,1) ,
 	PRIMARY KEY (id)
 );
 
