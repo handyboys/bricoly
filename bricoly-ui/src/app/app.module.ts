@@ -3,8 +3,6 @@ import { NgModule, Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule,  HTTP_INTERCEPTORS } from '@angular/common/http';
 
-
-
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import { AgmCoreModule } from '@agm/core';
 import { AppRoutingModule } from './app-routing.module';
@@ -23,8 +21,12 @@ import { FilterComponent } from './components/filter/filter.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { AboutUsComponent } from './components/about-us/about-us.component';
 import { BlogComponent } from './components/blog/blog.component';
+import { JobHistoryComponent } from './components/job-history/job-history.component';
+
 import { FilterProfessionalsPipe } from './pipes/filter-professionals.pipe';
 import { HomeCategoryIconsComponent } from './components/home-category-icons/home-category-icons.component';
+
+
 
 @NgModule({
   declarations: [
@@ -40,8 +42,10 @@ import { HomeCategoryIconsComponent } from './components/home-category-icons/hom
     FooterComponent,
     AboutUsComponent,
     BlogComponent,
+    JobHistoryComponent,
     FilterProfessionalsPipe,
     HomeCategoryIconsComponent,
+
   ],
 
   imports: [
@@ -52,7 +56,8 @@ import { HomeCategoryIconsComponent } from './components/home-category-icons/hom
     HttpClientModule,
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyBMYPnWea___Dw9-tH1JyxaAGuvAI0iWvA'
-    })
+    }),
+
   ],
   schemas: [
     CUSTOM_ELEMENTS_SCHEMA

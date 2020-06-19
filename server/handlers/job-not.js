@@ -13,12 +13,13 @@ var services = db.import('../database/models/services.js');
  * @async
  */
 
-exports.getAllNot = async (req, res)=>{
+exports.getAllNot = async (req, res) => {
+    console.log("request is herrrreee ")
     try {
-    //     FINDING ALL JOBS BASED ON THE CLIENT ID AND THE STATUS 
-        const notifaction = await jobs.findAll({where: {status :'open', client_id: req.params.id}})
+        //     FINDING ALL JOBS BASED ON THE CLIENT ID AND THE STATUS 
+        const notifaction = await jobs.findAll({ where: { status: 'open', client_id: req.params.id } })
         // FETCHING THE SERVICE TABLE BY ID 
-        var serviceName = await services.findOne({where: notifaction[0].dataValues.service_id})
+        var serviceName = await services.findOne({ where: notifaction[0].dataValues.service_id })
         var service = serviceName.service
     // FINDING ALL THE PROFESSIONAL FIRST NAMES AND LAST NAMES THAT APPLIED FOR THE USER'S JOB 
     const sql = `select professional_id, first_name, last_name from job_applications inner join jobs on job_applications.job_id = jobs.id inner join users on job_applications.professional_id = users.id where jobs.client_id = ?`
@@ -26,7 +27,8 @@ exports.getAllNot = async (req, res)=>{
     const professional = await db.query(sql , { replacements:  [req.params.id],type: db.QueryTypes.SELECT });
         res.status(200).json({service, professional})
     } catch (e) {
-        res.status(400)
+     
         console.log(e)
+        res.status(400)
     }
 }

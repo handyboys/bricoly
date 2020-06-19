@@ -1,0 +1,62 @@
+
+<mdb-card class="col-md-5 cd" >
+  <mdb-card-body>
+    <mdb-card-title>
+      <h4>Rate Your Experience</h4>
+    </mdb-card-title>
+    <mdb-card-text>
+      <main>
+      <section class="showcase">
+        <div class="row">
+
+          <h2>{{ratingService}}</h2>
+          <ngx-star-rating [total]="5" [filledColor]="'#FFDD03'" [(rating)]="newReviews.service_quality" [type]="'filled'" [readonly]="false"
+                           (rated)="getRatingServiceQuality($event)">
+          </ngx-star-rating>
+          <mdb-badge warning="true">
+            <mdb-icon far icon="sun"></mdb-icon>
+          </mdb-badge>
+          <p>Service Quality</p>
+        </div>
+      </section>
+      <section class="showcase">
+        <div class="row">
+          <h2>{{ratingPrice}}</h2>
+          <ngx-star-rating [total]="5" [filledColor]="'#FFDD03'" [(rating)]="newReviews.price" [type]="'filled'" [readonly]="false"
+                           (rated)="getRatingPrice($event)">
+          </ngx-star-rating>
+          <mdb-badge pill="true" color="green">
+            <mdb-icon fas icon="user"></mdb-icon>
+          </mdb-badge>
+          <p>Price</p>
+
+        </div>
+      </section>
+      <section class="showcase">
+        <div class="row">
+          <h2>{{ratingCommunication}}</h2>
+          <ngx-star-rating [total]="5" [filledColor]="'#FFDD03'" [(rating)]="newReviews.communication" [type]="'filled'" [readonly]="false"
+                           (rated)="getRatingCommunication($event)">
+          </ngx-star-rating>
+          <mdb-badge pill="true" color="purple">
+            <mdb-icon far icon="comments"></mdb-icon>
+          </mdb-badge>
+          <p>Communication</p>
+
+        </div>
+      </section>
+
+      </main>
+    </mdb-card-text>
+    <!--Textarea with icon prefix-->
+  <div class="md-form">
+  <mdb-icon fas icon="pencil-alt" class="prefix"></mdb-icon>
+  <textarea type="text" id="form8" class="md-textarea form-control" name="message" [(ngModel)]="newReviews.comment" #message="ngModel" mdbInput></textarea>
+  <label for="form8">Add your Comment</label>
+  </div>
+  </mdb-card-body>
+  <button mdbBtn type="button" class="yellow darken-3 " (click)="onSubmit($event)" mdbWavesEffect>Rate</button>
+</mdb-card>
+
+
+
