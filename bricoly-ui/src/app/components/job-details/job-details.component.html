@@ -87,7 +87,7 @@
 <br>
 <!-- TODO : add edit functionality -->
 <!-- <button mdbBtn color="primary" outline="true" mdbWavesEffect>Edit</button> -->
-<button mdbBtn color="secondary" class="float-right" mdbWavesEffect (click)="basicModal.show();createJob()">Confirm</button>
+<button mdbBtn class="float-right secondary-color" style="color: white;" mdbWavesEffect (click)="basicModal.show();createJob()">Confirm</button>
 
 <div mdbModal #basicModal="mdbModal" class="modal fade bottom" tabindex="-1" role="dialog"
     aria-labelledby="myBasicModalLabel" aria-hidden="true">
@@ -102,13 +102,13 @@
             <div class="modal-body text-center" [hidden]="!jobCreated && validDraft">
                 <mdb-icon fas icon="check-circle green-text fa-lg"  style="margin-bottom: 5px;"></mdb-icon><br>
                 <h6>Your job was created successfully</h6>
-                <button mdbBtn color="secondary" class="" outline="true" mdbWavesEffect routerLink="/">Home page</button>
-                <button mdbBtn color="secondary" class="" mdbWavesEffect routerLink="/job-post">Post a new job</button>
+                <button mdbBtn class="secondary-color" style="color: white;" outline="true" mdbWavesEffect routerLink="/">Home page</button>
+                <button mdbBtn class="yellow darken-3" style="color: white;" mdbWavesEffect routerLink="/job-post">Post a new job</button>
             </div>
             <div class="modal-body text-center" [hidden]="validDraft">
                 <i class="fas fa-exclamation-circle red-text fa-lg" style="margin-bottom: 5px;"></i>
                 <h6>Oops ! Critical information about the job is missing. Please re-enter your information. It will only take two minutes.</h6>
-                <button mdbBtn color="secondary" class="" mdbWavesEffect routerLink="/job-post">Post a new job</button>
+                <button mdbBtn class="secondary-color" style="color: white;" mdbWavesEffect routerLink="/job-post">Post a new job</button>
             </div>
         </div>
     </div>

@@ -6,7 +6,6 @@ const express = require('express');
 const cors = require('cors');
 const middleware = require('./middleware')
 const router = require('./routers');
-console.log("IN INDEX.JS");
 
 // TODO : check Morgan for logging
 // TODO : check helmet for security

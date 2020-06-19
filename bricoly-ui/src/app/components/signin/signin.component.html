@@ -1,41 +1,63 @@
-<!-- Default form register -->
-<form class="text-center border border-light p-5" #signinForm="ngForm" (ngSubmit)="onSubmit()">
-  
-    <p class="h4 mb-4">Sign in</p>
-  
-  <!-- E-mail -->
-  <div class="form-row mb-4">
-    <input type="email" id="email" class="form-control" placeholder="E-mail" required
-    [(ngModel)]="user.email" name="email" #email="ngModel" pattern="\S+@\S+\.\S+$"
-    >
-    <div [hidden]="email.valid || email.pristine"
-    class="alert alert-danger col">
-    E-mail is required
-  </div>
-  </div>
-  <!-- Password -->
-  <div class="form-row mb-4">
-  <input type="password" id="password" class="form-control" placeholder="Password" aria-describedby="PasswordHelpBlock" required
-  [(ngModel)]="user.password" name="password" #password="ngModel" pattern="^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{2,}$" 
-  > <!-- TODO : change password minlength to 8 instead of 2 -->
-  <div [hidden]="password.valid || password.pristine"
-    class="alert alert-danger col">
-    Password is required : At least 8 characters and 1 digit
-  </div>
-  </div>
-  
-  
-  <!-- Sign up button -->
-  <button mdbBtn color="info" block="true" class="my-4" type="submit" [disabled]="signinForm.form.invalid">Sign in</button>
-  
-  
-    <!-- Register -->
-    <p>New to Bricoly ?
-      <a routerLink="/auth/signup" routerLinkActive="active">Register</a>
-    </p>
-  
-  
-  </form>
-    <!-- Default form register -->
-    
-    
+<div class="container my-5 ">
+<!--Section: Content-->
+  <section class="dark-grey-text">
+
+    <div class="row pr-lg-5">
+      <div class="col-md-7 mb-4">
+
+        <div class="view">
+          <img src="https://mdbootstrap.com/img/illustrations/app-user-colour.svg" class="img-fluid" alt="smaple image">
+        </div>
+
+      </div>
+      <div class="col-md-5 d-flex align-items-center text-center ml-3">
+       
+
+          <!-- Default form register -->
+          <form class="text-center border border-light p-5 z-depth-1 " #signinForm="ngForm" (ngSubmit)="onSubmit()">
+
+            <p class="h4 mb-4"><b>Sign In</b></p>
+
+            <!-- E-mail -->
+            <div class="form-row mb-4">
+              <input type="email" id="email" class="form-control" placeholder="E-mail" required [(ngModel)]="user.email"
+                name="email" #email="ngModel" pattern="\S+@\S+\.\S+$">
+              <div [hidden]="email.valid || email.pristine" class="alert alert-danger col">
+                E-mail is required
+              </div>
+            </div>
+            <!-- Password -->
+            <div class="form-row mb-4">
+              <input type="password" id="password" class="form-control" placeholder="Password"
+                aria-describedby="PasswordHelpBlock" required [(ngModel)]="user.password" name="password"
+                #password="ngModel" pattern="^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{2,}$">
+              <!-- TODO : change password minlength to 8 instead of 2 -->
+              <div [hidden]="password.valid || password.pristine" class="alert alert-danger col">
+                Password is required : At least 8 characters and 1 digit
+              </div>
+            </div>
+
+
+            <!-- Sign up button -->
+            <button mdbBtn color="info" block="true" class="mb-2" type="submit"
+              [disabled]="signinForm.form.invalid">Sign in</button>
+
+
+            <!-- Register -->
+            <p>New to <b>Bricoly</b> ?
+              <a routerLink="/auth/signup" routerLinkActive="active">Register</a>
+            </p>
+
+
+          </form>
+          <!-- Default form register -->
+
+        
+      </div>
+    </div>
+
+  </section>
+  <!--Section: Content-->
+
+
+</div>
