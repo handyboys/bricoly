@@ -3,8 +3,6 @@ import { NgModule, Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule,  HTTP_INTERCEPTORS } from '@angular/common/http';
 
-
-
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import { AgmCoreModule } from '@agm/core';
 import { AppRoutingModule } from './app-routing.module';
@@ -28,6 +26,8 @@ import { JobHistoryComponent } from './components/job-history/job-history.compon
 import { FilterProfessionalsPipe } from './pipes/filter-professionals.pipe';
 import { HomeCategoryIconsComponent } from './components/home-category-icons/home-category-icons.component';
 
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -45,6 +45,7 @@ import { HomeCategoryIconsComponent } from './components/home-category-icons/hom
     JobHistoryComponent,
     FilterProfessionalsPipe,
     HomeCategoryIconsComponent,
+
   ],
 
   imports: [
@@ -55,7 +56,8 @@ import { HomeCategoryIconsComponent } from './components/home-category-icons/hom
     HttpClientModule,
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyBMYPnWea___Dw9-tH1JyxaAGuvAI0iWvA'
-    })
+    }),
+
   ],
   schemas: [
     CUSTOM_ELEMENTS_SCHEMA

@@ -131,7 +131,7 @@ ALTER TABLE contracts ADD CONSTRAINT contract_fk0 FOREIGN KEY (job_id) REFERENCE
 
 ALTER TABLE contracts ADD CONSTRAINT contract_fk1 FOREIGN KEY (professional_id) REFERENCES users(id);
 
-ALTER TABLE reviews ADD CONSTRAINT reviews_fk0 FOREIGN KEY (job_id) REFERENCES jobs(id);
+ALTER TABLE reviews ADD CONSTRAINT reviews_fk0 FOREIGN KEY (job_applications_id) REFERENCES job_applications(id);
 
 ALTER TABLE credentials ADD CONSTRAINT credentials_fk0 FOREIGN KEY (id) REFERENCES users(id);
 

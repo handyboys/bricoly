@@ -1,5 +1,6 @@
 .modal-header  {
-  background-color: rgb(92, 209, 245);
+  background-color:rgb(99,81,206);
+
 }
 .card-body{
   width: 100%;
@@ -16,11 +17,16 @@
   display: block;
 }
 .avatar{
-  size: 20px;
+  size: 10px;
 }
 .chat-message{
   overflow-x: scroll;
 }
+.lead{
+  text-align: center;
+  color: white;
+}
+
 
 
 
