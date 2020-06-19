@@ -21,7 +21,7 @@ exports.getAllNot = async (req, res)=>{
         var serviceName = await services.findOne({where: notifaction[0].dataValues.service_id})
         var service = serviceName.service
     // FINDING ALL THE PROFESSIONAL FIRST NAMES AND LAST NAMES THAT APPLIED FOR THE USER'S JOB 
-    const sql = `select first_name, last_name from job_applications inner join jobs on job_applications.job_id = jobs.id inner join users on job_applications.professional_id = users.id where jobs.client_id = ?`
+    const sql = `select professional_id, first_name, last_name from job_applications inner join jobs on job_applications.job_id = jobs.id inner join users on job_applications.professional_id = users.id where jobs.client_id = ?`
     // FETCHING THE PROFESSIONAL FIRST NAMES AND LAST NAMES BY CLIENT ID
     const professional = await db.query(sql , { replacements:  [req.params.id],type: db.QueryTypes.SELECT });
         res.status(200).json({service, professional})

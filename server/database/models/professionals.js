@@ -38,6 +38,10 @@ module.exports = function(sequelize, DataTypes) {
     description: {
       type: DataTypes.TEXT,
       allowNull: false
+    },
+    average_review: {
+      type: DataTypes.DECIMAL,
+      allowNull: true
     }
   }, {
     tableName: 'professionals'
