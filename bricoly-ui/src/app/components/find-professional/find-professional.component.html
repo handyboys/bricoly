@@ -1,31 +1,39 @@
 <div class="container mt-4">
     <!-- Filters -->
-    <ul class="list-group list-group-horizontal-md text-center">
-        <li class="list-group-item flex-fill">
-            <h5 class="text-muted">City</h5>
-            <select class="custom-select browser-default" [(ngModel)]="selectedCity">
-                <option [value]="0" selected>All Cities</option>
-                <option name="profCategory" *ngFor="let city of cities" [value]="city">
-                    {{city}}</option>
-            </select>
-        </li>
-        <li class="list-group-item flex-fill">
-            <h5 class="text-muted">Category</h5>
-            <select class="custom-select browser-default" [(ngModel)]="selectedCategoryId">
-                <option [value]="0" selected>All Categories</option>
-                <option name="profCategory" *ngFor="let category of categories" [value]="category.id">
-                    {{category.category}}</option>
-            </select>
-        </li>
-        <li class="list-group-item flex-fill">
-            <h5 class="text-muted">Review</h5>
-            <select class="custom-select browser-default" [(ngModel)]="selectedCity">
-                <option [value]="0" selected>All Cities</option>
-                <option name="profCategory" *ngFor="let city of cities" [value]="city">
-                    {{city}}</option>
-            </select>
-        </li>
-    </ul>
+    <div class="card">
+        <div class="card-header">
+            Filter
+        </div>
+        <div class="card-body">
+            <ul class="list-group list-group-horizontal-md text-center">
+                <li class="list-group-item flex-fill">
+                    <h5 class="text-muted">City</h5>
+                    <select class="custom-select browser-default" [(ngModel)]="selectedCity">
+                        <option [value]="0" selected>All Cities</option>
+                        <option name="profCategory" *ngFor="let city of cities" [value]="city">
+                            {{city}}</option>
+                    </select>
+                </li>
+                <li class="list-group-item flex-fill">
+                    <h5 class="text-muted">Category</h5>
+                    <select class="custom-select browser-default" [(ngModel)]="selectedCategoryId">
+                        <option [value]="0" selected>All Categories</option>
+                        <option name="profCategory" *ngFor="let category of categories" [value]="category.id">
+                            {{category.category}}</option>
+                    </select>
+                </li>
+                <li class="list-group-item flex-fill">
+                    <h5 class="text-muted">Review</h5>
+                    <select class="custom-select browser-default" [(ngModel)]="selectedCity">
+                        <option [value]="0" selected>All Cities</option>
+                        <option name="profCategory" *ngFor="let city of cities" [value]="city">
+                            {{city}}</option>
+                    </select>
+                </li>
+            </ul>
+        </div>
+    </div>
+
 
     <div class="row">
         <div class="card-deck" style="margin-top: 6%;">
@@ -38,24 +46,74 @@
                         <mdb-card-img src="https://mdbootstrap.com/img/Photos/Others/images/16.jpg"
                             alt="Card image cap">
                         </mdb-card-img>
-                        <a>
-                            <div class="mask rgba-white-slight"></div>
-                        </a>
+                        <div class="mask rgba-white-slight"></div>
                     </div>
                     <!--Card content-->
                     <mdb-card-body>
                         <!--Title-->
                         <mdb-card-title>
-                                <h4>{{profDetail.first_name + ' ' + profDetail.last_name}}</h4>
+                            <h4>{{profDetail.first_name + ' ' + profDetail.last_name}}</h4>
                         </mdb-card-title>
 
                         <!--Text-->
-                        <mdb-card-text>{{profDetail.description}}
+                        <mdb-card-text><b>{{profDetail.category}}</b>
                         </mdb-card-text>
                     </mdb-card-body>
+                    <button type="button" mdbBtn color="primary" class="relative waves-light"
+                        (click)="basicModal.show()" mdbWavesEffect>More Details</button>
+
+                    <div mdbModal #basicModal="mdbModal" class="modal fade" tabindex="-1" role="dialog"
+                        aria-labelledby="myBasicModalLabel" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered" role="document" *ngIf="user_id; else elseBlock">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close pull-right" aria-label="Close"
+                                        (click)="basicModal.hide()">
+                                        <span aria-hidden="true">×</span>
+                                    </button>
+                                    <h4 class="modal-title w-100" id="myModalLabel">
+                                        <img src="https://mdbootstrap.com/img/Photos/Avatars/avatar-1-mini.jpg"
+                                            class="rounded-circle z-depth-1-half mr-3">
+                                        <b>{{profDetail.first_name + ' ' + profDetail.last_name}}</b></h4>
+                                </div>
+                                <div class="modal-body">
+                                    <div class="container-fluid">
+                                        <div class="row">
+                                            <p>
+                                                <b>Business: </b>{{profDetail.category}}<br>
+                                                <b>Email: </b>{{profDetail.email}}<br>
+                                                <b>City : </b>{{profDetail.adress}}<br>
+                                                <!-- <b>Number of jobs:</b><br> -->
+                                                <b>Phone: </b>{{profDetail.phone}}<br>
+                                                <b>Description: </b>{{profDetail.description}}<br>
+                                            </p><br>
+                                        </div>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" mdbBtn color="secondary" class="waves-light"
+                                            aria-label="Close" (click)="basicModal.hide()" mdbWavesEffect>Send a
+                                            message</button>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
                 </mdb-card>
             </div>
             <br>
         </div>
     </div>
 </div>
+<ng-template #elseBlock>
+    <div class="d-flex justify-content-center mt-5 mb-5">
+        <mdb-card>
+            <mdb-card-body>
+                <div class="alert alert-dark" role="alert">
+                    Not logged in.Please <a href="/auth/signin" class="alert-link">log in</a> to continue.
+                </div>
+            </mdb-card-body>
+        </mdb-card>
+    </div>
+</ng-template>
