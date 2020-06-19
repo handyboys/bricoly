@@ -1,4 +1,4 @@
-<div class="container">
+<div *ngIf="userId; else elseBlock" class="container">
     <h4>Job details</h4>
     <h6 class="text-muted mb-2">
         Please review the details of the job. If everything looks correct, hit the confirm
