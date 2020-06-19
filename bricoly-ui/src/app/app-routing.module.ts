@@ -9,6 +9,9 @@ const routes: Routes = [
     path: 'messages',
     loadChildren: () => import('./modules/messages/messages/messages.module').then(m => m.MessagesModule)
   },
+  {path : 'reviews',
+  loadChildren: ()=> import('./modules/reviews/reviews.module').then(m => m.ReviewsModule)
+},
   {
     path: 'job-post',
     loadChildren: () => import('./modules/job-post/job-post.module').then(m => m.JobPostModule)

@@ -1,11 +1,12 @@
 
 require("dotenv").config();
 const socket = require('socket.io');
-
 const express = require('express');
 const cors = require('cors');
 const middleware = require('./middleware')
 const router = require('./routers');
+const { send } = require("process");
+console.log("IN INDEX.JS");
 
 // TODO : check Morgan for logging
 // TODO : check helmet for security
@@ -24,7 +25,7 @@ app.use('/auth', router.auth);
 app.use('/job-post', router.jobPost)
 app.use('/jobs', router.jobs)
 app.use('/findProf', router.findProf)
-app.use('/job', router.jobNot)
+app.use('/jobs', router.jobNot)
 app.use('/reviews', router.createReviews)
 
 
@@ -45,5 +46,4 @@ io.on('connection' ,(socket)=>{
      socket.on('typing',(data)=>{
          io.sockets.emit('typing',data)
      });
-
  });
