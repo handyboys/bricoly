@@ -87,37 +87,38 @@ exports.postJobs = async (req, res)=>{
 exports.getJobHistory = async (req, res) => {
     var query = `select * from job_applications inner join jobs on job_applications.job_id = jobs.id inner join users on jobs.client_id = users.id inner join services on services.id = jobs.service_id where professional_id = ?;
  `
-    try {
-        var allUsers = await users.findAll({ where: { id: req.params.id } })
-        var user = allUsers[0]
-        
-        if (user.dataValues.is_professional === 1) {
-            var jobApps = await db.query(query, { replacements: [req.params.id], type: db.QueryTypes.SELECT });
-            res.status(200).send(jobApps)
-        } else {
-            var jobsHistory = await Jobs.findAll({ where: { client_id: req.params.id } })
-            var myJobsHistory = await Promise.all(jobsHistory.map(async element => {
-            
-                var jobHistory = {
-                    client_type: element.dataValues.client_type,
-                    description: element.dataValues.related_info,
-                    longitude: element.dataValues.longitude,
-                    latitude: element.dataValues.latitude,
-                    service_type: element.dataValues.service_type
-                }
-                var { first_name, last_name } = await users.findByPk(element.dataValues.client_id);
-
-                var { service, category_id } = await services.findByPk(element.dataValues.service_id);
-                var { category } = await service_categories.findByPk(category_id)
-                jobHistory['first_name'] = first_name
-                jobHistory['last_name'] = last_name
-                jobHistory['service'] = service
-                jobHistory['category'] = category
-                //adding all the info to the open jobs array
-                return jobHistory
-            }))
-            res.status(200).json(myJobsHistory);
-        }
+ try {
+    var allUsers = await users.findAll({ where: { id: req.params.id } })
+    var user = allUsers[0]
+    if (user.dataValues.is_professional === 1) {
+        var jobApps = await db.query(query, { replacements: [req.params.id], type: db.QueryTypes.SELECT });
+        res.status(200).send(jobApps)
+    } else {
+        var jobsHistory = await Jobs.findAll({ where: { client_id: req.params.id } })
+        var myJobsHistory = await Promise.all(jobsHistory.map(async element => {
+            console.log(element);
+            var jobHistory = {
+                job_id :element.dataValues.id,
+                client_type: element.dataValues.client_type,
+                description: element.dataValues.related_info,
+                longitude: element.dataValues.longitude,
+                latitude: element.dataValues.latitude,
+                service_type: element.dataValues.service_type
+            }
+            var { first_name, last_name } = await users.findByPk(element.dataValues.client_id);
+            var {id} = await job_applications.findByPk(element.dataValues.id);
+            var { service, category_id } = await services.findByPk(element.dataValues.service_id);
+            var { category } = await service_categories.findByPk(category_id);
+            jobHistory['first_name'] = first_name
+            jobHistory['last_name'] = last_name
+            jobHistory['service'] = service
+            jobHistory['category'] = category
+            jobHistory['job_application_id']= id
+            //adding all the info to the open jobs array
+            return jobHistory
+        }))
+        res.status(200).json(myJobsHistory);
+    }
     } catch (e) {
         console.log(e);
         res.status(400).send(e)

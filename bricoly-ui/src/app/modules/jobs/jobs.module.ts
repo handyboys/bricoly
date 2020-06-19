@@ -12,11 +12,13 @@ import { FormsModule } from '@angular/forms';
   declarations: [
     JobCardComponent,
     JobFeedComponent,
-    JobNotComponent
+    JobNotComponent,
+
   ],
   imports: [
     CommonModule,
     JobsRoutingModule,
+
     MDBBootstrapModule.forRoot(),
     FormsModule
   ],

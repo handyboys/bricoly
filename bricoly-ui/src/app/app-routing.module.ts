@@ -35,6 +35,10 @@ const routes: Routes = [
     loadChildren: () => import('./modules/jobs/jobs.module').then(module => module.JobsModule)
   },
   {
+    path: 'reviews',
+    loadChildren: () => import('./modules/reviews/reviews.module').then(module => module.ReviewsModule)
+  },
+  {
     path: 'findProf',
     component: FindProfessionalComponent,
   },

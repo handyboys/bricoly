@@ -7,7 +7,7 @@
                 </mdb-breadcrumb>
             </div>
 
-            <mdb-card *ngFor="let myJob of myJobs" class="mt-2">
+            <mdb-card  *ngFor="let myJob of myJobs" class="mt-2">
                 <mdb-card-header>{{myJob.category}}</mdb-card-header>
                 <mdb-card-body>
                     <mdb-card-title>
@@ -15,14 +15,15 @@
                         <h6 class="text-muted mb-2">{{myJob.service_type}}</h6>
                     </mdb-card-title>
                     <mdb-card-text>{{myJob.description}}</mdb-card-text>
-                    <a href="#"><mdb-icon fas icon="map-marker-alt" ngClass="location-icon"></mdb-icon><small>{{myJob.longitude+','+myJob.latitude }}</small><br></a>
+                    <a href="#"><mdb-icon fas icon="map-marker-alt" ngClass="location-icon"></mdb-icon><small>{{myJob.longitude+','+ myJob.latitude }}</small><br></a>
                     <a href="" size ="sm" mdbBtn color="secondary">Delete</a>
+                    <a routerLink="/reviews/review" size ="sm" mdbBtn color="secondary">Reviews</a>
                 </mdb-card-body>
             </mdb-card>
         </div>
     </div>
 </div>
-<ng-template #elseBlock > 
+<ng-template #elseBlock >
     <div class="d-flex justify-content-center mt-5 mb-5">
           <mdb-card>
             <mdb-card-body>

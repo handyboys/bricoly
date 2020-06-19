@@ -8,10 +8,10 @@ import { catchError } from 'rxjs/operators';
   providedIn: 'root'
 })
 export class JobNotService {
-  endpoint = 'http://localhost:8080/job'
+  endpoint = 'http://localhost:8080/jobs'
   constructor(private http: HttpClient, private router : Router, private activatedRoute:ActivatedRoute) { }
 
-  
+
   getNotificaion(){
     const id : number = Number(localStorage.getItem('userId'))
     let api = this.endpoint + `/notification/${id}`
@@ -20,7 +20,7 @@ export class JobNotService {
       catchError(this.handleError)
     )
   }
-  
+
   handleError(error : HttpErrorResponse) {
     let msg = '';
     if (error.error instanceof ErrorEvent) {

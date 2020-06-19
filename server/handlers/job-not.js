@@ -27,7 +27,6 @@ exports.getAllNot = async (req, res) => {
     const professional = await db.query(sql , { replacements:  [req.params.id],type: db.QueryTypes.SELECT });
         res.status(200).json({service, professional})
     } catch (e) {
-     
         console.log(e)
         res.status(400)
     }

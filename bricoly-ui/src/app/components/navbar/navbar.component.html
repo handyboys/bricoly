@@ -1,17 +1,21 @@
 <mdb-navbar SideClass="navbar navbar-expand-lg navbar-dark yellow darken-3 sticky-top" [containerInside]="false">
   <!-- Navbar brand -->
-  <mdb-navbar-brand><a class="navbar-brand mr-5 ml-2" routerLink="">Bricoly</a></mdb-navbar-brand>
+  <!-- <mdb-navbar-brand><a class="navbar-brand mr-5 ml-2" routerLink="">Bricoly</a></mdb-navbar-brand> -->
+  <img src="https://files.slack.com/files-pri/TSEPKM4L9-F015XRDRQ5A/logo.png" class="logo" routerLink="">
   <!-- Collapsible content -->
   <links>
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
         <a class="nav-link waves-light" mdbWavesEffect routerLink="">Home<span class="sr-only">(current)</span></a>
+      </li><br>
+      <li class="nav-item">
+        <a class="nav-link waves-light" mdbWavesEffect routerLink="/aboutus">About Bricoly</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link waves-light" mdbWavesEffect routerLink="/aboutus">About us</a>
+        <a class="nav-link waves-light" mdbWavesEffect routerLink="/blog">Advice Center</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link waves-light" mdbWavesEffect routerLink="/blog">Blog</a>
+        <a class="nav-link waves-light" mdbWavesEffect routerLink="/findProf">Find Professional</a>
       </li>
       <!-- Dropdown -->
       <!-- <li class="nav-item dropdown" dropdown>
@@ -35,7 +39,7 @@
         </a>
       </li>
       <li class="nav-item">
-        <a routerLink="jobs/notification/:id" class="nav-link waves-light" mdbWavesEffect>
+        <a routerLink="/jobs/notification/:id" class="nav-link waves-light" mdbWavesEffect>
           <mdb-icon far icon="bell"></mdb-icon> Notification
         </a>
       </li>
@@ -46,14 +50,14 @@
           <mdb-icon fas icon="user"></mdb-icon> Profile<span class="caret"></span>
         </a>
         <div *dropdownMenu class="dropdown-menu dropdown-menu-right dropdown dropdown-primary" role="menu">
-          <a class="dropdown-item waves-light" mdbWavesEffect routerLink="/job/history/:id">My account</a>
-          <a class="dropdown-item waves-light" mdbWavesEffect href="#">Log out</a>
+          <a class="dropdown-item waves-light" mdbWavesEffect routerLink="/jobs/history/:id">My account</a>
+          <a class="dropdown-item waves-light" mdbWavesEffect (click)="logout()" >Log out</a>
         </div>
       </li>
     </ul>
     <ng-template #elseBlock>
       <button mdbBtn color="success" outline="true" size="sm" class="my-0 waves-light" type="submit"
-        mdbWavesEffect>login</button>
+        routerLink="/auth/signin" mdbWavesEffect>login</button>
     </ng-template>
     <!-- Links -->
   </links>
