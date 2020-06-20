@@ -22,8 +22,7 @@ var professionals = db.import('../database/models/professionals.js')
 */
 
 
-exports.getJobs = async (req, res)=>{
-    console.log("123")
+exports.getJobs = async (req, res) => {
     try {
         db.sync({ force: false })
             // sync database
@@ -38,7 +37,7 @@ exports.getJobs = async (req, res)=>{
                 var openJobs = await Promise.all(AllJobs.map(async element => {
                     //an object that contains all the info from the db 
                     var job = {
-                        id :element.dataValues.id,
+                        id: element.dataValues.id,
                         client_type: element.dataValues.client_type,
                         description: element.dataValues.related_info,
                         longitude: element.dataValues.longitude,
@@ -77,19 +76,19 @@ exports.getJobs = async (req, res)=>{
 
 exports.postJobs = async (req, res)=>{
     try {
-       await db.sync({force:false})
+        await db.sync({ force: false })
         await job_applications.create({
-                job_id: req.body.job_id,
-                professional_id : req.body.professional_id
-            });
-    //sending a json for all the open jobs info
-            res.status(200).json({message:"sucess"})
-        
+            job_id: req.body.job_id,
+            professional_id: req.body.professional_id
+        });
+        //sending a json for all the open jobs info
+        res.status(200).json({ message: "sucess" })
+
     } catch (e) {
         console.log(e)
-        res.status(404).json({erreur: e})
+        res.status(404).json({ erreur: e })
     }
-    
+
 }
 
 /**
@@ -118,6 +117,7 @@ exports.getJobHistory = async (req, res) => {
             // mapping throught all the jobs to add the clients info 
             var myJobsHistory = await Promise.all(jobsHistory.map(async element => {            
                 var jobHistory = {
+                    job_id :element.dataValues.id,
                     client_type: element.dataValues.client_type,
                     description: element.dataValues.related_info,
                     longitude: element.dataValues.longitude,
@@ -125,12 +125,15 @@ exports.getJobHistory = async (req, res) => {
                     service_type: element.dataValues.service_type
                 }
                 var { first_name, last_name } = await users.findByPk(element.dataValues.client_id);
+                var {id} = await job_applications.findByPk(element.dataValues.id);
                 var { service, category_id } = await services.findByPk(element.dataValues.service_id);
-                var { category } = await service_categories.findByPk(category_id)
+                var { category } = await service_categories.findByPk(category_id);
+
                 jobHistory['first_name'] = first_name
                 jobHistory['last_name'] = last_name
                 jobHistory['service'] = service
                 jobHistory['category'] = category
+                jobHistory['job_application_id']= id
                 //adding all the info to the open jobs array
                 return jobHistory
             }))
@@ -140,5 +143,5 @@ exports.getJobHistory = async (req, res) => {
         console.log(e);
         res.status(400).send(e)
     }
-    
+
 }

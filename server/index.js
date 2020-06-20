@@ -16,8 +16,13 @@ console.log("IN INDEX.JS");
 // TODO : add error middlewarre; have one file that handles all errors  
 // Error structure : 1-Message, 2-Details, 3-Code
 const app = express();
+// if (process.env.NODE_ENV === 'production'){
+//     require('dotenv').config({path: '.env.prod'})
+// }
 // app.use(middleware.auth);
-app.use(cors());
+app.use(cors({
+   // origin: process.env.FRONT_URL
+}));
 app.use(express.json());
 app.use(express.urlencoded({extended:true}));
 

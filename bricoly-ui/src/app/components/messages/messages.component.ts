@@ -10,7 +10,7 @@ import {MessagesService} from '../../services/messages/messages.service';
 })
 export class MessagesComponent implements OnInit {
   message: string;
-  username: string = localStorage.getItem("taha");
+  username: string = localStorage.getItem("username");
   feedback : string;
   output : any[]=[];
   constructor(private messages : MessagesService) { }
