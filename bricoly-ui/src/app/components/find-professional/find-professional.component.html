@@ -43,7 +43,7 @@
                 <mdb-card class="text-center">
                     <div class="view overlay waves-light" mdbWavesEffect>
                         <!-- Card img -->
-                        <mdb-card-img src="https://mdbootstrap.com/img/Photos/Others/images/16.jpg"
+                        <mdb-card-img [src]="profDetail.profile_picture_url"
                             alt="Card image cap">
                         </mdb-card-img>
                         <div class="mask rgba-white-slight"></div>
@@ -59,8 +59,8 @@
                         <mdb-card-text><b>{{profDetail.category}}</b>
                         </mdb-card-text>
                     </mdb-card-body>
-                    <button type="button" mdbBtn class="relative secondary-color"
-                        (click)="basicModal.show()" mdbWavesEffect>More Details</button>
+                    <button type="button" mdbBtn class="relative secondary-color" (click)="basicModal.show()"
+                        mdbWavesEffect>More Details</button>
 
                     <div mdbModal #basicModal="mdbModal" class="modal fade" tabindex="-1" role="dialog"
                         aria-labelledby="myBasicModalLabel" aria-hidden="true">
@@ -72,8 +72,8 @@
                                         <span aria-hidden="true">×</span>
                                     </button>
                                     <h4 class="modal-title w-100" id="myModalLabel">
-                                        <img src="https://mdbootstrap.com/img/Photos/Avatars/avatar-1-mini.jpg"
-                                            class="rounded-circle z-depth-1-half mr-3">
+                                        <img [src]="profDetail.profile_picture_url"
+                                            class="rounded-circle z-depth-1-half mr-3"><br>
                                         <b>{{profDetail.first_name + ' ' + profDetail.last_name}}</b></h4>
                                 </div>
                                 <div class="modal-body">
@@ -90,8 +90,8 @@
                                         </div>
                                     </div>
                                     <div class="modal-footer">
-                                        <button type="button" mdbBtn class="relative secondary-color"
-                                            aria-label="Close" (click)="basicModal.hide()" mdbWavesEffect>Send a
+                                        <button type="button" mdbBtn class="relative secondary-color" aria-label="Close"
+                                            (click)="basicModal.hide()" mdbWavesEffect>Send a
                                             message</button>
                                     </div>
                                 </div>

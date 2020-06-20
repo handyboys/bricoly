@@ -8,7 +8,7 @@ import { JobPostService } from 'src/app/services/jobPost/job-post.service';
   styleUrls: ['./job-details.component.scss']
 })
 export class JobDetailsComponent implements OnInit {
-  
+
   userId = localStorage.getItem('userId');
   jobDraft: JobDraft = new JobDraft();
   validDraft: boolean = true;
@@ -16,14 +16,14 @@ export class JobDetailsComponent implements OnInit {
 
   constructor(
     private jobPost: JobPostService
-  ) { 
+  ) {
   }
 
   ngOnInit(): void {
   }
 
   createJob() {
-    console.log('Job confirmed : ',this.jobDraft);
+    console.log('Job confirmed : ', this.jobDraft);
     if (!this.jobDraft.isValid()) {
       this.validDraft = false;
     } else {
@@ -32,13 +32,13 @@ export class JobDetailsComponent implements OnInit {
           this.jobCreated = true;
           console.log('Job Created : ', result)
         },
-        err => {
-          console.log('Error creating job : ', err);          
-        })
+          err => {
+            console.log('Error creating job : ', err);
+          })
     }
 
   }
 
-  
+
 
 }
