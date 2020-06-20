@@ -13,10 +13,10 @@ export class JobNotService {
 
   /**
     * @function getNotificaion - getting all the notification's request function
-    * @param { id } - number representing the user id 
+    * @param { id } - number representing the user id
     * @returns { Observable } - object representing server response
     */
-  
+
   getNotificaion(){
     const id : number = Number(localStorage.getItem('userId'))
     let api = this.endpoint + `/notification/${id}`
@@ -32,7 +32,7 @@ export class JobNotService {
       * @returns { Observable } - object representing the occuring error
       */
 
-  
+
   handleError(error : HttpErrorResponse) {
     let msg = '';
     if (error.error instanceof ErrorEvent) {

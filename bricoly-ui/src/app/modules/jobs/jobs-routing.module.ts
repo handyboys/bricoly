@@ -18,14 +18,15 @@ const routes: Routes = [
     component:JobFeedComponent
   },
   {
-    path: 'notification/:id', 
+    path: 'notification/:id',
     component : JobNotComponent,
     resolve: { notification: JobNotificationService}
   },
   {
     path:'history/:id',
     component:JobHistoryComponent
-  }
+  },
+
 ];
 
 @NgModule({

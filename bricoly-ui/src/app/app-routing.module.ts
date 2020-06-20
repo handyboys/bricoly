@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { FindProfessionalComponent } from './components/find-professional/find-professional.component';
 import { HomeComponent } from './components/home/home.component';
 import { AboutUsComponent } from './components/about-us/about-us.component';
+import { BlogComponent } from './components/blog/blog.component';
 
 const routes: Routes = [
   {
@@ -34,12 +35,20 @@ const routes: Routes = [
     loadChildren: () => import('./modules/jobs/jobs.module').then(module => module.JobsModule)
   },
   {
+    path: 'reviews',
+    loadChildren: () => import('./modules/reviews/reviews.module').then(module => module.ReviewsModule)
+  },
+  {
     path: 'findProf',
     component: FindProfessionalComponent,
   },
    {
      path:'aboutus',
      component: AboutUsComponent
+   },
+   {
+     path : 'blog',
+     component: BlogComponent
    }
 ];
 

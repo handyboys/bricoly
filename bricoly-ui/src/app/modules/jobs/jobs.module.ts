@@ -18,6 +18,7 @@ import { FormsModule } from '@angular/forms';
   imports: [
     CommonModule,
     JobsRoutingModule,
+
     MDBBootstrapModule.forRoot(),
     FormsModule
   ],
