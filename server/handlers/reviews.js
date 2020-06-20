@@ -8,18 +8,19 @@ var professionals = db.import('../database/models/professionals.js');
 
 
 exports.updateReviews = async(req,res)=>{
-        try {
-            var query = `select overall_rating from reviews`;
-            var calcul = `select sum((communication + price + service_quality) / 3) from reviews INNER JOIN  job_applications ON job_applications.id = reviews.job_applications_id where job_applications.professional_id = 5 `;
-            var update = `UPDATE professionals SET average_review = ? where id = 5 `
-            await db.sync({force:false});
-            var length = await db.query(query, {type: db.QueryTypes.SELECT})
-            var cal = await db.query(calcul, {type: db.QueryTypes.SELECT})
-            var result = length/cal
-            var result2 = await db.query(update, {replacements: [result], type: Sequelize.QueryTypes.UPDATE}) 
-            var prof = await professionals.findAll({ include: [] })
-            console.log(prof)       
-        } catch (e) {
-            console.log(e)
-        }
+    try {
+        let query = `select * from reviews inner join job_applications on job_applications.id = reviews.job_applications_id where job_applications.professional_id = ?`;
+        let calcul = `select sum((communication + price + service_quality) / 3) from reviews INNER JOIN job_applications ON job_applications.id = reviews.job_applications_id where job_applications.professional_id = ?`;
+        let update = `UPDATE professionals SET average_review = ? where id = ?`;
+        await db.sync({force:false});
+        let length = await db.query(query,{replacements: [req.body.id], type: db.QueryTypes.SELECT});
+        let cal = await db.query(calcul,{replacements: [req.body.id], type: db.QueryTypes.SELECT});
+        let result =  cal[0]['sum((communication + price + service_quality) / 3)']/length.length;
+        console.log('hahahahahahahahahah', result)
+        await db.query(update, {replacements: [result, req.body.id], type: db.QueryTypes.UPDATE});
+        let prof = await professionals.findAll({ include: [] });
+        res.status(400).json(prof);
+    } catch (e) {
+        console.log(e);
     }
+}
