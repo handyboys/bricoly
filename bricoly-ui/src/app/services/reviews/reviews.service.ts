@@ -12,6 +12,12 @@ export class ReviewsService {
   endpoint : string = ' http://localhost:8080/reviews/reviews';
   constructor(private http: HttpClient, public router: Router) {}
 
+    /**
+    * @function getReviews - getting all the Reviews's request function
+    * @param { Reviews } reviews - object containing new review's data
+    * @returns { Observable } - object representing server response
+    */
+
   getReviews(reviews:Reviews): Observable<Reviews[]> {
     let api = this.endpoint
     return this.http.post<Reviews[]>(api,reviews)
@@ -20,8 +26,11 @@ export class ReviewsService {
           )
   }
 
-
-
+      /**
+      * @function handleError - server/client-side error handling function
+      * @param {HttpErrorResponse} error - object representing occuring object
+      * @returns { Observable } - object representing the occuring error
+      */
 
   handleError(error : HttpErrorResponse) {
     let msg = '';

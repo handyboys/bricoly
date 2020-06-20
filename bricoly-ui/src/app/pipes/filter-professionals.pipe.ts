@@ -8,6 +8,8 @@ import { ProfDetails } from '../interfaces/profDetails/prof-details';
 })
 export class FilterProfessionalsPipe implements PipeTransform {
 
+  
+
   transform(profDetails: ProfDetails[], category_id: number, city: string): ProfDetails[] {
     console.log(`PIPE engaged, cat_id: ${category_id}, city: ${city}`)
     if (!profDetails) return [];

@@ -1,3 +1,4 @@
+import { JobHistoryComponent } from './../../components/job-history/job-history.component';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
@@ -7,12 +8,12 @@ import { JobFeedComponent } from '../../components/job-feed/job-feed.component';
 import { JobNotComponent } from "../../components/job-not/job-not.component";
 import { FormsModule } from '@angular/forms';
 
-
 @NgModule({
   declarations: [
     JobCardComponent,
     JobFeedComponent,
-    JobNotComponent
+    JobNotComponent,
+    JobHistoryComponent
   ],
   imports: [
     CommonModule,

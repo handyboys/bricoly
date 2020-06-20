@@ -67,6 +67,14 @@ exports.getJobs = async (req, res)=>{
     }
 }
 
+/**
+* @function postJobs - sending json for all the jobs
+* @param req {Object} - The request object coming from the client
+* @param res {Object} - The response object that will be sent to the client
+* @returns {void}
+* @async
+*/
+
 exports.postJobs = async (req, res)=>{
     try {
        await db.sync({force:false})
@@ -84,20 +92,31 @@ exports.postJobs = async (req, res)=>{
     
 }
 
+/**
+* @function getJobHistory - getting all the jobs history from the database
+* @param req {Object} - The request object coming from the client
+* @param res {Object} - The response object that will be sent to the client
+* @returns {void}
+* @async
+*/
+
 exports.getJobHistory = async (req, res) => {
     var query = `select * from job_applications inner join jobs on job_applications.job_id = jobs.id inner join users on jobs.client_id = users.id inner join services on services.id = jobs.service_id where professional_id = ?;
  `
     try {
+        // finding all the users based on their ids
         var allUsers = await users.findAll({ where: { id: req.params.id } })
         var user = allUsers[0]
-        
+        // checking if the user is a professional 
         if (user.dataValues.is_professional === 1) {
+            // finding all the professional's job applications based on his id params 
             var jobApps = await db.query(query, { replacements: [req.params.id], type: db.QueryTypes.SELECT });
             res.status(200).send(jobApps)
         } else {
+            // finding all the jobs based on the clients id params
             var jobsHistory = await Jobs.findAll({ where: { client_id: req.params.id } })
-            var myJobsHistory = await Promise.all(jobsHistory.map(async element => {
-            
+            // mapping throught all the jobs to add the clients info 
+            var myJobsHistory = await Promise.all(jobsHistory.map(async element => {            
                 var jobHistory = {
                     client_type: element.dataValues.client_type,
                     description: element.dataValues.related_info,
@@ -106,7 +125,6 @@ exports.getJobHistory = async (req, res) => {
                     service_type: element.dataValues.service_type
                 }
                 var { first_name, last_name } = await users.findByPk(element.dataValues.client_id);
-
                 var { service, category_id } = await services.findByPk(element.dataValues.service_id);
                 var { category } = await service_categories.findByPk(category_id)
                 jobHistory['first_name'] = first_name
