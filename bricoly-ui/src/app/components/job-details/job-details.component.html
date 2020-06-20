@@ -1,4 +1,4 @@
-<div class="container">
+<div *ngIf="userId; else elseBlock" class="container">
     <h4>Job details</h4>
     <h6 class="text-muted mb-2">
         Please review the details of the job. If everything looks correct, hit the confirm
@@ -113,3 +113,15 @@
         </div>
     </div>
 </div>
+
+<ng-template #elseBlock>
+    <div class="d-flex justify-content-center mt-5 mb-5">
+        <mdb-card>
+            <mdb-card-body>
+                <div class="alert alert-dark" role="alert">
+                    Not logged in.Please <a href="/auth/signin" class="alert-link">log in</a> to continue.
+                </div>
+            </mdb-card-body>
+        </mdb-card>
+    </div>
+</ng-template>
