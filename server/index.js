@@ -5,6 +5,7 @@ const express = require('express');
 const cors = require('cors');
 const middleware = require('./middleware')
 const router = require('./routers');
+const chalk = require('chalk');
 const { send } = require("process");
 console.log("IN INDEX.JS");
 
@@ -51,7 +52,8 @@ io.on('connection' ,(socket)=>{
      socket.on('typing',(data)=>{
          io.sockets.emit('typing',data)
      });
-    //  socket.on('notification', (data)=>{
-        
-    //  })
+     
+     socket.on('notification', (data) => {
+        socket.broadcast.emit('notification received', data)
+    })
  });

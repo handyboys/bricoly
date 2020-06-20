@@ -16,7 +16,7 @@ export class JobsService {
 
   /**
    * @function getAllJobs - get all jobs request
-   * @returns observable that contains all jobs data
+      * @returns { Observable } - object representing server response
    */
 
   getAllJobs(): Observable<any> {
@@ -30,7 +30,8 @@ export class JobsService {
   }
   /**
    * @function getAllJobs - get all jobs request basing on the user id 
-   * @returns observable that contains all jobs data
+   * @param {id} - number representing the user id
+   * @returns { Observable } - object representing server response
    */
 
   getJobHistory(): Observable<any> {

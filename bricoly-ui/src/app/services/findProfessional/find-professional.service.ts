@@ -13,6 +13,12 @@ export class FindProfessionalService {
 
   constructor(private http: HttpClient) { }
 
+  /**
+  * @function getAllProfessionals - getting all the professionals request function
+  * @param { ProfDetails } ProfDetails - object containing the professional's data 
+  * @returns { Observable } - object representing server response
+  */
+
   getAllProfessionals(): Observable<ProfDetails[]>{ 
     
    let api = this.endpoint + '/findProf';
@@ -22,6 +28,11 @@ export class FindProfessionalService {
    ) 
   }
 
+  /**
+      * @function handleError - server/client-side error handling function
+      * @param {HttpErrorResponse} error - object representing occuring object
+      * @returns { Observable } - object representing the occuring error
+      */
 
   handleError(error : HttpErrorResponse) {
     let msg = '';

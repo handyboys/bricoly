@@ -93,10 +93,10 @@ exports.signUp = async (req, res) => {
 
 /**
 * @function signIn - getting the user from the database 
-* @async
 * @param req {Object} - The request object coming from the client
 * @param res {Object} - The response object that will be sent to the client
 * @returns {void}
+* @async
 */
 
 exports.singIn = async (req, res) => {

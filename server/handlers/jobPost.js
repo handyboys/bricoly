@@ -48,7 +48,7 @@ exports.selectService = async (req, res) => {
 }
 
 /**
-  * @function jobDraft
+  * @function jobDraft - saving the clients's job information in the database
  * @param req {Object} - The request object coming from the client
  * @param res {Object} - The response object that will be sent to the client
  * @returns {void}
